@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Cipher &mdash; Led by Nikhil Rawat</title>
+    <meta name="description" content="Team Cipher builds college projects, custom Pookie Wishes surprise pages, SaaS websites, and AI integrations. Led by Nikhil Rawat.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:            #080810;
+            --bg-surface:    #0d0d1a;
+            --bg-card:       rgba(14, 14, 26, 0.72);
+            --border:        rgba(255, 255, 255, 0.07);
+            --border-mid:    rgba(255, 255, 255, 0.12);
+            --border-accent: rgba(139, 92, 246, 0.35);
+            --text-primary:  #eeeef5;
+            --text-secondary:#a0a0b8;
+            --text-tertiary: #5c5c7a;
+            --violet:        #8b5cf6;
+            --violet-light:  #a78bfa;
+            --violet-dim:    rgba(139, 92, 246, 0.18);
+            --rose:          #f43f5e;
+            --rose-light:    #fb7185;
+            --rose-dim:      rgba(244, 63, 94, 0.16);
+            --sky:           #38bdf8;
+            --sky-dim:       rgba(56, 189, 248, 0.14);
+            --amber:         #fbbf24;
+            --amber-dim:     rgba(251, 191, 36, 0.14);
+            --emerald:       #34d399;
+            --radius-sm:     10px;
+            --radius-md:     16px;
+            --radius-lg:     24px;
+            --radius-xl:     32px;
+            --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: 'DM Sans', system-ui, sans-serif;
+            font-size: 16px; line-height: 1.7;
+            min-height: 100vh; overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::before {
+            content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+            background:
+                radial-gradient(ellipse 80vw 60vh at -10% 0%,   rgba(139,92,246,0.09) 0%, transparent 65%),
+                radial-gradient(ellipse 70vw 50vh at 110% 5%,   rgba(56,189,248,0.07) 0%, transparent 65%),
+                radial-gradient(ellipse 60vw 40vh at 50% 110%,  rgba(244,63,94,0.06)  0%, transparent 65%);
+        }
+        body::after {
+            content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+        section, header, footer { position:relative; z-index:1; }
+        img { display:block; max-width:100%; }
+        a { text-decoration:none; }
+        ul { list-style:none; }
+
+        .font-display { font-family:'Space Grotesk',sans-serif; letter-spacing:-0.02em; }
+        .font-mono    { font-family:'DM Mono',monospace; }
+
+        .gv { background:linear-gradient(135deg,#a78bfa,#c084fc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .gr { background:linear-gradient(135deg,#fb7185,#fb923c); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .gs { background:linear-gradient(135deg,#38bdf8,#34d399);  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .ga { background:linear-gradient(135deg,#fbbf24,#f97316);  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+        .reveal { opacity:0; transform:translateY(26px); transition:opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+        .d1 { transition-delay:80ms; } .d2 { transition-delay:160ms; } .d3 { transition-delay:240ms; }
+
+        /* Strip */
+        .strip {
+            position:relative; z-index:200;
+            background:linear-gradient(90deg,rgba(139,92,246,.12),rgba(244,63,94,.1),rgba(56,189,248,.1));
+            border-bottom:1px solid var(--border);
+            padding:.46rem 1.5rem;
+            display:flex; align-items:center; justify-content:center;
+            gap:1rem; flex-wrap:wrap;
+            font-size:.78rem; font-weight:500; color:var(--text-secondary);
+        }
+        .s-badge { font-size:.64rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; padding:.18rem .6rem; border-radius:999px; }
+        .s-badge.v { background:var(--violet-dim); color:var(--violet-light); border:1px solid rgba(139,92,246,.28); }
+        .s-badge.r { background:var(--rose-dim);   color:var(--rose-light);   border:1px solid rgba(244,63,94,.28); }
+        .s-link { color:#fbbf24; font-weight:600; font-size:.78rem; transition:color 180ms; }
+        .s-link:hover { color:#fef3c7; }
+
+        /* Header */
+        header {
+            position:sticky; top:0; z-index:100;
+            display:flex; align-items:center; justify-content:space-between;
+            padding:0 7%; height:64px;
+            backdrop-filter:blur(20px) saturate(160%);
+            background:rgba(8,8,16,.76);
+            border-bottom:1px solid var(--border);
+        }
+        .logo { display:flex; align-items:center; gap:.6rem; color:var(--text-primary); font-family:'Space Grotesk',sans-serif; font-size:1.05rem; font-weight:700; }
+        .logo-mark { width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg,var(--violet),#7c3aed); display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:800; color:#fff; box-shadow:0 0 14px rgba(139,92,246,.45); flex-shrink:0; }
+        .nav { display:flex; align-items:center; gap:.15rem; }
+        .nav a { color:var(--text-secondary); font-size:.875rem; font-weight:500; padding:.42rem .85rem; border-radius:var(--radius-sm); transition:color 180ms, background 180ms; }
+        .nav a:hover { color:var(--text-primary); background:rgba(255,255,255,.05); }
+        .hdr-cta { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.15rem; border-radius:var(--radius-sm); background:linear-gradient(135deg,var(--violet),#7c3aed); color:#fff; font-size:.82rem; font-weight:600; transition:box-shadow 350ms var(--ease-out), transform 180ms var(--ease-out); }
+        .hdr-cta:hover { transform:translateY(-1px); box-shadow:0 0 22px rgba(139,92,246,.5); }
+        .hdr-cta:active { transform:translateY(0); opacity:.88; }
+
+        /* Hero */
+        .hero { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:4rem; padding:6rem 8% 5rem; max-width:1340px; margin:0 auto; }
+        .eyebrow { display:inline-flex; align-items:center; gap:.45rem; padding:.28rem .85rem; border-radius:999px; background:var(--violet-dim); border:1px solid rgba(139,92,246,.28); font-family:'DM Mono',monospace; font-size:.7rem; font-weight:500; color:var(--violet-light); letter-spacing:.06em; text-transform:uppercase; margin-bottom:1.5rem; }
+        .e-dot { width:6px; height:6px; border-radius:50%; background:var(--violet-light); animation:pdot 2.5s ease-in-out infinite; }
+        @keyframes pdot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.65)} }
+        .hero-title { font-family:'Space Grotesk',sans-serif; font-size:clamp(2.4rem,4.5vw,3.9rem); font-weight:700; line-height:1.1; letter-spacing:-.03em; margin-bottom:1.3rem; }
+        .founder-pill { display:inline-flex; align-items:center; gap:.65rem; padding:.42rem .85rem .42rem .42rem; border-radius:999px; background:rgba(255,255,255,.04); border:1px solid var(--border-mid); margin-bottom:1.5rem; }
+        .f-av { width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,var(--violet),var(--rose)); display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-size:.65rem; font-weight:700; color:#fff; }
+        .f-meta strong { display:block; font-family:'Space Grotesk',sans-serif; font-size:.8rem; font-weight:600; line-height:1; color:var(--text-primary); }
+        .f-meta span   { display:block; font-size:.7rem; color:var(--text-secondary); line-height:1; }
+        .hero-desc { font-size:1.03rem; color:var(--text-secondary); max-width:480px; margin-bottom:2.2rem; line-height:1.78; }
+        .hero-actions { display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:2.8rem; }
+        .metrics { display:flex; gap:2.4rem; flex-wrap:wrap; }
+        .m-val { font-family:'Space Grotesk',sans-serif; font-size:1.55rem; font-weight:700; letter-spacing:-.03em; line-height:1; }
+        .m-lbl { font-size:.72rem; color:var(--text-tertiary); font-weight:500; letter-spacing:.04em; text-transform:uppercase; margin-top:3px; }
+        .hero-visual { position:relative; }
+        .hero-frame { position:relative; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/3; background:var(--bg-surface); border:1px solid var(--border-mid); box-shadow:0 4px 32px rgba(0,0,0,.5), 0 0 40px rgba(139,92,246,.12); }
+        .hero-frame img { width:100%; height:100%; object-fit:cover; transition:transform .75s var(--ease-out); }
+        .hero-frame:hover img { transform:scale(1.04); }
+        .hero-frame::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(8,8,16,.65) 0%, transparent 55%); }
+        .float-card { position:absolute; bottom:1.2rem; left:1.2rem; z-index:2; background:rgba(8,8,16,.82); backdrop-filter:blur(14px); border:1px solid var(--border-mid); border-radius:var(--radius-md); padding:.75rem 1rem; display:flex; align-items:center; gap:.65rem; animation:floaty 4s ease-in-out infinite; }
+        @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+        .fl-ico { width:34px; height:34px; border-radius:9px; flex-shrink:0; background:linear-gradient(135deg,var(--rose),#be123c); display:flex; align-items:center; justify-content:center; }
+        .fl-ico svg { width:16px; height:16px; fill:#fff; }
+        .fl-lbl h6 { font-family:'Space Grotesk',sans-serif; font-size:.78rem; font-weight:600; color:var(--text-primary); line-height:1; margin-bottom:2px; }
+        .fl-lbl p  { font-family:'DM Mono',monospace; font-size:.62rem; color:var(--rose-light); }
+
+        /* Buttons */
+        .btn { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; padding:.7rem 1.45rem; border-radius:var(--radius-sm); font-family:'Space Grotesk',sans-serif; font-size:.87rem; font-weight:600; letter-spacing:.01em; cursor:pointer; border:none; transition:transform 180ms var(--ease-out), box-shadow 350ms var(--ease-out), opacity 180ms; }
+        .btn:hover { transform:translateY(-2px); }
+        .btn:active { transform:translateY(0); opacity:.84; }
+        .btn-v { background:linear-gradient(135deg,var(--violet),#7c3aed); color:#fff; box-shadow:0 4px 18px rgba(139,92,246,.32); }
+        .btn-v:hover { box-shadow:0 6px 28px rgba(139,92,246,.52); }
+        .btn-r { background:linear-gradient(135deg,var(--rose),#be123c); color:#fff; box-shadow:0 4px 18px rgba(244,63,94,.3); }
+        .btn-r:hover { box-shadow:0 6px 28px rgba(244,63,94,.5); }
+        .btn-s { background:linear-gradient(135deg,var(--sky),#0284c7); color:#fff; box-shadow:0 4px 18px rgba(56,189,248,.28); }
+        .btn-s:hover { box-shadow:0 6px 28px rgba(56,189,248,.48); }
+        .btn-g { background:rgba(255,255,255,.05); border:1px solid var(--border-mid); color:var(--text-secondary); }
+        .btn-g:hover { background:rgba(255,255,255,.09); color:var(--text-primary); border-color:var(--border-accent); }
+
+        /* Section */
+        .sw { max-width:1280px; margin:0 auto; padding:0 6% 5rem; }
+        .sec-head { text-align:center; margin-bottom:3.2rem; }
+        .sec-ey { display:inline-block; font-family:'DM Mono',monospace; font-size:.68rem; font-weight:500; color:var(--text-tertiary); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.85rem; }
+        .sec-ti { font-family:'Space Grotesk',sans-serif; font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; letter-spacing:-.025em; line-height:1.15; margin-bottom:.8rem; }
+        .sec-de { font-size:.95rem; color:var(--text-secondary); max-width:500px; margin:0 auto; line-height:1.75; }
+
+        /* Tabs */
+        .tnw { display:flex; justify-content:center; margin-bottom:2.8rem; }
+        .tnav { display:inline-flex; gap:.2rem; background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:var(--radius-lg); padding:.28rem; }
+        .tb { padding:.55rem 1.25rem; border-radius:calc(var(--radius-lg) - 4px); border:none; background:transparent; color:var(--text-secondary); font-family:'Space Grotesk',sans-serif; font-size:.82rem; font-weight:600; cursor:pointer; white-space:nowrap; transition:background 300ms var(--ease-out), color 180ms, box-shadow 300ms; }
+        .tb:hover { color:var(--text-primary); background:rgba(255,255,255,.06); }
+        .tb.active { background:rgba(255,255,255,.1); color:var(--text-primary); box-shadow:0 1px 3px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.08); }
+        .tp { display:none; animation:fadeUp .38s var(--ease-out) both; }
+        .tp.active { display:block; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+        /* Grid */
+        .g3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+        .g2 { display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; }
+
+        /* Pricing Card */
+        .pc { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.85rem 1.65rem; display:flex; flex-direction:column; gap:1.15rem; backdrop-filter:blur(10px); position:relative; transition:border-color 300ms var(--ease-out), box-shadow 350ms var(--ease-out), transform 300ms var(--ease-out); }
+        .pc:hover { border-color:var(--border-mid); box-shadow:0 18px 50px rgba(0,0,0,.52), 0 0 0 1px rgba(255,255,255,.04); transform:translateY(-5px); }
+        .pc.fv { border-color:var(--border-accent); box-shadow:0 0 40px rgba(139,92,246,.14); }
+        .pc.fv:hover { box-shadow:0 18px 50px rgba(0,0,0,.52), 0 0 34px rgba(139,92,246,.28); }
+        .pc.fr { border-color:rgba(244,63,94,.35); box-shadow:0 0 36px rgba(244,63,94,.1); }
+        .pc.fr:hover { box-shadow:0 18px 50px rgba(0,0,0,.52), 0 0 34px rgba(244,63,94,.24); }
+        .bt { position:absolute; top:-1px; left:50%; transform:translateX(-50%); font-family:'DM Mono',monospace; font-size:.62rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase; padding:.18rem .75rem; border-radius:0 0 7px 7px; white-space:nowrap; color:#fff; }
+        .bt.bv { background:linear-gradient(135deg,var(--violet),#7c3aed); }
+        .bt.br { background:linear-gradient(135deg,var(--rose),#be123c); }
+        .bt.bs { background:linear-gradient(135deg,var(--sky),#0284c7); }
+        .tier { font-family:'DM Mono',monospace; font-size:.63rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; }
+        .tier.tv { color:var(--violet-light); } .tier.tr { color:var(--rose-light); } .tier.ts { color:var(--sky); } .tier.ta { color:var(--amber); }
+        .ct { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700; letter-spacing:-.02em; color:var(--text-primary); line-height:1.2; }
+        .cd { font-size:.862rem; color:var(--text-secondary); line-height:1.65; }
+        .pr { display:flex; align-items:baseline; gap:.35rem; margin-top:.4rem; }
+        .pn { font-family:'Space Grotesk',sans-serif; font-size:2.15rem; font-weight:700; letter-spacing:-.04em; line-height:1; }
+        .pu { font-size:.78rem; color:var(--text-tertiary); font-weight:500; }
+        .fl { display:flex; flex-direction:column; gap:.55rem; flex:1; }
+        .fl li { display:flex; align-items:flex-start; gap:.55rem; font-size:.848rem; color:var(--text-secondary); line-height:1.5; }
+        .fl li::before { content:''; display:block; width:5px; height:5px; border-radius:50%; margin-top:.47em; flex-shrink:0; }
+        .fl.lv li::before { background:var(--violet-light); } .fl.lr li::before { background:var(--rose-light); }
+        .fl.ls li::before { background:var(--sky); } .fl.la li::before { background:var(--amber); }
+
+        /* Pookie */
+        .pk-hero { display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:center; background:linear-gradient(135deg,rgba(244,63,94,.08),rgba(139,92,246,.06)); border:1px solid rgba(244,63,94,.18); border-radius:var(--radius-xl); padding:2.5rem; margin-bottom:2rem; }
+        .pk-thumb { width:200px; flex-shrink:0; background:var(--bg-card); border:1px solid rgba(244,63,94,.22); border-radius:var(--radius-md); padding:1.1rem; text-align:center; transition:box-shadow 350ms var(--ease-out); }
+        .pk-thumb:hover { box-shadow:0 0 30px rgba(244,63,94,.2); }
+        .pk-thumb img { width:100%; height:120px; object-fit:cover; border-radius:var(--radius-sm); margin-bottom:.7rem; }
+        .pk-url { font-family:'DM Mono',monospace; font-size:.63rem; color:var(--rose); border-bottom:1px dashed rgba(244,63,94,.35); display:inline-block; margin-top:2px; transition:color 180ms, border-color 180ms; }
+        .pk-url:hover { color:var(--rose-light); border-color:var(--rose-light); }
+
+        /* AI Banner */
+        .ai-b { margin-top:1.8rem; background:linear-gradient(135deg,rgba(56,189,248,.07),rgba(139,92,246,.07)); border:1px solid rgba(56,189,248,.2); border-radius:var(--radius-xl); padding:2.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:2rem; transition:box-shadow 350ms var(--ease-out); }
+        .ai-b:hover { box-shadow:0 0 40px rgba(56,189,248,.1); }
+        .ai-tags { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.9rem; }
+        .ai-tag { font-family:'DM Mono',monospace; font-size:.68rem; font-weight:500; color:var(--sky); background:var(--sky-dim); border:1px solid rgba(56,189,248,.2); padding:.22rem .72rem; border-radius:999px; }
+        .ai-pb { text-align:center; flex-shrink:0; }
+        .ai-pn { font-family:'Space Grotesk',sans-serif; font-size:2.8rem; font-weight:800; letter-spacing:-.04em; line-height:1; background:linear-gradient(135deg,var(--sky),var(--violet-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .ai-pl { font-size:.73rem; color:var(--text-tertiary); margin:4px 0 1rem; }
+
+        /* Feature Card */
+        .fc { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; backdrop-filter:blur(10px); transition:border-color 300ms var(--ease-out), box-shadow 350ms var(--ease-out), transform 300ms var(--ease-out); }
+        .fc:hover { border-color:var(--border-mid); box-shadow:0 18px 50px rgba(0,0,0,.5); transform:translateY(-5px); }
+        .fc-img { position:relative; height:200px; overflow:hidden; }
+        .fc-img img { width:100%; height:100%; object-fit:cover; transition:transform .72s var(--ease-out); }
+        .fc:hover .fc-img img { transform:scale(1.06); }
+        .fc-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(8,8,16,.72) 0%,transparent 60%); }
+        .fc-chip { position:absolute; top:.85rem; right:.85rem; z-index:1; font-family:'DM Mono',monospace; font-size:.63rem; font-weight:500; letter-spacing:.05em; color:var(--text-primary); background:rgba(8,8,16,.74); backdrop-filter:blur(8px); border:1px solid var(--border-mid); padding:.22rem .6rem; border-radius:999px; }
+        .fc-body { padding:1.65rem; display:flex; flex-direction:column; gap:.9rem; }
+        .fc-ti { font-family:'Space Grotesk',sans-serif; font-size:1.18rem; font-weight:700; color:var(--text-primary); letter-spacing:-.02em; }
+        .fc-de { font-size:.868rem; color:var(--text-secondary); line-height:1.7; }
+
+        /* FAQ */
+        .faq-w { max-width:740px; margin:0 auto; }
+        .faq-i { border-bottom:1px solid var(--border); transition:border-color 180ms; }
+        .faq-i:first-child { border-top:1px solid var(--border); }
+        .faq-i:hover { border-color:var(--border-mid); }
+        .faq-t { width:100%; padding:1.25rem 0; display:flex; align-items:center; justify-content:space-between; gap:1rem; background:none; border:none; cursor:pointer; color:var(--text-primary); font-family:'Space Grotesk',sans-serif; font-size:.95rem; font-weight:600; text-align:left; transition:color 180ms; }
+        .faq-t:hover { color:var(--violet-light); }
+        .faq-ic { width:22px; height:22px; border-radius:50%; border:1px solid var(--border-mid); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1rem; color:var(--text-tertiary); transition:transform 350ms var(--ease-out), border-color 180ms, color 180ms; }
+        .faq-i.open .faq-ic { transform:rotate(45deg); border-color:var(--violet); color:var(--violet-light); }
+        .faq-b { overflow:hidden; max-height:0; transition:max-height .44s var(--ease-out); }
+        .faq-i.open .faq-b { max-height:300px; }
+        .faq-bi { padding-bottom:1.25rem; font-size:.888rem; color:var(--text-secondary); line-height:1.75; }
+
+        /* CTA */
+        .cta-bl { background:linear-gradient(135deg,rgba(139,92,246,.1),rgba(244,63,94,.07)); border:1px solid rgba(139,92,246,.18); border-radius:var(--radius-xl); padding:4rem 2.5rem; text-align:center; max-width:1280px; margin:0 auto; transition:box-shadow 350ms var(--ease-out); }
+        .cta-bl:hover { box-shadow:0 0 50px rgba(139,92,246,.1); }
+        .cta-ti { font-family:'Space Grotesk',sans-serif; font-size:clamp(1.8rem,3.5vw,2.7rem); font-weight:700; letter-spacing:-.03em; margin-bottom:.85rem; }
+        .cta-de { font-size:.97rem; color:var(--text-secondary); max-width:460px; margin:0 auto 2rem; line-height:1.75; }
+
+        /* Footer */
+        footer { border-top:1px solid var(--border); padding:2.4rem 8%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.4rem; max-width:1340px; margin:0 auto; }
+        .f-logo { font-family:'Space Grotesk',sans-serif; font-size:.9rem; font-weight:700; color:var(--text-secondary); }
+        .f-logo strong { color:var(--text-primary); }
+        .f-li { display:flex; align-items:center; gap:1.4rem; }
+        .f-li a { font-size:.82rem; color:var(--text-tertiary); font-weight:500; transition:color 180ms; }
+        .f-li a:hover { color:var(--text-primary); }
+        .f-cp { font-family:'DM Mono',monospace; font-size:.7rem; color:var(--text-tertiary); }
+        .sec-pad { max-width:1280px; margin:0 auto; padding:0 6% 5rem; }
+
+        @media (max-width:1060px) {
+            .hero { grid-template-columns:1fr; text-align:center; padding:4rem 6% 3rem; gap:3rem; }
+            .hero-desc { margin:0 auto 2.2rem; }
+            .hero-actions,.metrics { justify-content:center; }
+            .eyebrow,.founder-pill { margin-left:auto; margin-right:auto; }
+            .pk-hero { grid-template-columns:1fr; }
+            .pk-thumb { width:100%; max-width:260px; margin:0 auto; }
+        }
+        @media (max-width:840px) {
+            .g3 { grid-template-columns:1fr 1fr; }
+            .ai-b { flex-direction:column; text-align:center; }
+            .ai-tags { justify-content:center; }
+        }
+        @media (max-width:640px) {
+            .nav { display:none; }
+            .g3,.g2 { grid-template-columns:1fr; }
+            .tnav { flex-direction:column; border-radius:var(--radius-md); }
+            footer { flex-direction:column; text-align:center; }
+            .f-li { flex-wrap:wrap; justify-content:center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="strip">
+    <span class="s-badge r">Special Offer</span>
+    <span>Custom Pookie Wishes Surprise Page &mdash; only <strong style="color:var(--text-primary);">&#8377;200</strong> &nbsp;&bull;&nbsp; Music + Photos + Love Notes</span>
+    <span class="s-badge v">College</span>
+    <span>Mini Projects starting at <strong style="color:var(--text-primary);">&#8377;999</strong></span>
+    <a class="s-link" href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20order%20from%20Team%20Cipher." target="_blank">Order on WhatsApp &rarr;</a>
+</div>
+
+<header>
+    <a href="#" class="logo">
+        <div class="logo-mark">TC</div>
+        Team Cipher
+    </a>
+    <nav class="nav">
+        <a href="#services" onclick="switchTab('college-projects',null)">College Projects</a>
+        <a href="#services" onclick="switchTab('pookie-wishes',null)">Pookie Wishes</a>
+        <a href="#services" onclick="switchTab('web-dev',null)">Web Dev</a>
+        <a href="#services" onclick="switchTab('faq',null)">FAQ</a>
+    </nav>
+    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20am%20interested%20in%20Team%20Cipher%20services." target="_blank" class="hdr-cta">Chat on WhatsApp</a>
+</header>
+
+<section class="hero">
+    <div>
+        <div class="eyebrow"><span class="e-dot"></span>Team Cipher &mdash; Modern Tech Studio</div>
+        <h1 class="hero-title">Crafting <span class="gv">Digital Excellence</span><br>&amp; Student Solutions.</h1>
+        <div class="founder-pill reveal">
+            <div class="f-av">NR</div>
+            <div class="f-meta"><strong>Nikhil Rawat</strong><span>Founder &amp; Tech Lead</span></div>
+        </div>
+        <p class="hero-desc reveal d1">College academic projects from &#8377;999 with full viva support. Custom surprise pages like Pookie Wishes at &#8377;200. Bespoke SaaS websites and AI integrations.</p>
+        <div class="hero-actions reveal d2">
+            <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20a%20College%20Project%20for%20%E2%82%B9999." target="_blank" class="btn btn-v">Get College Project &mdash; &#8377;999</a>
+            <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20a%20Pookie%20Wishes%20Page%20for%20%E2%82%B9200." target="_blank" class="btn btn-r">Pookie Wishes &mdash; &#8377;200</a>
+            <a href="#services" class="btn btn-g">View Services</a>
+        </div>
+        <div class="metrics reveal d3">
+            <div><div class="m-val gv">&#8377;999</div><div class="m-lbl">Mini Projects</div></div>
+            <div><div class="m-val gr">&#8377;200</div><div class="m-lbl">Pookie Wishes</div></div>
+            <div><div class="m-val" style="color:var(--text-primary);">24h</div><div class="m-lbl">Fast Delivery</div></div>
+        </div>
+    </div>
+    <div class="hero-visual reveal d2">
+        <div class="hero-frame">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Team Cipher Development Studio">
+            <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" class="float-card" style="cursor:pointer; transition: box-shadow 300ms var(--ease-out), transform 250ms var(--ease-out);" onmouseover="this.style.boxShadow='0 0 28px rgba(244,63,94,0.45)'; this.style.transform='translateY(-9px)'" onmouseout="this.style.boxShadow=''; this.style.transform=''">
+                <div class="fl-ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                <div class="fl-lbl"><h6>Pookie Wishes &mdash; Live</h6><p>pookie-wishes.vercel.app</p></div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<div id="services" class="sw">
+    <div class="sec-head reveal">
+        <span class="sec-ey">What We Build</span>
+        <h2 class="sec-ti font-display">Our Services</h2>
+        <p class="sec-de">From academic projects to SaaS platforms &mdash; everything crafted to professional standards.</p>
+    </div>
+    <div class="tnw reveal">
+        <div class="tnav">
+            <button class="tb active" onclick="switchTab('college-projects',this)">College Projects</button>
+            <button class="tb" onclick="switchTab('pookie-wishes',this)">Pookie Wishes</button>
+            <button class="tb" onclick="switchTab('web-dev',this)">Past Work</button>
+            <button class="tb" onclick="switchTab('faq',this)">FAQ &amp; Support</button>
+        </div>
+    </div>
+
+    <!-- College Projects -->
+    <div id="college-projects" class="tp active">
+        <div class="g3">
+            <div class="pc reveal">
+                <div class="tier tv">Tier 01 &bull; Semester Special</div>
+                <div><div class="ct">Mini Project</div><div class="pr"><div class="pn gv">&#8377;999</div><div class="pu">/ one-time</div></div></div>
+                <p class="cd">Designed for 1st&ndash;3rd year BCA, B.Tech &amp; Diploma lab submissions.</p>
+                <ul class="fl lv"><li>Complete, formatted source code</li><li>Frontend (HTML/CSS/JS) or Python / C++ logic</li><li>Step-by-step setup &amp; run guide</li><li>Common viva Q&amp;A sheet included</li><li>Guaranteed error-free execution</li></ul>
+                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20the%20Mini%20Project%20for%20%E2%82%B9999." target="_blank" class="btn btn-v" style="margin-top:auto;">Order Mini Project &mdash; &#8377;999</a>
+            </div>
+            <div class="pc fv reveal d1">
+                <div class="bt bv">Most Popular</div>
+                <div class="tier ts">Tier 02 &bull; Comprehensive</div>
+                <div><div class="ct">Full-Stack Web App</div><div class="pr"><div class="pn gs">&#8377;2,499</div><div class="pu">/ one-time</div></div></div>
+                <p class="cd">Complete dynamic app with database, authentication, and admin panel.</p>
+                <ul class="fl ls"><li>MERN / Django / PHP-MySQL full-stack code</li><li>Database integration &amp; admin dashboard</li><li>Editable PPT &amp; project synopsis</li><li>1-on-1 code walkthrough on Google Meet</li><li>Remote AnyDesk laptop setup support</li></ul>
+                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20the%20Full-Stack%20package%20for%20%E2%82%B92499." target="_blank" class="btn btn-s" style="margin-top:auto;">Get Full-Stack &mdash; &#8377;2,499</a>
+            </div>
+            <div class="pc reveal d2">
+                <div class="tier ta">Tier 03 &bull; Official SaaS</div>
+                <div><div class="ct">SaaS Business Website</div><div class="pr"><div class="pn ga">&#8377;4,999+</div><div class="pu">/ custom</div></div></div>
+                <p class="cd">Professional SaaS-grade landing and dashboard website for your startup.</p>
+                <ul class="fl la"><li>Modern SaaS landing page with pricing section</li><li>User dashboard UI (React / Next.js)</li><li>CMS-ready blog &amp; documentation pages</li><li>Auth integration &mdash; login, signup, OAuth</li><li>SEO optimized + Vercel / Netlify deployment</li></ul>
+                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20need%20a%20SaaS%20Business%20Website." target="_blank" class="btn btn-g" style="margin-top:auto;">Discuss SaaS Website</a>
+            </div>
+        </div>
+        <div class="ai-b reveal">
+            <div>
+                <div class="tier ts" style="display:block;margin-bottom:.7rem;">New Offer &bull; AI Integration</div>
+                <h3 class="font-display" style="font-size:1.65rem;font-weight:700;letter-spacing:-.025em;color:var(--text-primary);margin-bottom:.55rem;">AI Integration for Your App or Website</h3>
+                <p style="color:var(--text-secondary);font-size:.888rem;max-width:500px;line-height:1.75;">Integrate powerful AI features &mdash; ChatGPT, Gemini, or custom ML models &mdash; into your existing product. Chatbots, smart search, content generators, recommendation engines &amp; more.</p>
+                <div class="ai-tags"><span class="ai-tag">OpenAI / Gemini API</span><span class="ai-tag">AI Chatbot</span><span class="ai-tag">Smart Recommendations</span><span class="ai-tag">Content Generator</span><span class="ai-tag">Image AI / Vision API</span></div>
+            </div>
+            <div class="ai-pb">
+                <div class="ai-pn">&#8377;3,000</div>
+                <div class="ai-pl">Starting Price / Project</div>
+                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20AI%20Integration%20for%20my%20app%20at%20%E2%82%B93000." target="_blank" class="btn btn-s">Get AI Integration &mdash; &#8377;3,000</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pookie Wishes -->
+    <div id="pookie-wishes" class="tp">
+        <div class="pk-hero reveal">
+            <div>
+                <div class="tier tr" style="display:block;margin-bottom:.7rem;">Viral Surprise Product</div>
+                <h3 class="font-display" style="font-size:1.95rem;font-weight:700;letter-spacing:-.03em;color:var(--text-primary);margin-bottom:.8rem;line-height:1.15;">Custom Pookie Wishes Web Page<br>at just <span class="gr">&#8377;200</span></h3>
+                <p style="color:var(--text-secondary);font-size:.925rem;max-width:470px;line-height:1.77;margin-bottom:1.6rem;">Surprise your partner, bestie, or crush on their birthday, anniversary, or Valentine&rsquo;s day. A fully customised interactive web page with photos, your favourite song, love letters, countdowns, and confetti animations.</p>
+                <div style="display:flex;gap:.8rem;flex-wrap:wrap;">
+                    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20a%20Pookie%20Wishes%20Page%20for%20%E2%82%B9200." target="_blank" class="btn btn-r">Order Custom Page &mdash; &#8377;200</a>
+                    <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-g">View Live Demo &rarr;</a>
+                </div>
+            </div>
+            <div class="pk-thumb">
+                <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" style="display:block;">
+                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=400&q=80" alt="Pookie Wishes Live Preview">
+                </a>
+                <div style="font-size:.8rem;font-weight:600;color:var(--text-primary);margin-top:.65rem;">Pookie Wishes &mdash; Live App</div>
+                <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" class="pk-url">pookie-wishes.vercel.app &uarr;</a>
+                <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--rose-light);margin-top:3px;">Delivered in under 1 hour</div>
+            </div>
+        </div>
+        <div class="g3">
+            <div class="pc fr reveal">
+                <div class="tier tr">Basic Surprise</div>
+                <div><div class="ct">Standard Pookie Page</div><div class="pr"><div class="pn gr">&#8377;200</div><div class="pu">/ page</div></div></div>
+                <p class="cd">Sweet surprise with custom music and romantic animations.</p>
+                <ul class="fl lr"><li>Custom name &amp; personalised message</li><li>Background music &mdash; song of your choice</li><li>Cake cutting / confetti balloon animation</li><li>Private shareable Vercel link + QR code</li><li>Delivered within 60 minutes</li></ul>
+                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20the%20Standard%20Pookie%20Page%20for%20%E2%82%B9200." target="_blank" class="btn btn-r" style="margin-top:auto;">Order for &#8377;200</a>
+            </div>
+            <div class="pc fr fv reveal d1" style="border-color:rgba(244,63,94,.42);">
+                <div class="bt br">Best Value</div>
+                <div class="tier tr">Photo Gallery Special</div>
+                <div><div class="ct">Pookie Love Gallery</div><div class="pr"><div class="pn gr">&#8377;349</div><div class="pu">/ page</div></div></div>
+                <p class="cd">Romantic photo timeline, love letters, and a live relationship counter.</p>
+                <ul class="fl lr"><li>Everything in the &#8377;200 package</li><li>Up to 10 HD photos in polaroid gallery</li><li>Live &ldquo;how long we have been together&rdquo; clock</li><li>Passcode-protected secret love note box</li><li>Custom domain sublink option</li></ul>
+                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20the%20Pookie%20Love%20Gallery%20for%20%E2%82%B9349." target="_blank" class="btn btn-r" style="margin-top:auto;">Get Love Gallery &mdash; &#8377;349</a>
+            </div>
+            <div class="pc reveal d2">
+                <div class="tier ta">Custom Game &amp; Surprise</div>
+                <div><div class="ct">Ultra Custom Love App</div><div class="pr"><div class="pn ga">&#8377;599</div><div class="pu">/ custom</div></div></div>
+                <p class="cd">Full interactive mini-games, couple quizzes, voice notes &amp; lifetime hosting.</p>
+                <ul class="fl la"><li>Mini-game with custom couple questions</li><li>Unlimited photos + custom voice notes audio</li><li>Animated countdown to birthday / anniversary</li><li>Lifetime permanent hosting</li><li>Custom branding removal</li></ul>
+                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20the%20Ultra%20Custom%20Pookie%20App%20for%20%E2%82%B9599." target="_blank" class="btn btn-g" style="margin-top:auto;">Order Ultra Custom</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Past Work -->
+    <div id="web-dev" class="tp">
+
+        <!-- Section intro -->
+        <div style="text-align:center; margin-bottom:2.4rem;">
+            <span class="sec-ey">Our Portfolio</span>
+            <h3 class="font-display" style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;letter-spacing:-.025em;color:var(--text-primary);margin-top:.5rem;">Work We Have Built</h3>
+            <p style="font-size:.92rem;color:var(--text-secondary);max-width:480px;margin:.6rem auto 0;line-height:1.75;">Real projects delivered for real clients &mdash; websites, SEO, and digital growth.</p>
+        </div>
+
+        <div class="g2">
+
+            <!-- Project 1: The Falcon Tour -->
+            <div class="fc reveal">
+                <div class="fc-img">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80" alt="The Falcon Tour Website">
+                    <span class="fc-chip">Live Website</span>
+                </div>
+                <div class="fc-body">
+                    <div class="tier tv">Client Project &bull; Travel &amp; Tourism</div>
+                    <div class="fc-ti">The Falcon Tour</div>
+                    <p class="fc-de">A full professional website for a travel and tourism business &mdash; responsive design, tour listings, booking flow, and brand identity built from scratch.</p>
+                    <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.3rem;">
+                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--violet-light);background:var(--violet-dim);border:1px solid rgba(139,92,246,.2);padding:.2rem .65rem;border-radius:999px;">HTML / CSS / JS</span>
+                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--sky);background:var(--sky-dim);border:1px solid rgba(56,189,248,.2);padding:.2rem .65rem;border-radius:999px;">Responsive</span>
+                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--emerald);background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.2);padding:.2rem .65rem;border-radius:999px;">Live &amp; Hosted</span>
+                    </div>
+                    <div style="margin-top:1rem;display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;">
+                        <a href="https://thefalcontour.com/" target="_blank" rel="noopener noreferrer" class="btn btn-v" style="align-self:flex-start;">
+                            Visit Live Site &rarr;
+                        </a>
+                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20a%20website%20like%20The%20Falcon%20Tour." target="_blank" class="btn btn-g" style="align-self:flex-start;">
+                            Get Similar Website
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: SEO & Ranking Work -->
+            <div class="fc reveal d1">
+                <div class="fc-img">
+                    <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="SEO and Google Ranking Work">
+                    <span class="fc-chip">SEO &bull; Google Ranking</span>
+                </div>
+                <div class="fc-body">
+                    <div class="tier ts">SEO &amp; Digital Growth</div>
+                    <div class="fc-ti">Search Engine Optimisation &amp; Ranking</div>
+                    <p class="fc-de">On-page and off-page SEO work for client websites &mdash; keyword research, meta optimisation, backlinks, Google Search Console setup, and measurable rank improvements on Google.</p>
+                    <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.3rem;">
+                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--sky);background:var(--sky-dim);border:1px solid rgba(56,189,248,.2);padding:.2rem .65rem;border-radius:999px;">On-Page SEO</span>
+                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--sky);background:var(--sky-dim);border:1px solid rgba(56,189,248,.2);padding:.2rem .65rem;border-radius:999px;">Keyword Research</span>
+                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--emerald);background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.2);padding:.2rem .65rem;border-radius:999px;">Google Search Console</span>
+                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(251,191,36,.2);padding:.2rem .65rem;border-radius:999px;">Backlink Building</span>
+                    </div>
+                    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20SEO%20and%20Google%20Ranking%20work%20for%20my%20website." target="_blank" class="btn btn-s" style="align-self:flex-start;margin-top:1rem;">
+                        Get SEO Work Done
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div id="faq" class="tp">
+        <div class="faq-w reveal">
+            <div class="faq-i"><button class="faq-t" onclick="toggleFaq(this.parentElement)"><span>How does the &#8377;200 Pookie Wishes page work?</span><span class="faq-ic">+</span></button><div class="faq-b"><div class="faq-bi">Message us on WhatsApp with the person&rsquo;s name, your custom message, and a favourite song link. We create the personalised interactive page and send you a live shareable link and QR code within 60 minutes.</div></div></div>
+            <div class="faq-i"><button class="faq-t" onclick="toggleFaq(this.parentElement)"><span>How do I order a College Mini Project for &#8377;999?</span><span class="faq-ic">+</span></button><div class="faq-b"><div class="faq-bi">Click the WhatsApp button and share your college course (BCA, B.Tech, MCA) and required topic. If you do not have a topic, we will suggest five approved project ideas for you to choose from.</div></div></div>
+            <div class="faq-i"><button class="faq-t" onclick="toggleFaq(this.parentElement)"><span>Will you help me run the project on my laptop?</span><span class="faq-ic">+</span></button><div class="faq-b"><div class="faq-bi">Yes. We provide a full step-by-step setup guide and also offer remote assistance via AnyDesk or TeamViewer to configure your database, Node.js or Python environment, and ensure smooth execution.</div></div></div>
+            <div class="faq-i"><button class="faq-t" onclick="toggleFaq(this.parentElement)"><span>Can you help me prepare for my college viva?</span><span class="faq-ic">+</span></button><div class="faq-b"><div class="faq-bi">Yes. With our Full-Stack (&#8377;2,499) and SaaS Website (&#8377;4,999+) packages, Nikhil Rawat provides a 1-on-1 explanation session on Google Meet and a complete set of anticipated viva questions with model answers.</div></div></div>
+            <div class="faq-i"><button class="faq-t" onclick="toggleFaq(this.parentElement)"><span>What is the AI Integration service?</span><span class="faq-ic">+</span></button><div class="faq-b"><div class="faq-bi">We integrate AI features &mdash; such as a ChatGPT or Gemini-powered chatbot, smart recommendations, or a content generator &mdash; into your existing website or application. Starting at &#8377;3,000; exact pricing depends on complexity.</div></div></div>
+        </div>
+    </div>
+</div>
+
+<div class="sec-pad">
+    <div class="cta-bl reveal">
+        <h3 class="cta-ti font-display">Ready to build your next project?</h3>
+        <p class="cta-de">Whether you need an academic submission, a custom surprise page, a SaaS platform, or AI integration &mdash; Team Cipher is ready.</p>
+        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20Let%27s%20discuss%20a%20project." target="_blank" class="btn btn-v" style="font-size:1rem;padding:.88rem 2.2rem;">Talk to Nikhil on WhatsApp</a>
+    </div>
+</div>
+
+<footer>
+    <div class="f-logo"><strong>Team Cipher</strong> &nbsp;&bull;&nbsp; Led by Nikhil Rawat</div>
+    <div class="f-li">
+        <a href="https://pookie-wishes.vercel.app/" target="_blank">Pookie Wishes Live</a>
+        <a href="https://wa.me/918700113731" target="_blank">WhatsApp</a>
+        <a href="mailto:teamcipher.work@gmail.com">teamcipher.work@gmail.com</a>
+    </div>
+    <div class="f-cp">&copy; 2026 Team Cipher. All rights reserved.</div>
+</footer>
+
+<script>
+    function switchTab(tabId, btn) {
+        document.querySelectorAll('.tp').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tb').forEach(b => b.classList.remove('active'));
+        const pane = document.getElementById(tabId);
+        if (pane) pane.classList.add('active');
+        if (btn) {
+            btn.classList.add('active');
+        } else {
+            document.querySelectorAll('.tb').forEach(b => {
+                if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(tabId)) b.classList.add('active');
+            });
+            const s = document.getElementById('services');
+            if (s) setTimeout(() => s.scrollIntoView({ behavior:'smooth', block:'start' }), 10);
+        }
+    }
+    function toggleFaq(item) {
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-i.open').forEach(i => i.classList.remove('open'));
+        if (!open) item.classList.add('open');
+    }
+    const ro = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
