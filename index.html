@@ -264,6 +264,7 @@
             .g3 { grid-template-columns:1fr 1fr; }
             .ai-b { flex-direction:column; text-align:center; }
             .ai-tags { justify-content:center; }
+            .fc[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
         }
         @media (max-width:640px) {
             .nav { display:none; }
@@ -271,6 +272,8 @@
             .tnav { flex-direction:column; border-radius:var(--radius-md); }
             footer { flex-direction:column; text-align:center; }
             .f-li { flex-wrap:wrap; justify-content:center; }
+            .fc[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+            .fc-body div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
         }
     </style>
 </head>
@@ -444,51 +447,64 @@
 
         <div class="g2">
 
-            <!-- Project 1: The Falcon Tour -->
-            <div class="fc reveal">
-                <div class="fc-img">
-                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80" alt="The Falcon Tour Website">
-                    <span class="fc-chip">Live Website</span>
+            <!-- Featured Project: The Falcon Tour (Web Dev + SEO) -->
+            <div class="fc reveal" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.2fr; gap: 0;">
+                <div class="fc-img" style="height: 100%; min-height: 320px;">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80" alt="The Falcon Tour Project">
+                    <span class="fc-chip">Live Client Project &bull; Web &amp; SEO</span>
                 </div>
-                <div class="fc-body">
-                    <div class="tier tv">Client Project &bull; Travel &amp; Tourism</div>
-                    <div class="fc-ti">The Falcon Tour</div>
-                    <p class="fc-de">A full professional website for a travel and tourism business &mdash; responsive design, tour listings, booking flow, and brand identity built from scratch.</p>
-                    <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.3rem;">
-                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--violet-light);background:var(--violet-dim);border:1px solid rgba(139,92,246,.2);padding:.2rem .65rem;border-radius:999px;">HTML / CSS / JS</span>
-                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--sky);background:var(--sky-dim);border:1px solid rgba(56,189,248,.2);padding:.2rem .65rem;border-radius:999px;">Responsive</span>
-                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--emerald);background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.2);padding:.2rem .65rem;border-radius:999px;">Live &amp; Hosted</span>
+                <div class="fc-body" style="padding: 2.2rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+                        <div class="tier tv">Case Study &bull; Travel &amp; Tourism</div>
+                        <span style="font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--emerald); background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25); padding: 0.2rem 0.6rem; border-radius: 999px;">100% Live &amp; Ranked</span>
                     </div>
-                    <div style="margin-top:1rem;display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;">
-                        <a href="https://thefalcontour.com/" target="_blank" rel="noopener noreferrer" class="btn btn-v" style="align-self:flex-start;">
-                            Visit Live Site &rarr;
-                        </a>
-                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20a%20website%20like%20The%20Falcon%20Tour." target="_blank" class="btn btn-g" style="align-self:flex-start;">
-                            Get Similar Website
-                        </a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Project 2: SEO & Ranking Work -->
-            <div class="fc reveal d1">
-                <div class="fc-img">
-                    <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="SEO and Google Ranking Work">
-                    <span class="fc-chip">SEO &bull; Google Ranking</span>
-                </div>
-                <div class="fc-body">
-                    <div class="tier ts">SEO &amp; Digital Growth</div>
-                    <div class="fc-ti">Search Engine Optimisation &amp; Ranking</div>
-                    <p class="fc-de">On-page and off-page SEO work for client websites &mdash; keyword research, meta optimisation, backlinks, Google Search Console setup, and measurable rank improvements on Google.</p>
-                    <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.3rem;">
-                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--sky);background:var(--sky-dim);border:1px solid rgba(56,189,248,.2);padding:.2rem .65rem;border-radius:999px;">On-Page SEO</span>
-                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--sky);background:var(--sky-dim);border:1px solid rgba(56,189,248,.2);padding:.2rem .65rem;border-radius:999px;">Keyword Research</span>
-                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--emerald);background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.2);padding:.2rem .65rem;border-radius:999px;">Google Search Console</span>
-                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(251,191,36,.2);padding:.2rem .65rem;border-radius:999px;">Backlink Building</span>
+                    <div class="fc-ti" style="font-size: 1.5rem; margin-top: 0.3rem;">The Falcon Tour</div>
+                    
+                    <p class="fc-de" style="font-size: 0.92rem; margin-bottom: 0.5rem;">
+                        Complete end-to-end digital transformation for <strong>The Falcon Tour</strong> — from custom website architecture &amp; UI/UX design to complete Google SEO ranking optimization.
+                    </p>
+
+                    <!-- Breakdown Grid -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1rem 0; padding: 1.2rem; background: rgba(255,255,255,0.025); border: 1px solid var(--border-mid); border-radius: var(--radius-md);">
+                        <div>
+                            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--violet-light); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                                <span>&bull;</span> Web Development
+                            </div>
+                            <ul style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.8rem; color: var(--text-secondary);">
+                                <li>Custom responsive UI/UX design</li>
+                                <li>Tour listing &amp; booking inquiry flow</li>
+                                <li>Ultra-fast page speed optimization</li>
+                                <li>Cross-device mobile compatibility</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--sky); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                                <span>&bull;</span> SEO &amp; Google Ranking
+                            </div>
+                            <ul style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.8rem; color: var(--text-secondary);">
+                                <li>Targeted travel keyword research</li>
+                                <li>On-page meta &amp; semantic schema SEO</li>
+                                <li>Google Search Console indexing</li>
+                                <li>Organic Google search rank boost</li>
+                            </ul>
+                        </div>
                     </div>
-                    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20SEO%20and%20Google%20Ranking%20work%20for%20my%20website." target="_blank" class="btn btn-s" style="align-self:flex-start;margin-top:1rem;">
-                        Get SEO Work Done
-                    </a>
+
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.2rem;">
+                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--violet-light);background:var(--violet-dim);border:1px solid rgba(139,92,246,.2);padding:.2rem .65rem;border-radius:999px;">HTML / CSS / JavaScript</span>
+                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--sky);background:var(--sky-dim);border:1px solid rgba(56,189,248,.2);padding:.2rem .65rem;border-radius:999px;">On-Page &amp; Technical SEO</span>
+                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(251,191,36,.2);padding:.2rem .65rem;border-radius:999px;">Google Indexing &amp; Ranking</span>
+                    </div>
+
+                    <div style="display:flex;gap:.85rem;align-items:center;flex-wrap:wrap;">
+                        <a href="https://thefalcontour.com/" target="_blank" rel="noopener noreferrer" class="btn btn-v">
+                            Visit thefalcontour.com &rarr;
+                        </a>
+                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20a%20full%20Website%20%2B%20SEO%20Ranking%20package%20like%20The%20Falcon%20Tour." target="_blank" class="btn btn-g">
+                            Order Similar Web + SEO
+                        </a>
+                    </div>
                 </div>
             </div>
 
