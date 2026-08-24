@@ -3,794 +3,2639 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Cipher &mdash; Led by Nikhil Rawat</title>
-    <meta name="description" content="Team Cipher builds college projects, custom Pookie Wishes surprise pages, SaaS websites, and AI integrations. Led by Nikhil Rawat.">
+    <title>Team Cipher — Web Development & Student Project Solutions</title>
+    <meta name="description" content="Team Cipher is a modern development studio building custom websites and digital solutions for businesses, and practical college development projects for students. Led by Nikhil Rawat.">
+    <meta name="keywords" content="Team Cipher, Web Development, Business Websites, College Projects, Student Projects, Full Stack Projects, Mini Projects, Nikhil Rawat, SEO, SaaS, AI Integration">
+    <meta name="author" content="Nikhil Rawat">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Team Cipher — Web Development & Student Project Solutions">
+    <meta property="og:description" content="Websites for businesses. Practical, explainable projects for students. Built with care by Team Cipher.">
+    <meta property="og:image" content="favicon.svg">
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg:            #080810;
-            --bg-surface:    #0d0d1a;
-            --bg-card:       rgba(14, 14, 26, 0.72);
-            --border:        rgba(255, 255, 255, 0.07);
-            --border-mid:    rgba(255, 255, 255, 0.12);
-            --border-accent: rgba(139, 92, 246, 0.35);
-            --text-primary:  #eeeef5;
-            --text-secondary:#a0a0b8;
-            --text-tertiary: #5c5c7a;
-            --violet:        #8b5cf6;
-            --violet-light:  #a78bfa;
-            --violet-dim:    rgba(139, 92, 246, 0.18);
-            --rose:          #f43f5e;
-            --rose-light:    #fb7185;
-            --rose-dim:      rgba(244, 63, 94, 0.16);
-            --sky:           #38bdf8;
-            --sky-dim:       rgba(56, 189, 248, 0.14);
-            --amber:         #fbbf24;
-            --amber-dim:     rgba(251, 191, 36, 0.14);
-            --emerald:       #34d399;
-            --radius-sm:     10px;
-            --radius-md:     16px;
-            --radius-lg:     24px;
-            --radius-xl:     32px;
-            --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+            --bg: #07070d;
+            --bg-surface: #0e0e18;
+            --bg-surface-elevated: #141422;
+            --bg-card: rgba(16, 16, 28, 0.75);
+            --bg-card-hover: rgba(22, 22, 38, 0.88);
+            
+            --border: rgba(255, 255, 255, 0.08);
+            --border-light: rgba(255, 255, 255, 0.14);
+            --border-accent: rgba(139, 92, 246, 0.38);
+            --border-accent-cyan: rgba(56, 189, 248, 0.32);
+            
+            --text-primary: #f4f4f8;
+            --text-secondary: #9ea0b8;
+            --text-tertiary: #636582;
+            
+            --accent: #8b5cf6;
+            --accent-light: #a78bfa;
+            --accent-glow: rgba(139, 92, 246, 0.18);
+            
+            --cyan: #38bdf8;
+            --cyan-light: #7dd3fc;
+            --cyan-glow: rgba(56, 189, 248, 0.15);
+            
+            --emerald: #34d399;
+            --emerald-glow: rgba(52, 211, 153, 0.15);
+            
+            --amber: #fbbf24;
+            --rose: #f43f5e;
+            
+            --radius-xs: 6px;
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 22px;
+            --radius-xl: 30px;
+            
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'DM Mono', monospace;
         }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
         body {
             background-color: var(--bg);
             color: var(--text-primary);
-            font-family: 'DM Sans', system-ui, sans-serif;
-            font-size: 16px; line-height: 1.7;
-            min-height: 100vh; overflow-x: hidden;
+            font-family: var(--font-sans);
+            line-height: 1.65;
+            min-height: 100vh;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
+
+        /* Ambient subtle background glow */
         body::before {
-            content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
             background:
-                radial-gradient(ellipse 80vw 60vh at -10% 0%,   rgba(139,92,246,0.09) 0%, transparent 65%),
-                radial-gradient(ellipse 70vw 50vh at 110% 5%,   rgba(56,189,248,0.07) 0%, transparent 65%),
-                radial-gradient(ellipse 60vw 40vh at 50% 110%,  rgba(244,63,94,0.06)  0%, transparent 65%);
+                radial-gradient(ellipse 65vw 45vh at 0% 0%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 60vw 40vh at 100% 15%, rgba(56, 189, 248, 0.06) 0%, transparent 55%),
+                radial-gradient(ellipse 55vw 35vh at 50% 90%, rgba(52, 211, 153, 0.04) 0%, transparent 60%);
         }
+
+        /* Subtle dot grid */
         body::after {
-            content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
-            background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
-            background-size: 28px 28px;
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
         }
-        section, header, footer { position:relative; z-index:1; }
-        img { display:block; max-width:100%; }
-        a { text-decoration:none; }
-        ul { list-style:none; }
 
-        .font-display { font-family:'Space Grotesk',sans-serif; letter-spacing:-0.02em; }
-        .font-mono    { font-family:'DM Mono',monospace; }
-
-        .gv { background:linear-gradient(135deg,#a78bfa,#c084fc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-        .gr { background:linear-gradient(135deg,#fb7185,#fb923c); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-        .gs { background:linear-gradient(135deg,#38bdf8,#34d399);  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-        .ga { background:linear-gradient(135deg,#fbbf24,#f97316);  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-
-        .reveal { opacity:0; transform:translateY(26px); transition:opacity .6s var(--ease-out), transform .6s var(--ease-out); }
-        .reveal.visible { opacity:1; transform:translateY(0); }
-        .d1 { transition-delay:80ms; } .d2 { transition-delay:160ms; } .d3 { transition-delay:240ms; }
-
-        /* Strip */
-        .strip {
-            position:relative; z-index:200;
-            background:linear-gradient(90deg,rgba(139,92,246,.12),rgba(244,63,94,.1),rgba(56,189,248,.1));
-            border-bottom:1px solid var(--border);
-            padding:.46rem 1.5rem;
-            display:flex; align-items:center; justify-content:center;
-            gap:1rem; flex-wrap:wrap;
-            font-size:.78rem; font-weight:500; color:var(--text-secondary);
-        }
-        .s-badge { font-size:.64rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; padding:.18rem .6rem; border-radius:999px; }
-        .s-badge.v { background:var(--violet-dim); color:var(--violet-light); border:1px solid rgba(139,92,246,.28); }
-        .s-badge.r { background:var(--rose-dim);   color:var(--rose-light);   border:1px solid rgba(244,63,94,.28); }
-        .s-link { color:#fbbf24; font-weight:600; font-size:.78rem; transition:color 180ms; }
-        .s-link:hover { color:#fef3c7; }
-
-        /* Header */
-        header {
-            position:sticky; top:0; z-index:100;
-            display:flex; align-items:center; justify-content:space-between;
-            padding:0 7%; height:64px;
-            backdrop-filter:blur(20px) saturate(160%);
-            background:rgba(8,8,16,.76);
-            border-bottom:1px solid var(--border);
-        }
-        .logo { display:flex; align-items:center; gap:.6rem; color:var(--text-primary); font-family:'Space Grotesk',sans-serif; font-size:1.05rem; font-weight:700; }
-        .logo-mark { width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg,var(--violet),#7c3aed); display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:800; color:#fff; box-shadow:0 0 14px rgba(139,92,246,.45); flex-shrink:0; }
-        .nav { display:flex; align-items:center; gap:.15rem; }
-        .nav a { color:var(--text-secondary); font-size:.875rem; font-weight:500; padding:.42rem .85rem; border-radius:var(--radius-sm); transition:color 180ms, background 180ms; }
-        .nav a:hover { color:var(--text-primary); background:rgba(255,255,255,.05); }
-        .hdr-cta { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.15rem; border-radius:var(--radius-sm); background:linear-gradient(135deg,var(--violet),#7c3aed); color:#fff; font-size:.82rem; font-weight:600; transition:box-shadow 350ms var(--ease-out), transform 180ms var(--ease-out); }
-        .hdr-cta:hover { transform:translateY(-1px); box-shadow:0 0 22px rgba(139,92,246,.5); }
-        .hdr-cta:active { transform:translateY(0); opacity:.88; }
-
-        /* Hero */
-        .hero { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:4rem; padding:6rem 8% 5rem; max-width:1340px; margin:0 auto; }
-        .eyebrow { display:inline-flex; align-items:center; gap:.45rem; padding:.28rem .85rem; border-radius:999px; background:var(--violet-dim); border:1px solid rgba(139,92,246,.28); font-family:'DM Mono',monospace; font-size:.7rem; font-weight:500; color:var(--violet-light); letter-spacing:.06em; text-transform:uppercase; margin-bottom:1.5rem; }
-        .e-dot { width:6px; height:6px; border-radius:50%; background:var(--violet-light); animation:pdot 2.5s ease-in-out infinite; }
-        @keyframes pdot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.65)} }
-        .hero-title { font-family:'Space Grotesk',sans-serif; font-size:clamp(2.4rem,4.5vw,3.9rem); font-weight:700; line-height:1.1; letter-spacing:-.03em; margin-bottom:1.3rem; }
-        .founder-pill { display:inline-flex; align-items:center; gap:.65rem; padding:.42rem .85rem .42rem .42rem; border-radius:999px; background:rgba(255,255,255,.04); border:1px solid var(--border-mid); margin-bottom:1.5rem; }
-        .f-av { width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,var(--violet),var(--rose)); display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-size:.65rem; font-weight:700; color:#fff; }
-        .f-meta strong { display:block; font-family:'Space Grotesk',sans-serif; font-size:.8rem; font-weight:600; line-height:1; color:var(--text-primary); }
-        .f-meta span   { display:block; font-size:.7rem; color:var(--text-secondary); line-height:1; }
-        .hero-desc { font-size:1.03rem; color:var(--text-secondary); max-width:480px; margin-bottom:2.2rem; line-height:1.78; }
-        .hero-actions { display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:2.8rem; }
-        .metrics { display:flex; gap:2.4rem; flex-wrap:wrap; }
-        .m-val { font-family:'Space Grotesk',sans-serif; font-size:1.55rem; font-weight:700; letter-spacing:-.03em; line-height:1; }
-        .m-lbl { font-size:.72rem; color:var(--text-tertiary); font-weight:500; letter-spacing:.04em; text-transform:uppercase; margin-top:3px; }
-        .hero-visual { position:relative; }
-        .hero-frame { position:relative; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/3; background:var(--bg-surface); border:1px solid var(--border-mid); box-shadow:0 4px 32px rgba(0,0,0,.5), 0 0 40px rgba(139,92,246,.12); }
-        .hero-frame img { width:100%; height:100%; object-fit:cover; transition:transform .75s var(--ease-out); }
-        .hero-frame:hover img { transform:scale(1.04); }
-        .hero-frame::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(8,8,16,.65) 0%, transparent 55%); }
-        .float-card { position:absolute; bottom:1.2rem; left:1.2rem; z-index:2; background:rgba(8,8,16,.82); backdrop-filter:blur(14px); border:1px solid var(--border-mid); border-radius:var(--radius-md); padding:.75rem 1rem; display:flex; align-items:center; gap:.65rem; animation:floaty 4s ease-in-out infinite; }
-        @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
-        .fl-ico { width:34px; height:34px; border-radius:9px; flex-shrink:0; background:linear-gradient(135deg,var(--rose),#be123c); display:flex; align-items:center; justify-content:center; }
-        .fl-ico svg { width:16px; height:16px; fill:#fff; }
-        .fl-lbl h6 { font-family:'Space Grotesk',sans-serif; font-size:.78rem; font-weight:600; color:var(--text-primary); line-height:1; margin-bottom:2px; }
-        .fl-lbl p  { font-family:'DM Mono',monospace; font-size:.62rem; color:var(--rose-light); }
-
-        /* Buttons */
-        .btn { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; padding:.7rem 1.45rem; border-radius:var(--radius-sm); font-family:'Space Grotesk',sans-serif; font-size:.87rem; font-weight:600; letter-spacing:.01em; cursor:pointer; border:none; transition:transform 180ms var(--ease-out), box-shadow 350ms var(--ease-out), opacity 180ms; }
-        .btn:hover { transform:translateY(-2px); }
-        .btn:active { transform:translateY(0); opacity:.84; }
-        .btn-v { background:linear-gradient(135deg,var(--violet),#7c3aed); color:#fff; box-shadow:0 4px 18px rgba(139,92,246,.32); }
-        .btn-v:hover { box-shadow:0 6px 28px rgba(139,92,246,.52); }
-        .btn-r { background:linear-gradient(135deg,var(--rose),#be123c); color:#fff; box-shadow:0 4px 18px rgba(244,63,94,.3); }
-        .btn-r:hover { box-shadow:0 6px 28px rgba(244,63,94,.5); }
-        .btn-s { background:linear-gradient(135deg,var(--sky),#0284c7); color:#fff; box-shadow:0 4px 18px rgba(56,189,248,.28); }
-        .btn-s:hover { box-shadow:0 6px 28px rgba(56,189,248,.48); }
-        .btn-g { background:rgba(255,255,255,.05); border:1px solid var(--border-mid); color:var(--text-secondary); }
-        .btn-g:hover { background:rgba(255,255,255,.09); color:var(--text-primary); border-color:var(--border-accent); }
-
-        /* Multi-Device Fluid Layout */
-        .sw { max-width: 1280px; margin: 0 auto; padding: 0 max(4%, 1.5rem) clamp(3rem, 6vw, 5rem); }
-        .sec-pad { max-width: 1280px; margin: 0 auto; padding: 0 max(4%, 1.5rem) clamp(3rem, 6vw, 5rem); }
-
-        .sec-head { text-align: center; margin-bottom: clamp(2rem, 4vw, 3.2rem); }
-        .sec-ey { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.68rem; font-weight: 500; color: var(--text-tertiary); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.85rem; }
-        .sec-ti { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.7rem, 3.2vw, 2.5rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 0.8rem; }
-        .sec-de { font-size: clamp(0.88rem, 1.6vw, 0.96rem); color: var(--text-secondary); max-width: 500px; margin: 0 auto; line-height: 1.75; }
-
-        /* Tabs — Fluid & Swipeable on Mobile */
-        .tnw {
-            display: flex;
-            justify-content: center;
-            margin-bottom: clamp(1.8rem, 3.5vw, 2.8rem);
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            padding: 0.25rem 0.5rem;
-        }
-        .tnw::-webkit-scrollbar { display: none; }
-        .tnav {
-            display: inline-flex;
-            gap: 0.25rem;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 0.28rem;
-            flex-wrap: nowrap;
-            white-space: nowrap;
-        }
-        .tb {
-            padding: 0.55rem clamp(0.85rem, 2vw, 1.25rem);
-            border-radius: calc(var(--radius-lg) - 4px);
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(0.76rem, 1.5vw, 0.82rem);
-            font-weight: 600;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: background 300ms var(--ease-out), color 180ms, box-shadow 300ms;
-        }
-        .tb:hover { color: var(--text-primary); background: rgba(255, 255, 255, 0.06); }
-        .tb.active {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
-        }
-        .tp { display: none; animation: fadeUp 0.38s var(--ease-out) both; }
-        .tp.active { display: block; }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Grid System */
-        .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.85rem, 2vw, 1.25rem); }
-        .g2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(0.85rem, 2vw, 1.25rem); }
-
-        /* Pricing Card */
-        .pc {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: clamp(1.35rem, 2.5vw, 1.85rem) clamp(1.1rem, 2vw, 1.65rem);
-            display: flex;
-            flex-direction: column;
-            gap: 1.15rem;
-            backdrop-filter: blur(10px);
+        header, section, footer {
             position: relative;
-            transition: border-color 300ms var(--ease-out), box-shadow 350ms var(--ease-out), transform 300ms var(--ease-out);
+            z-index: 1;
         }
-        .pc:hover {
-            border-color: var(--border-mid);
-            box-shadow: 0 18px 50px rgba(0,0,0,0.52), 0 0 0 1px rgba(255,255,255,0.04);
-            transform: translateY(-5px);
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s var(--ease);
         }
-        .pc.fv { border-color: var(--border-accent); box-shadow: 0 0 40px rgba(139,92,246,0.14); }
-        .pc.fv:hover { box-shadow: 0 18px 50px rgba(0,0,0,0.52), 0 0 34px rgba(139,92,246,0.28); }
-        .pc.fr { border-color: rgba(244,63,94,0.35); box-shadow: 0 0 36px rgba(244,63,94,0.1); }
-        .pc.fr:hover { box-shadow: 0 18px 50px rgba(0,0,0,0.52), 0 0 34px rgba(244,63,94,0.24); }
 
-        .bt {
-            position: absolute;
-            top: -1px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'DM Mono', monospace;
-            font-size: 0.62rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.18rem 0.75rem;
-            border-radius: 0 0 7px 7px;
-            white-space: nowrap;
-            color: #fff;
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        .font-display { font-family: var(--font-display); letter-spacing: -0.025em; }
+        .font-mono { font-family: var(--font-mono); }
+
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
-        .bt.bv { background: linear-gradient(135deg, var(--violet), #7c3aed); }
-        .bt.br { background: linear-gradient(135deg, var(--rose), #be123c); }
-        .bt.bs { background: linear-gradient(135deg, var(--sky), #0284c7); }
 
-        .tier { font-family: 'DM Mono', monospace; font-size: 0.63rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
-        .tier.tv { color: var(--violet-light); }
-        .tier.tr { color: var(--rose-light); }
-        .tier.ts { color: var(--sky); }
-        .tier.ta { color: var(--amber); }
-
-        .ct { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.15rem, 2vw, 1.3rem); font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); line-height: 1.2; }
-        .cd { font-size: 0.862rem; color: var(--text-secondary); line-height: 1.65; }
-
-        .pr { display: flex; align-items: baseline; gap: 0.35rem; margin-top: 0.4rem; }
-        .pn { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.15rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
-        .pu { font-size: 0.78rem; color: var(--text-tertiary); font-weight: 500; }
-
-        .fl { display: flex; flex-direction: column; gap: 0.55rem; flex: 1; }
-        .fl li { display: flex; align-items: flex-start; gap: 0.55rem; font-size: 0.848rem; color: var(--text-secondary); line-height: 1.5; }
-        .fl li::before { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; margin-top: 0.47em; flex-shrink: 0; }
-        .fl.lv li::before { background: var(--violet-light); }
-        .fl.lr li::before { background: var(--rose-light); }
-        .fl.ls li::before { background: var(--sky); }
-        .fl.la li::before { background: var(--amber); }
-
-        /* Pookie Hero */
-        .pk-hero {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: clamp(1.5rem, 3vw, 2.5rem);
-            align-items: center;
-            background: linear-gradient(135deg, rgba(244,63,94,0.08), rgba(139,92,246,0.06));
-            border: 1px solid rgba(244,63,94,0.18);
-            border-radius: var(--radius-xl);
-            padding: clamp(1.4rem, 3vw, 2.5rem);
-            margin-bottom: 2rem;
-        }
-        .pk-thumb {
-            width: 200px;
-            flex-shrink: 0;
-            background: var(--bg-card);
-            border: 1px solid rgba(244,63,94,0.22);
-            border-radius: var(--radius-md);
-            padding: 1.1rem;
+        /* Top Announcement Strip */
+        .top-strip {
+            background: linear-gradient(90deg, rgba(139, 92, 246, 0.12), rgba(56, 189, 248, 0.08), rgba(52, 211, 153, 0.08));
+            border-bottom: 1px solid var(--border);
+            padding: 0.45rem 1rem;
+            font-size: 0.8rem;
             text-align: center;
-            transition: box-shadow 350ms var(--ease-out);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
         }
-        .pk-thumb:hover { box-shadow: 0 0 30px rgba(244,63,94,0.2); }
-        .pk-thumb img { width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 0.7rem; }
-        .pk-url { font-family: 'DM Mono', monospace; font-size: 0.63rem; color: var(--rose); border-bottom: 1px dashed rgba(244,63,94,0.35); display: inline-block; margin-top: 2px; transition: color 180ms, border-color 180ms; }
-        .pk-url:hover { color: var(--rose-light); border-color: var(--rose-light); }
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--emerald);
+            background: var(--emerald-glow);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            padding: 0.15rem 0.55rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--emerald);
+            box-shadow: 0 0 8px var(--emerald);
+            animation: pulse-dot 2s infinite ease-in-out;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.7); }
+        }
 
-        /* AI Banner */
-        .ai-b {
-            margin-top: 1.8rem;
-            background: linear-gradient(135deg, rgba(56,189,248,0.07), rgba(139,92,246,0.07));
-            border: 1px solid rgba(56,189,248,0.2);
-            border-radius: var(--radius-xl);
-            padding: clamp(1.4rem, 3vw, 2.5rem);
+        /* Navigation Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(18px) saturate(150%);
+            -webkit-backdrop-filter: blur(18px) saturate(150%);
+            background: rgba(7, 7, 13, 0.82);
+            border-bottom: 1px solid var(--border);
+            height: 68px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-wrapper {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-            transition: box-shadow 350ms var(--ease-out);
+            width: 100%;
         }
-        .ai-b:hover { box-shadow: 0 0 40px rgba(56,189,248,0.1); }
-        .ai-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.9rem; }
-        .ai-tag { font-family: 'DM Mono', monospace; font-size: 0.68rem; font-weight: 500; color: var(--sky); background: var(--sky-dim); border: 1px solid rgba(56,189,248,0.2); padding: 0.22rem 0.72rem; border-radius: 999px; }
-        .ai-pb { text-align: center; flex-shrink: 0; }
-        .ai-pn {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.2rem, 4vw, 2.8rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 1;
-            background: linear-gradient(135deg, var(--sky), var(--violet-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text-primary);
         }
-        .ai-pl { font-size: 0.73rem; color: var(--text-tertiary); margin: 4px 0 1rem; }
+        .brand-logo {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            box-shadow: 0 0 16px rgba(139, 92, 246, 0.4);
+            flex-shrink: 0;
+        }
+        .brand-tag {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--accent-light);
+            background: var(--accent-glow);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            margin-left: 0.1rem;
+        }
 
-        /* Feature Card (Past Work) */
-        .fc {
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.45rem 0.85rem;
+            border-radius: var(--radius-sm);
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0.65rem 1.35rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.22s var(--ease);
+            white-space: nowrap;
+        }
+        .btn:hover {
+            transform: translateY(-1.5px);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35);
+        }
+        .btn-primary:hover {
+            box-shadow: 0 6px 24px rgba(139, 92, 246, 0.55);
+            color: #ffffff;
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--border-light);
+            color: var(--text-primary);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: var(--border-accent);
+        }
+        .btn-cyan {
+            background: linear-gradient(135deg, var(--cyan), #0284c7);
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
+        }
+        .btn-cyan:hover {
+            box-shadow: 0 6px 24px rgba(56, 189, 248, 0.5);
+            color: #ffffff;
+        }
+        .btn-sm {
+            padding: 0.45rem 0.95rem;
+            font-size: 0.8rem;
+        }
+        .btn-lg {
+            padding: 0.85rem 1.85rem;
+            font-size: 0.96rem;
+        }
+
+        /* Mobile Hamburger */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mobile Menu Drawer */
+        .mobile-drawer {
+            display: none;
+            position: fixed;
+            top: 68px;
+            left: 0;
+            right: 0;
+            background: rgba(14, 14, 24, 0.98);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem;
+            backdrop-filter: blur(20px);
+            z-index: 99;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .mobile-drawer.active {
+            display: flex;
+        }
+        .mobile-drawer a {
+            padding: 0.65rem 1rem;
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .mobile-drawer a:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Section Headings */
+        .section-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 3.5rem;
+        }
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            background: var(--accent-glow);
+            border: 1px solid rgba(139, 92, 246, 0.28);
+            padding: 0.22rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.85rem;
+        }
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+            line-height: 1.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: clamp(2.5rem, 5vw, 4.5rem);
+            align-items: center;
+        }
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .hero-headline {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 5vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.035em;
+            margin-bottom: 0.85rem;
+        }
+        .hero-headline-sub {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.3vw, 1.65rem);
+            font-weight: 600;
+            color: var(--accent-light);
+            letter-spacing: -0.02em;
+            margin-bottom: 1.25rem;
+        }
+        .hero-desc {
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 2rem;
+            max-width: 540px;
+        }
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.2rem;
+        }
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            width: 100%;
+        }
+        .stat-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+        .stat-item p {
+            font-size: 0.76rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+
+        /* Hero Visual Mockup */
+        .hero-visual {
+            position: relative;
+        }
+        .browser-mockup {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(139, 92, 246, 0.12);
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+        .browser-mockup:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 50px rgba(139, 92, 246, 0.2);
+        }
+        .browser-topbar {
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid var(--border);
+            padding: 0.65rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .browser-dots {
+            display: flex;
+            gap: 5px;
+        }
+        .browser-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+        .dot-r { background: #ef4444; opacity: 0.8; }
+        .dot-y { background: #f59e0b; opacity: 0.8; }
+        .dot-g { background: #10b981; opacity: 0.8; }
+        .browser-address {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.2rem 0.65rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--text-tertiary);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex-grow: 1;
+        }
+        .browser-address span {
+            color: var(--emerald);
+        }
+
+        /* Mockup Content (The Falcon Tour Real Project preview) */
+        .browser-screen {
+            padding: 1.25rem;
+            background: linear-gradient(180deg, #0c0d18 0%, #07070d 100%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .mockup-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+        .mockup-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            font-family: var(--font-display);
+        }
+        .mockup-badge {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            background: var(--emerald-glow);
+            color: var(--emerald);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+        }
+        .mockup-hero-banner {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            height: 180px;
+            border: 1px solid var(--border);
+        }
+        .mockup-hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .mockup-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(8, 8, 16, 0.92) 0%, rgba(8, 8, 16, 0.2) 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1rem;
+        }
+        .mockup-hero-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .mockup-hero-subtitle {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+        }
+
+        .mockup-cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.65rem;
+        }
+        .mockup-mini-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.65rem;
+        }
+        .mockup-mini-card h5 {
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: var(--text-primary);
+        }
+        .mockup-mini-card p {
+            font-size: 0.62rem;
+            color: var(--text-tertiary);
+            line-height: 1.4;
+        }
+
+        /* Floating Studio Badges around mockup */
+        .float-badge {
+            position: absolute;
+            background: rgba(14, 14, 26, 0.92);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 0.65rem 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+        .float-badge-1 {
+            top: -15px;
+            right: -15px;
+            border-color: var(--border-accent);
+        }
+        .float-badge-2 {
+            bottom: -20px;
+            left: -15px;
+            border-color: var(--border-accent-cyan);
+        }
+        .float-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+        .float-icon.violet {
+            background: linear-gradient(135deg, var(--accent), #6d28d9);
+            color: #fff;
+        }
+        .float-icon.cyan {
+            background: linear-gradient(135deg, var(--cyan), #0284c7);
+            color: #fff;
+        }
+        .float-text strong {
+            display: block;
+            font-size: 0.76rem;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+        .float-text span {
+            font-family: var(--font-mono);
+            font-size: 0.64rem;
+            color: var(--text-secondary);
+        }
+
+        /* 2-Path Audience Split Section */
+        .audience-split {
+            padding: clamp(3rem, 6vw, 5rem) 0;
+            border-top: 1px solid var(--border);
+            background: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.04), transparent 70%);
+        }
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(1.2rem, 3vw, 2rem);
+        }
+        .split-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: clamp(1.75rem, 3.5vw, 2.75rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.5rem;
+            transition: all 0.3s var(--ease);
+            position: relative;
+            overflow: hidden;
+        }
+        .split-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-light);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+        }
+        .split-card.business {
+            border-top: 3px solid var(--accent);
+        }
+        .split-card.business:hover {
+            border-color: var(--border-accent);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(139, 92, 246, 0.15);
+        }
+        .split-card.students {
+            border-top: 3px solid var(--cyan);
+        }
+        .split-card.students:hover {
+            border-color: var(--border-accent-cyan);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.15);
+        }
+
+        .split-badge {
+            display: inline-flex;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.65rem;
+            border-radius: 999px;
+            margin-bottom: 0.75rem;
+        }
+        .split-badge.b {
+            background: var(--accent-glow);
+            color: var(--accent-light);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        .split-badge.s {
+            background: var(--cyan-glow);
+            color: var(--cyan);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .split-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 0.65rem;
+        }
+        .split-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+        .split-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.65rem;
+            margin-bottom: 1.5rem;
+        }
+        .split-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.83rem;
+            color: var(--text-secondary);
+        }
+        .split-list li svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+        .split-card.business .split-list li svg { color: var(--accent-light); }
+        .split-card.students .split-list li svg { color: var(--cyan); }
+
+        /* Services Grid ("What We Build") */
+        .services-section {
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+            border-top: 1px solid var(--border);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            transition: all 0.25s var(--ease);
+        }
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-light);
+            transform: translateY(-3px);
+        }
+        .service-num {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--accent-light);
+        }
+        .service-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+        }
+        .service-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 0.2rem;
+        }
+        .service-desc {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            flex-grow: 1;
+        }
+        .service-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: auto;
+        }
+        .service-tag {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--text-tertiary);
+        }
+        .service-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .service-link:hover {
+            color: #ffffff;
+        }
+
+        /* Portfolio / Work Section ("Built by Team Cipher") */
+        .work-section {
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+            border-top: 1px solid var(--border);
+            background: radial-gradient(ellipse at 50% 10%, rgba(56, 189, 248, 0.03), transparent 60%);
+        }
+
+        /* Featured Case Study: The Falcon Tour */
+        .case-study-hero {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+        }
+        .case-study-visual {
+            position: relative;
+            background: #0b0c16;
+            min-height: 380px;
+            overflow: hidden;
+        }
+        .case-study-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease);
+        }
+        .case-study-hero:hover .case-study-visual img {
+            transform: scale(1.03);
+        }
+        .case-study-badge-float {
+            position: absolute;
+            top: 1.25rem;
+            left: 1.25rem;
+            background: rgba(14, 14, 26, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-light);
+            border-radius: 999px;
+            padding: 0.3rem 0.85rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--emerald);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .case-study-body {
+            padding: clamp(1.75rem, 3.5vw, 2.75rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.25rem;
+        }
+        .cs-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--accent-light);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .cs-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+        .cs-summary {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .cs-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.15rem;
+        }
+        .cs-block h6 {
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .cs-block.dev h6 { color: var(--accent-light); }
+        .cs-block.seo h6 { color: var(--cyan); }
+        .cs-block ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .cs-block li {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        .cs-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .cs-tag {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+        }
+
+        .cs-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            flex-wrap: wrap;
+            padding-top: 0.5rem;
+        }
+
+        /* Portfolio Cards Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .project-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             overflow: hidden;
-            backdrop-filter: blur(10px);
-            transition: border-color 300ms var(--ease-out), box-shadow 350ms var(--ease-out), transform 300ms var(--ease-out);
+            transition: all 0.3s var(--ease);
+            display: flex;
+            flex-direction: column;
         }
-        .fc:hover {
-            border-color: var(--border-mid);
-            box-shadow: 0 18px 50px rgba(0,0,0,0.5);
-            transform: translateY(-5px);
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-light);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
         }
-        .fc-img { position: relative; height: 220px; overflow: hidden; }
-        .fc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.72s var(--ease-out); }
-        .fc:hover .fc-img img { transform: scale(1.06); }
-        .fc-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,16,0.72) 0%, transparent 60%); }
-        .fc-chip {
+        .project-thumb {
+            position: relative;
+            height: 220px;
+            background: var(--bg-surface);
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s var(--ease);
+        }
+        .project-card:hover .project-thumb img {
+            transform: scale(1.05);
+        }
+        .project-category {
             position: absolute;
             top: 0.85rem;
             right: 0.85rem;
-            z-index: 1;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.63rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            color: var(--text-primary);
-            background: rgba(8,8,16,0.74);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            background: rgba(14, 14, 26, 0.88);
             backdrop-filter: blur(8px);
-            border: 1px solid var(--border-mid);
-            padding: 0.22rem 0.6rem;
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.2rem 0.65rem;
             border-radius: 999px;
+            font-weight: 500;
         }
-        .fc-body { padding: clamp(1.2rem, 2.5vw, 1.85rem); display: flex; flex-direction: column; gap: 0.9rem; }
-        .fc-ti { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.2rem, 2.2vw, 1.45rem); font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; }
-        .fc-de { font-size: 0.868rem; color: var(--text-secondary); line-height: 1.7; }
+        .project-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex-grow: 1;
+        }
+        .project-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .project-desc {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            flex-grow: 1;
+        }
+        .project-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: auto;
+        }
 
-        /* FAQ */
-        .faq-w { max-width: 740px; margin: 0 auto; width: 100%; }
-        .faq-i { border-bottom: 1px solid var(--border); transition: border-color 180ms; }
-        .faq-i:first-child { border-top: 1px solid var(--border); }
-        .faq-i:hover { border-color: var(--border-mid); }
-        .faq-t {
+        /* Dedicated Student Section ("Need a College Project?") */
+        .students-section {
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+            border-top: 1px solid var(--border);
+            background: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.04), transparent 50%);
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: clamp(1.75rem, 3.5vw, 2.5rem);
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            position: relative;
+            transition: all 0.3s var(--ease);
+        }
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-light);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+        }
+        .pricing-card.featured {
+            border-color: var(--border-accent-cyan);
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.12);
+        }
+        .pricing-badge {
+            position: absolute;
+            top: -1px;
+            right: 2rem;
+            background: linear-gradient(135deg, var(--cyan), #0284c7);
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.85rem;
+            border-radius: 0 0 8px 8px;
+        }
+        .pricing-tier-name {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .pricing-title {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .pricing-price-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            margin: 0.2rem 0;
+        }
+        .pricing-price {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+        }
+        .pricing-period {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+        }
+        .pricing-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin: 0.5rem 0;
+            flex-grow: 1;
+        }
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .pricing-features li svg {
+            width: 16px;
+            height: 16px;
+            color: var(--cyan);
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+
+        /* Student Value Pillars */
+        .student-pillars {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .pillar-card {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .pillar-icon {
+            font-size: 1.25rem;
+            color: var(--cyan);
+            margin-bottom: 0.2rem;
+        }
+        .pillar-card h5 {
+            font-family: var(--font-display);
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .pillar-card p {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Dedicated Business Section ("Have a Business Idea?") */
+        .business-section {
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+            border-top: 1px solid var(--border);
+            background: radial-gradient(circle at 90% 30%, rgba(139, 92, 246, 0.04), transparent 50%);
+        }
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .biz-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: all 0.25s var(--ease);
+        }
+        .biz-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+        }
+        .biz-tag {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--accent-light);
+            text-transform: uppercase;
+        }
+        .biz-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .biz-card p {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            flex-grow: 1;
+        }
+        .biz-pricing {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--emerald);
+            font-weight: 500;
+            padding-top: 0.5rem;
+        }
+
+        /* Process Section ("From Idea to Launch") */
+        .process-section {
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+            border-top: 1px solid var(--border);
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+        }
+        .process-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            position: relative;
+            transition: all 0.25s var(--ease);
+        }
+        .process-step:hover {
+            border-color: var(--border-light);
+            background: var(--bg-card-hover);
+        }
+        .process-num {
+            font-family: var(--font-mono);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            line-height: 1;
+        }
+        .process-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .process-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* Trust / Why Us Section */
+        .why-section {
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+            border-top: 1px solid var(--border);
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.03), transparent 70%);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+        .why-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .why-icon {
+            font-size: 1.4rem;
+            margin-bottom: 0.25rem;
+        }
+        .why-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .why-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            padding: clamp(3rem, 5vw, 4.5rem) 0;
+            border-top: 1px solid var(--border);
+        }
+        .founder-card {
+            background: linear-gradient(135deg, rgba(20, 20, 36, 0.85), rgba(12, 12, 22, 0.95));
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: clamp(1.8rem, 4vw, 3rem);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: clamp(1.5rem, 4vw, 3rem);
+            align-items: center;
+        }
+        .founder-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.35);
+            flex-shrink: 0;
+            border: 3px solid rgba(255, 255, 255, 0.15);
+        }
+        .founder-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+        .founder-role {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.85rem;
+        }
+        .founder-quote {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 1.25rem;
+            max-width: 680px;
+        }
+        .founder-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+            border-top: 1px solid var(--border);
+        }
+        .faq-wrapper {
+            max-width: 780px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: border-color 0.2s var(--ease);
+        }
+        .faq-item.active {
+            border-color: var(--border-light);
+            background: var(--bg-surface-elevated);
+        }
+        .faq-question {
             width: 100%;
-            padding: 1.25rem 0;
+            padding: 1.2rem 1.4rem;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-family: var(--font-display);
+            font-size: 0.98rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 1rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text-primary);
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(0.88rem, 1.8vw, 0.96rem);
-            font-weight: 600;
-            text-align: left;
-            transition: color 180ms;
         }
-        .faq-t:hover { color: var(--violet-light); }
-        .faq-ic {
-            width: 22px;
-            height: 22px;
+        .faq-question:hover {
+            color: var(--accent-light);
+        }
+        .faq-toggle-icon {
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
-            border: 1px solid var(--border-mid);
+            background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
             flex-shrink: 0;
-            font-size: 1rem;
-            color: var(--text-tertiary);
-            transition: transform 350ms var(--ease-out), border-color 180ms, color 180ms;
+            transition: transform 0.3s var(--ease), background 0.2s;
         }
-        .faq-i.open .faq-ic { transform: rotate(45deg); border-color: var(--violet); color: var(--violet-light); }
-        .faq-b { overflow: hidden; max-height: 0; transition: max-height 0.44s var(--ease-out); }
-        .faq-i.open .faq-b { max-height: 400px; }
-        .faq-bi { padding-bottom: 1.25rem; font-size: 0.888rem; color: var(--text-secondary); line-height: 1.75; }
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(45deg);
+            background: var(--accent-glow);
+            color: var(--accent-light);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.38s var(--ease);
+        }
+        .faq-answer-inner {
+            padding: 0 1.4rem 1.25rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
 
-        /* Bottom CTA */
-        .cta-bl {
-            background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(244,63,94,0.07));
-            border: 1px solid rgba(139,92,246,0.18);
+        /* Final CTA Section */
+        .final-cta {
+            padding: clamp(3.5rem, 7vw, 6rem) 0;
+            border-top: 1px solid var(--border);
+        }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(56, 189, 248, 0.08));
+            border: 1px solid var(--border-accent);
             border-radius: var(--radius-xl);
-            padding: clamp(2.5rem, 5vw, 4rem) clamp(1.2rem, 3vw, 2.5rem);
+            padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
             text-align: center;
-            max-width: 1280px;
-            margin: 0 auto;
-            transition: box-shadow 350ms var(--ease-out);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 50px rgba(139, 92, 246, 0.1);
         }
-        .cta-bl:hover { box-shadow: 0 0 50px rgba(139,92,246,0.1); }
-        .cta-ti {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.6rem, 3.5vw, 2.7rem);
-            font-weight: 700;
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
             letter-spacing: -0.03em;
-            margin-bottom: 0.85rem;
+            margin-bottom: 1rem;
         }
-        .cta-de { font-size: clamp(0.88rem, 1.6vw, 0.97rem); color: var(--text-secondary); max-width: 460px; margin: 0 auto 2rem; line-height: 1.75; }
+        .cta-desc {
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin: 0 auto 2.2rem;
+            line-height: 1.75;
+        }
+        .cta-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
 
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
-            padding: clamp(1.8rem, 3vw, 2.5rem) max(4%, 1.5rem);
+            padding: 3rem 0 2rem;
+            background: #050509;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .footer-brand p {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            margin: 0.85rem 0 1.25rem;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+        .footer-col h5 {
+            font-family: var(--font-display);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+        .footer-links a {
+            font-size: 0.82rem;
+            color: var(--text-tertiary);
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+        .footer-bottom {
+            padding-top: 1.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 1.4rem;
-            max-width: 1340px;
-            margin: 0 auto;
-        }
-        .f-logo { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); }
-        .f-logo strong { color: var(--text-primary); }
-        .f-li { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
-        .f-li a { font-size: 0.82rem; color: var(--text-tertiary); font-weight: 500; transition: color 180ms; }
-        .f-li a:hover { color: var(--text-primary); }
-        .f-cp { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--text-tertiary); }
-
-        /* =========================================================
-           RESPONSIVE BREAKPOINTS (Mobile, Tablet, Laptop, Desktop)
-        ========================================================= */
-        @media (max-width: 1060px) {
-            .hero { grid-template-columns: 1fr; text-align: center; padding: clamp(3rem, 5vw, 4.5rem) max(4%, 1.5rem) 2.5rem; gap: 2.5rem; }
-            .hero-desc { margin: 0 auto 2rem; }
-            .hero-actions, .metrics { justify-content: center; }
-            .eyebrow, .founder-pill { margin-left: auto; margin-right: auto; }
-            .pk-hero { grid-template-columns: 1fr; }
-            .pk-thumb { width: 100%; max-width: 260px; margin: 0 auto; }
+            gap: 1rem;
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+            font-family: var(--font-mono);
         }
 
-        @media (max-width: 860px) {
-            .g3 { grid-template-columns: 1fr 1fr; }
-            .ai-b { flex-direction: column; text-align: center; }
-            .ai-tags { justify-content: center; }
-            .fc[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /* Responsive Design */
+        @media (max-width: 1040px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content {
+                align-items: center;
+            }
+            .hero-desc {
+                margin: 0 auto 2rem;
+            }
+            .hero-actions, .hero-stats {
+                justify-content: center;
+            }
+            .case-study-hero {
+                grid-template-columns: 1fr;
+            }
+            .case-study-visual {
+                min-height: 260px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .process-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .student-pillars {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        @media (max-width: 680px) {
-            header { padding: 0 max(3.5%, 1rem); }
-            .nav { display: none; }
-            .hdr-cta { padding: 0.42rem 0.8rem; font-size: 0.75rem; }
-            .g3, .g2 { grid-template-columns: 1fr; }
-            footer { flex-direction: column; text-align: center; justify-content: center; }
-            .f-li { justify-content: center; }
-            .fc[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
-            .fc-body div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+        @media (max-width: 820px) {
+            .nav-links, .header-cta-btn {
+                display: none;
+            }
+            .menu-toggle {
+                display: inline-flex;
+            }
+            .split-grid, .projects-grid, .pricing-grid, .services-grid, .business-grid, .why-grid {
+                grid-template-columns: 1fr;
+            }
+            .founder-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+            .founder-actions {
+                justify-content: center;
+            }
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        @media (max-width: 480px) {
-            .strip { font-size: 0.72rem; padding: 0.4rem 0.6rem; gap: 0.4rem; }
-            .hero-actions .btn { width: 100%; }
-            .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; width: 100%; }
-            .metric-val { font-size: 1.35rem; }
-            .m-lbl { font-size: 0.65rem; }
-            .float-card { left: 0.6rem; bottom: 0.6rem; padding: 0.5rem 0.75rem; gap: 0.5rem; max-width: calc(100% - 1.2rem); }
-            .float-card h6 { font-size: 0.72rem; }
-            .float-card p { font-size: 0.58rem; }
+        @media (max-width: 540px) {
+            .split-list {
+                grid-template-columns: 1fr;
+            }
+            .student-pillars {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero-actions .btn {
+                width: 100%;
+            }
+            .cs-breakdown {
+                grid-template-columns: 1fr;
+            }
+            .float-badge {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="strip">
-    <span class="s-badge r">Pookie Wishes</span>
-    <span>Instant automated templates from <strong>&#8377;29</strong> &bull; 1-on-1 custom surprise websites from <strong>&#8377;200</strong></span>
-    <span class="s-badge v">College</span>
-    <span>Mini Projects starting at <strong>&#8377;999</strong></span>
-    <a class="s-link" href="https://pookie-wishes.vercel.app/" target="_blank">Explore Pookie Wishes &rarr;</a>
-</div>
-
-<header>
-    <a href="#" class="logo">
-        <img src="favicon.svg" alt="Team Cipher Logo" style="width:34px; height:34px; border-radius:9px; box-shadow:0 0 16px rgba(139,92,246,0.45); flex-shrink:0;">
-        Team Cipher
-    </a>
-    <nav class="nav">
-        <a href="#services" onclick="switchTab('college-projects',null)">College Projects</a>
-        <a href="#services" onclick="switchTab('pookie-wishes',null)">Pookie Wishes</a>
-        <a href="#services" onclick="switchTab('web-dev',null)">Past Work</a>
-        <a href="#services" onclick="switchTab('faq',null)">FAQ</a>
-    </nav>
-    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20am%20interested%20in%20Team%20Cipher%20services." target="_blank" class="hdr-cta">Chat on WhatsApp</a>
-</header>
-
-<section class="hero">
-    <div>
-        <div class="eyebrow"><span class="e-dot"></span>Team Cipher &mdash; Modern Tech Studio</div>
-        <h1 class="hero-title">Crafting <span class="gv">Digital Excellence</span><br>&amp; Student Solutions.</h1>
-        <div class="founder-pill reveal">
-            <div class="f-av">NR</div>
-            <div class="f-meta"><strong>Nikhil Rawat</strong><span>Founder &amp; Tech Lead</span></div>
-        </div>
-        <p class="hero-desc reveal d1">College academic projects from &#8377;999 with full viva support. Instant surprise templates from &#8377;29 &amp; custom-built interactive websites from &#8377;200 on Pookie Wishes. SaaS websites and AI integrations.</p>
-        <div class="hero-actions reveal d2">
-            <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20a%20College%20Project%20for%20%E2%82%B9999." target="_blank" class="btn btn-v">Get College Project &mdash; &#8377;999</a>
-            <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-r">Pookie Wishes &mdash; From &#8377;29</a>
-            <a href="#services" class="btn btn-g">View Services</a>
-        </div>
-        <div class="metrics reveal d3">
-            <div><div class="m-val gv">&#8377;999</div><div class="m-lbl">Mini Projects</div></div>
-            <div><div class="m-val gr">&#8377;29+</div><div class="m-lbl">Pookie Wishes</div></div>
-            <div><div class="m-val" style="color:var(--text-primary);">100%</div><div class="m-lbl">Setup &amp; Viva</div></div>
-        </div>
+    <!-- Top Status Strip -->
+    <div class="top-strip">
+        <span class="status-pill"><span class="status-dot"></span> Studio Open</span>
+        <span>Accepting client websites &amp; college project bookings for 2026.</span>
+        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20would%20like%20to%20discuss%20a%20project%20with%20Team%20Cipher." target="_blank" style="color: var(--accent-light); font-weight: 600;">Chat directly on WhatsApp &rarr;</a>
     </div>
-    <div class="hero-visual reveal d2">
-        <div class="hero-frame">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Team Cipher Development Studio">
-            <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" class="float-card" style="cursor:pointer; transition: box-shadow 300ms var(--ease-out), transform 250ms var(--ease-out);" onmouseover="this.style.boxShadow='0 0 28px rgba(244,63,94,0.45)'; this.style.transform='translateY(-9px)'" onmouseout="this.style.boxShadow=''; this.style.transform=''">
-                <div class="fl-ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-                <div class="fl-lbl"><h6>Pookie Wishes &mdash; Live</h6><p>pookie-wishes.vercel.app</p></div>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="brand">
+                <img src="favicon.svg" alt="Team Cipher Monogram" class="brand-logo">
+                <span>Team Cipher</span>
+                <span class="brand-tag">STUDIO</span>
             </a>
-        </div>
-    </div>
-</section>
 
-<div id="services" class="sw">
-    <div class="sec-head reveal">
-        <span class="sec-ey">What We Build</span>
-        <h2 class="sec-ti font-display">Our Services</h2>
-        <p class="sec-de">From academic projects to SaaS platforms &mdash; everything crafted to professional standards.</p>
-    </div>
-    <div class="tnw reveal">
-        <div class="tnav">
-            <button class="tb active" onclick="switchTab('college-projects',this)">College Projects</button>
-            <button class="tb" onclick="switchTab('pookie-wishes',this)">Pookie Wishes</button>
-            <button class="tb" onclick="switchTab('web-dev',this)">Past Work</button>
-            <button class="tb" onclick="switchTab('faq',this)">FAQ &amp; Support</button>
-        </div>
-    </div>
+            <nav class="nav-links">
+                <a href="#work">Work</a>
+                <a href="#services">Services</a>
+                <a href="#business">For Business</a>
+                <a href="#students">For Students</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#faq">FAQ</a>
+            </nav>
 
-    <!-- College Projects -->
-    <div id="college-projects" class="tp active">
-        <div class="g3">
-            <div class="pc reveal">
-                <div class="tier tv">Tier 01 &bull; Semester Special</div>
-                <div><div class="ct">Mini Project</div><div class="pr"><div class="pn gv">&#8377;999</div><div class="pu">/ one-time</div></div></div>
-                <p class="cd">Designed for 1st&ndash;3rd year BCA, B.Tech &amp; Diploma lab submissions.</p>
-                <ul class="fl lv"><li>Complete, formatted source code</li><li>Frontend (HTML/CSS/JS) or Python / C++ logic</li><li>Step-by-step setup &amp; run guide</li><li>Common viva Q&amp;A sheet included</li><li>Guaranteed error-free execution</li></ul>
-                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20the%20Mini%20Project%20for%20%E2%82%B9999." target="_blank" class="btn btn-v" style="margin-top:auto;">Order Mini Project &mdash; &#8377;999</a>
-            </div>
-            <div class="pc fv reveal d1">
-                <div class="bt bv">Most Popular</div>
-                <div class="tier ts">Tier 02 &bull; Comprehensive</div>
-                <div><div class="ct">Full-Stack Web App</div><div class="pr"><div class="pn gs">&#8377;2,499</div><div class="pu">/ one-time</div></div></div>
-                <p class="cd">Complete dynamic app with database, authentication, and admin panel.</p>
-                <ul class="fl ls"><li>MERN / Django / PHP-MySQL full-stack code</li><li>Database integration &amp; admin dashboard</li><li>Editable PPT &amp; project synopsis</li><li>1-on-1 code walkthrough on Google Meet</li><li>Remote AnyDesk laptop setup support</li></ul>
-                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20the%20Full-Stack%20package%20for%20%E2%82%B92499." target="_blank" class="btn btn-s" style="margin-top:auto;">Get Full-Stack &mdash; &#8377;2,499</a>
-            </div>
-            <div class="pc reveal d2">
-                <div class="tier ta">Tier 03 &bull; Official SaaS</div>
-                <div><div class="ct">SaaS Business Website</div><div class="pr"><div class="pn ga">&#8377;4,999+</div><div class="pu">/ custom</div></div></div>
-                <p class="cd">Professional SaaS-grade landing and dashboard website for your startup.</p>
-                <ul class="fl la"><li>Modern SaaS landing page with pricing section</li><li>User dashboard UI (React / Next.js)</li><li>CMS-ready blog &amp; documentation pages</li><li>Auth integration &mdash; login, signup, OAuth</li><li>SEO optimized + Vercel / Netlify deployment</li></ul>
-                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20need%20a%20SaaS%20Business%20Website." target="_blank" class="btn btn-g" style="margin-top:auto;">Discuss SaaS Website</a>
+            <div class="header-actions">
+                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20start%20a%20project%20with%20Team%20Cipher." target="_blank" class="btn btn-primary btn-sm header-cta-btn">Start a Project</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
             </div>
         </div>
-        <div class="ai-b reveal">
-            <div>
-                <div class="tier ts" style="display:block;margin-bottom:.7rem;">New Offer &bull; AI Integration</div>
-                <h3 class="font-display" style="font-size:1.65rem;font-weight:700;letter-spacing:-.025em;color:var(--text-primary);margin-bottom:.55rem;">AI Integration for Your App or Website</h3>
-                <p style="color:var(--text-secondary);font-size:.888rem;max-width:500px;line-height:1.75;">Integrate powerful AI features &mdash; ChatGPT, Gemini, or custom ML models &mdash; into your existing product. Chatbots, smart search, content generators, recommendation engines &amp; more.</p>
-                <div class="ai-tags"><span class="ai-tag">OpenAI / Gemini API</span><span class="ai-tag">AI Chatbot</span><span class="ai-tag">Smart Recommendations</span><span class="ai-tag">Content Generator</span><span class="ai-tag">Image AI / Vision API</span></div>
-            </div>
-            <div class="ai-pb">
-                <div class="ai-pn">&#8377;3,000</div>
-                <div class="ai-pl">Starting Price / Project</div>
-                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20AI%20Integration%20for%20my%20app%20at%20%E2%82%B93000." target="_blank" class="btn btn-s">Get AI Integration &mdash; &#8377;3,000</a>
-            </div>
-        </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <a href="#work" onclick="closeDrawer()">Work</a>
+        <a href="#services" onclick="closeDrawer()">Services</a>
+        <a href="#business" onclick="closeDrawer()">For Business</a>
+        <a href="#students" onclick="closeDrawer()">For Students</a>
+        <a href="#why-us" onclick="closeDrawer()">Why Us</a>
+        <a href="#faq" onclick="closeDrawer()">FAQ</a>
+        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20start%20a%20project%20with%20Team%20Cipher." target="_blank" class="btn btn-primary" style="margin-top: 0.5rem;">Start a Project</a>
     </div>
 
-    <!-- Pookie Wishes -->
-    <div id="pookie-wishes" class="tp">
-        <div class="pk-hero reveal">
-            <div>
-                <div class="tier tr" style="display:block;margin-bottom:.7rem;">Viral Digital Surprises &bull; Pookie Wishes</div>
-                <h3 class="font-display" style="font-size:1.95rem;font-weight:700;letter-spacing:-.03em;color:var(--text-primary);margin-bottom:.8rem;line-height:1.15;">Interactive Surprise Websites<br>From <span class="gr">&#8377;29</span> to Bespoke <span class="gr">&#8377;200+</span></h3>
-                <p style="color:var(--text-secondary);font-size:.925rem;max-width:480px;line-height:1.77;margin-bottom:1.6rem;">Surprise your partner, bestie, or sibling with interactive mini-games, dynamic love letters, songs &amp; private reveals. Choose instant self-serve automated templates from &#8377;29 (ready in 60s), or collaborate 1-on-1 with us for 100% custom-coded surprise websites starting at &#8377;200 (pay only after you love it).</p>
-                <div style="display:flex;gap:.8rem;flex-wrap:wrap;">
-                    <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-r">Explore Ready Templates (From &#8377;29) &rarr;</a>
-                    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20discuss%20a%20Custom%20Pookie%20Wishes%20surprise%20page%20(%E2%82%B9200%2B)." target="_blank" class="btn btn-g">Discuss Custom Page (&#8377;200)</a>
-                </div>
-            </div>
-            <div class="pk-thumb">
-                <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" style="display:block;">
-                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=400&q=80" alt="Pookie Wishes Live Preview">
-                </a>
-                <div style="font-size:.8rem;font-weight:600;color:var(--text-primary);margin-top:.65rem;">Pookie Wishes &mdash; Live App</div>
-                <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" class="pk-url">pookie-wishes.vercel.app &uarr;</a>
-                <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--rose-light);margin-top:3px;">Ready in 60s &bull; Custom from &#8377;200</div>
-            </div>
-        </div>
-        <div class="g3">
-            <div class="pc fr reveal">
-                <div class="tier tr">Self-Serve &bull; Automated</div>
-                <div><div class="ct">Automated Template</div><div class="pr"><div class="pn gr">&#8377;29+</div><div class="pu">/ template</div></div></div>
-                <p class="cd">Pick any pre-made theme on the web app, fill the form with your photos &amp; message, and get your live page instantly.</p>
-                <ul class="fl lr"><li>Instant 60-second automated build</li><li>Birthday, Love, Hogwarts &amp; Festive themes</li><li>Upload private photos &amp; custom song track</li><li>100% private link live for 30 days</li><li>Self-serve online builder &mdash; zero waiting</li></ul>
-                <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-r" style="margin-top:auto;">Explore Templates &mdash; From &#8377;29</a>
-            </div>
-            <div class="pc fr fv reveal d1" style="border-color:rgba(244,63,94,.42);">
-                <div class="bt br">Discuss 1-on-1</div>
-                <div class="tier tr">Bespoke &bull; 100% Custom</div>
-                <div><div class="ct">Custom Bespoke Surprise</div><div class="pr"><div class="pn gr">&#8377;200+</div><div class="pu">/ custom</div></div></div>
-                <p class="cd">Have a unique idea? We build it from scratch &mdash; discuss 1-on-1 on WhatsApp. Pay only after you love the result.</p>
-                <ul class="fl lr"><li>Tailored custom animations &amp; personal flow</li><li>Polaroid photo timeline &amp; secret passcode notes</li><li>Custom background song &amp; typewriter letters</li><li>No advance payment &mdash; pay after satisfaction</li><li>Collaboratively coded for your special person</li></ul>
-                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20discuss%20a%20Custom%20Bespoke%20Pookie%20Page%20for%20%E2%82%B9200." target="_blank" class="btn btn-r" style="margin-top:auto;">Discuss Custom &mdash; &#8377;200</a>
-            </div>
-            <div class="pc reveal d2">
-                <div class="tier ta">Interactive Game &bull; Full Experience</div>
-                <div>
-                    <div class="ct">Ultra Custom Web App</div>
-                    <div class="pr"><div class="pn ga">&#8377;599</div><div class="pu">/ custom</div></div>
-                </div>
-                <p class="cd">Full interactive mini-games (e.g. Hogwarts sorting, Catch the Heart, Quiz), voice notes &amp; lifetime hosting.</p>
-                <ul class="fl la">
-                    <li>Custom couple trivia &amp; playable mini-game</li>
-                    <li>Unlimited photos + custom voice notes audio</li>
-                    <li>Animated countdown to birthday / anniversary</li>
-                    <li>Lifetime permanent hosting</li>
-                    <li>Custom branding removal</li>
-                </ul>
-                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20the%20Ultra%20Custom%20Web%20App%20for%20%E2%82%B9599." target="_blank" class="btn btn-g" style="margin-top:auto;">Order Ultra Custom Web App</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Past Work -->
-    <div id="web-dev" class="tp">
-
-        <!-- Section intro -->
-        <div style="text-align:center; margin-bottom:2.4rem;">
-            <span class="sec-ey">Our Portfolio</span>
-            <h3 class="font-display" style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;letter-spacing:-.025em;color:var(--text-primary);margin-top:.5rem;">Work We Have Built</h3>
-            <p style="font-size:.92rem;color:var(--text-secondary);max-width:480px;margin:.6rem auto 0;line-height:1.75;">Real projects delivered for real clients &mdash; websites, SEO, and digital growth.</p>
-        </div>
-
-        <div class="g2">
-
-            <!-- Featured Project: The Falcon Tour (Web Dev + SEO) -->
-            <div class="fc reveal" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.2fr; gap: 0;">
-                <div class="fc-img" style="height: 100%; min-height: 320px;">
-                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80" alt="The Falcon Tour Project">
-                    <span class="fc-chip">Live Client Project &bull; Web &amp; SEO</span>
-                </div>
-                <div class="fc-body" style="padding: 2.2rem;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-                        <div class="tier tv">Case Study &bull; Travel &amp; Tourism</div>
-                        <span style="font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--emerald); background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25); padding: 0.2rem 0.6rem; border-radius: 999px;">100% Live &amp; Ranked</span>
+    <!-- 1. Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="section-eyebrow reveal">
+                        <span>●</span> Modern Development Studio
                     </div>
-
-                    <div class="fc-ti" style="font-size: 1.5rem; margin-top: 0.3rem;">The Falcon Tour</div>
-                    
-                    <p class="fc-de" style="font-size: 0.92rem; margin-bottom: 0.5rem;">
-                        Complete end-to-end digital transformation for <strong>The Falcon Tour</strong> — from custom website architecture &amp; UI/UX design to complete Google SEO ranking optimization.
+                    <h1 class="hero-headline font-display reveal delay-1">
+                        We Build.<br>You Grow.
+                    </h1>
+                    <h2 class="hero-headline-sub reveal delay-1">
+                        Websites for businesses. Projects for students.
+                    </h2>
+                    <p class="hero-desc reveal delay-2">
+                        From professional business websites and web applications to full-stack college projects, we design, develop and deploy practical digital solutions around your needs.
                     </p>
+                    <div class="hero-actions reveal delay-3">
+                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20start%20a%20new%20project%20with%20Team%20Cipher." target="_blank" class="btn btn-primary btn-lg">Start a Project &rarr;</a>
+                        <a href="#work" class="btn btn-secondary btn-lg">View Our Work</a>
+                    </div>
+                    <div class="hero-stats reveal delay-3">
+                        <div class="stat-item">
+                            <h4>Direct</h4>
+                            <p>Founder Communication</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>100%</h4>
+                            <p>Custom Development</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>End-to-End</h4>
+                            <p>Deployment Support</p>
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- Breakdown Grid -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1rem 0; padding: 1.2rem; background: rgba(255,255,255,0.025); border: 1px solid var(--border-mid); border-radius: var(--radius-md);">
-                        <div>
-                            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--violet-light); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-                                <span>&bull;</span> Web Development
+                <!-- Hero Visual: Layered Browser Mockup showcasing real work -->
+                <div class="hero-visual reveal delay-2">
+                    <div class="browser-mockup">
+                        <div class="browser-topbar">
+                            <div class="browser-dots">
+                                <span class="browser-dot dot-r"></span>
+                                <span class="browser-dot dot-y"></span>
+                                <span class="browser-dot dot-g"></span>
                             </div>
-                            <ul style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.8rem; color: var(--text-secondary);">
-                                <li>Custom responsive UI/UX design</li>
-                                <li>Tour listing &amp; booking inquiry flow</li>
-                                <li>Ultra-fast page speed optimization</li>
-                                <li>Cross-device mobile compatibility</li>
+                            <div class="browser-address">
+                                <span>https://</span>thefalcontour.com &bull; Client Project
+                            </div>
+                        </div>
+                        <div class="browser-screen">
+                            <div class="mockup-header-row">
+                                <div class="mockup-brand">
+                                    <span>🦅 The Falcon Tour</span>
+                                </div>
+                                <span class="mockup-badge">Live &amp; Google Indexed</span>
+                            </div>
+                            <div class="mockup-hero-banner">
+                                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80" alt="The Falcon Tour Project Preview">
+                                <div class="mockup-hero-overlay">
+                                    <div class="mockup-hero-title">Custom Travel Portal &amp; SEO Architecture</div>
+                                    <div class="mockup-hero-subtitle">Designed, coded and deployed by Team Cipher</div>
+                                </div>
+                            </div>
+                            <div class="mockup-cards-row">
+                                <div class="mockup-mini-card">
+                                    <h5>Fast UI/UX</h5>
+                                    <p>Responsive mobile layout with instant load speeds</p>
+                                </div>
+                                <div class="mockup-mini-card">
+                                    <h5>SEO Indexing</h5>
+                                    <p>Google Search Console &amp; structured rich metadata</p>
+                                </div>
+                                <div class="mockup-mini-card">
+                                    <h5>Lead Capture</h5>
+                                    <p>Direct WhatsApp &amp; package inquiry integration</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Studio Highlights -->
+                    <div class="float-badge float-badge-1">
+                        <div class="float-icon violet">TC</div>
+                        <div class="float-text">
+                            <strong>Full-Stack Student Portals</strong>
+                            <span>Node.js &bull; Python &bull; SQL &bull; React</span>
+                        </div>
+                    </div>
+
+                    <div class="float-badge float-badge-2">
+                        <div class="float-icon cyan">AI</div>
+                        <div class="float-text">
+                            <strong>AI API &amp; SaaS Integrations</strong>
+                            <span>OpenAI &bull; Gemini &bull; Cloud</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Immediate Audience Split Section -->
+    <section class="audience-split">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Choose Your Path</span>
+                <h2 class="section-title font-display">What are you building?</h2>
+                <p class="section-desc">Select the area that matches your goal. We deliver hands-on technical solutions for both businesses and academic students.</p>
+            </div>
+
+            <div class="split-grid">
+                <!-- Card 1: Business -->
+                <div class="split-card business reveal">
+                    <div>
+                        <span class="split-badge b">For Business &amp; Startups</span>
+                        <h3 class="split-title">Business Websites &amp; Digital Solutions</h3>
+                        <p class="split-desc">Build a professional online presence, high-converting web application, or custom digital product for your business.</p>
+                        <ul class="split-list">
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Business Websites
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Landing Pages
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Web Applications
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                SaaS MVPs
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                AI Integrations
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                SEO &amp; Deployment
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#business" class="btn btn-primary">Build for Business &rarr;</a>
+                </div>
+
+                <!-- Card 2: Students -->
+                <div class="split-card students reveal delay-1">
+                    <div>
+                        <span class="split-badge s">For College &amp; University</span>
+                        <h3 class="split-title">College Projects &amp; Development</h3>
+                        <p class="split-desc">Practical, explainable and deployment-ready projects tailored for academic lab and semester requirements.</p>
+                        <ul class="split-list">
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Mini Projects (from &#8377;999)
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Full-Stack Projects (from &#8377;2,499)
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Database &amp; SQL Systems
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Python / C++ Applications
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Laptop Setup &amp; AnyDesk
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                PPT, Synopsis &amp; Viva Walkthrough
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#students" class="btn btn-cyan">Explore Student Projects &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Services Grid ("What We Build") -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Capabilities</span>
+                <h2 class="section-title font-display">What We Build</h2>
+                <p class="section-desc">Focused technical services engineered with clean code, fast loading speeds, and direct communication.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 01 -->
+                <div class="service-card reveal">
+                    <div class="service-num">01 / BUSINESS</div>
+                    <div class="service-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h3 class="service-title">Business Websites</h3>
+                    <p class="service-desc">Custom landing pages, corporate websites, and lead generation platforms crafted to establish credibility and convert visitors into clients.</p>
+                    <div class="service-footer">
+                        <span class="service-tag">Custom UI &bull; Responsive</span>
+                        <a href="#business" class="service-link">Learn more &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 02 -->
+                <div class="service-card reveal delay-1">
+                    <div class="service-num">02 / APPS</div>
+                    <div class="service-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    </div>
+                    <h3 class="service-title">Web Applications</h3>
+                    <p class="service-desc">Interactive dynamic web apps, dashboards, administrative tools, authentication systems, and scalable database backends.</p>
+                    <div class="service-footer">
+                        <span class="service-tag">React &bull; Node &bull; Python</span>
+                        <a href="#business" class="service-link">Learn more &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 03 -->
+                <div class="service-card reveal delay-2">
+                    <div class="service-num">03 / ACADEMIC</div>
+                    <div class="service-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <h3 class="service-title">College Projects</h3>
+                    <p class="service-desc">Complete mini and major projects for BCA, B.Tech, MCA, and Diploma students with fully formatted source code and viva guidance.</p>
+                    <div class="service-footer">
+                        <span class="service-tag">From &#8377;999 &bull; Full Setup</span>
+                        <a href="#students" class="service-link">View packages &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 04 -->
+                <div class="service-card reveal">
+                    <div class="service-num">04 / AI</div>
+                    <div class="service-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                    <h3 class="service-title">AI Integrations</h3>
+                    <p class="service-desc">Integrate OpenAI, Gemini API, intelligent chat assistants, automated content generators, or smart classification workflows into your website.</p>
+                    <div class="service-footer">
+                        <span class="service-tag">OpenAI &bull; Gemini API</span>
+                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20am%20interested%20in%20AI%20Integration." target="_blank" class="service-link">Discuss AI &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 05 -->
+                <div class="service-card reveal delay-1">
+                    <div class="service-num">05 / GROWTH</div>
+                    <div class="service-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                    </div>
+                    <h3 class="service-title">SEO &amp; Google Indexing</h3>
+                    <p class="service-desc">Technical on-page SEO, schema markup, Google Search Console indexing, and performance optimization so people can actually find you.</p>
+                    <div class="service-footer">
+                        <span class="service-tag">Google Indexing &bull; Speed</span>
+                        <a href="#work" class="service-link">See results &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 06 -->
+                <div class="service-card reveal delay-2">
+                    <div class="service-num">06 / CLOUD</div>
+                    <div class="service-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                    </div>
+                    <h3 class="service-title">Deployment &amp; Hosting</h3>
+                    <p class="service-desc">Custom domain configuration, SSL certificates, zero-downtime deployment on Vercel, Netlify, AWS, or VPS setups with full handover.</p>
+                    <div class="service-footer">
+                        <span class="service-tag">Vercel &bull; AWS &bull; SSL</span>
+                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20need%20help%20with%20Deployment%20and%20Hosting." target="_blank" class="service-link">Get help &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Portfolio / Work Section ("Built by Team Cipher") -->
+    <section class="work-section" id="work">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Real Portfolio</span>
+                <h2 class="section-title font-display">Built by Team Cipher</h2>
+                <p class="section-desc">From academic applications to real-world business websites. We build practical digital solutions that actually work.</p>
+            </div>
+
+            <!-- Featured Case Study: The Falcon Tour -->
+            <div class="case-study-hero reveal">
+                <div class="case-study-visual">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80" alt="The Falcon Tour Live Client Project">
+                    <div class="case-study-badge-float">
+                        <span class="status-dot"></span> Live Client Website &bull; Travel &amp; Tourism
+                    </div>
+                </div>
+                <div class="case-study-body">
+                    <div>
+                        <div class="cs-eyebrow">Case Study &bull; Featured Project</div>
+                        <h3 class="cs-title">The Falcon Tour</h3>
+                        <p class="cs-summary">Complete digital presence for a premier travel and tour operator — designed, developed, and search-optimized by Team Cipher.</p>
+                    </div>
+
+                    <div class="cs-breakdown">
+                        <div class="cs-block dev">
+                            <h6>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                                Development
+                            </h6>
+                            <ul>
+                                <li>&bull; Responsive mobile-first UI/UX</li>
+                                <li>&bull; Tour listing &amp; package flows</li>
+                                <li>&bull; Instant inquiry booking flow</li>
+                                <li>&bull; Fast asset delivery &amp; caching</li>
                             </ul>
                         </div>
-                        <div>
-                            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--sky); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-                                <span>&bull;</span> SEO &amp; Google Ranking
-                            </div>
-                            <ul style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.8rem; color: var(--text-secondary);">
-                                <li>Targeted travel keyword research</li>
-                                <li>On-page meta &amp; semantic schema SEO</li>
-                                <li>Google Search Console indexing</li>
-                                <li>Organic Google search rank boost</li>
+                        <div class="cs-block seo">
+                            <h6>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                SEO &amp; Indexing
+                            </h6>
+                            <ul>
+                                <li>&bull; Travel keyword meta architecture</li>
+                                <li>&bull; Google Search Console verified</li>
+                                <li>&bull; Schema &amp; rich snippet markup</li>
+                                <li>&bull; Live organic search presence</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.2rem;">
-                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--violet-light);background:var(--violet-dim);border:1px solid rgba(139,92,246,.2);padding:.2rem .65rem;border-radius:999px;">HTML / CSS / JavaScript</span>
-                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--sky);background:var(--sky-dim);border:1px solid rgba(56,189,248,.2);padding:.2rem .65rem;border-radius:999px;">On-Page &amp; Technical SEO</span>
-                        <span style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(251,191,36,.2);padding:.2rem .65rem;border-radius:999px;">Google Indexing &amp; Ranking</span>
+                    <div class="cs-tags">
+                        <span class="cs-tag">HTML / CSS / JS</span>
+                        <span class="cs-tag">Responsive UI</span>
+                        <span class="cs-tag">Technical SEO</span>
+                        <span class="cs-tag">Google Indexing</span>
                     </div>
 
-                    <div style="display:flex;gap:.85rem;align-items:center;flex-wrap:wrap;">
-                        <a href="https://thefalcontour.com/" target="_blank" rel="noopener noreferrer" class="btn btn-v">
-                            Visit thefalcontour.com &rarr;
-                        </a>
-                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20a%20full%20Website%20%2B%20SEO%20Ranking%20package%20like%20The%20Falcon%20Tour." target="_blank" class="btn btn-g">
-                            Order Similar Web + SEO
-                        </a>
+                    <div class="cs-actions">
+                        <a href="https://thefalcontour.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit thefalcontour.com &rarr;</a>
+                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20a%20business%20website%20like%20The%20Falcon%20Tour." target="_blank" class="btn btn-secondary btn-sm">Order Similar Website</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Other Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1: Academic Full-Stack Portal -->
+                <div class="project-card reveal">
+                    <div class="project-thumb">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Full-Stack Student Project System">
+                        <span class="project-category">Student &bull; Full-Stack</span>
+                    </div>
+                    <div class="project-info">
+                        <h4 class="project-title">College Management &amp; Examination Portal</h4>
+                        <p class="project-desc">Complete full-stack academic web application featuring user authentication, role-based dashboards (Admin, Faculty, Student), dynamic SQL database schema, and report generation.</p>
+                        <div class="cs-tags">
+                            <span class="cs-tag">React / Node</span>
+                            <span class="cs-tag">Python / Django</span>
+                            <span class="cs-tag">MySQL / PostgreSQL</span>
+                        </div>
+                        <div class="project-meta">
+                            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--cyan);">Viva &amp; AnyDesk Setup Included</span>
+                            <a href="#students" class="service-link">View Student Details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: SaaS & Web Application Interface -->
+                <div class="project-card reveal delay-1">
+                    <div class="project-thumb">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="SaaS Business Dashboard">
+                        <span class="project-category">Business &bull; SaaS App</span>
+                    </div>
+                    <div class="project-info">
+                        <h4 class="project-title">SaaS Analytics &amp; Admin Dashboard</h4>
+                        <p class="project-desc">Custom web application interface built with dark-mode UI components, chart visualizations, API client data fetching, and role-based permissions.</p>
+                        <div class="cs-tags">
+                            <span class="cs-tag">Next.js</span>
+                            <span class="cs-tag">Tailwind CSS</span>
+                            <span class="cs-tag">REST APIs</span>
+                        </div>
+                        <div class="project-meta">
+                            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--emerald);">Modern Architecture</span>
+                            <a href="#business" class="service-link">Discuss SaaS &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: AI Assistant & API Integration -->
+                <div class="project-card reveal">
+                    <div class="project-thumb">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="AI Agent & Integration">
+                        <span class="project-category">AI Integration &bull; Tool</span>
+                    </div>
+                    <div class="project-info">
+                        <h4 class="project-title">Intelligent AI Chat &amp; Recommendation Engine</h4>
+                        <p class="project-desc">API integration bringing conversational AI, prompt templates, context retrieval, and automated document generation directly into existing websites.</p>
+                        <div class="cs-tags">
+                            <span class="cs-tag">OpenAI API</span>
+                            <span class="cs-tag">Gemini API</span>
+                            <span class="cs-tag">Node / Express</span>
+                        </div>
+                        <div class="project-meta">
+                            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-light);">Custom AI Workflows</span>
+                            <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20AI%20Integration." target="_blank" class="service-link">Get AI Setup &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Pookie Wishes (Subtle product card built by Team Cipher) -->
+                <div class="project-card reveal delay-1">
+                    <div class="project-thumb">
+                        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80" alt="Pookie Wishes App">
+                        <span class="project-category">In-House Product</span>
+                    </div>
+                    <div class="project-info">
+                        <h4 class="project-title">Pookie Wishes</h4>
+                        <p class="project-desc">An interactive celebration and personalized digital surprise web application built from scratch by Team Cipher, featuring custom animations and automated link generation.</p>
+                        <div class="cs-tags">
+                            <span class="cs-tag">Interactive Web</span>
+                            <span class="cs-tag">Audio Integration</span>
+                            <span class="cs-tag">Vercel</span>
+                        </div>
+                        <div class="project-meta">
+                            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--rose);">pookie-wishes.vercel.app</span>
+                            <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" class="service-link">View Live App &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- FAQ -->
-    <div id="faq" class="tp">
-        <div class="faq-w reveal">
-            <div class="faq-i"><button class="faq-t" onclick="toggleFaq(this.parentElement)"><span>How does Pookie Wishes work?</span><span class="faq-ic">+</span></button><div class="faq-b"><div class="faq-bi">Pookie Wishes offers two easy options: (1) <strong>Automated Templates (from &#8377;29)</strong> on <a href="https://pookie-wishes.vercel.app/" target="_blank" style="color:var(--rose-light);text-decoration:underline;">pookie-wishes.vercel.app</a> &mdash; pick a theme, fill the form with your photos &amp; message, pay online, and get your live private link in 60 seconds. (2) <strong>Custom Bespoke Surprise (from &#8377;200)</strong> &mdash; message us on WhatsApp to discuss your unique concept (custom mini-games, special animations, custom layout) with zero advance payment; you pay only after reviewing and loving your final page!</div></div></div>
-            <div class="faq-i"><button class="faq-t" onclick="toggleFaq(this.parentElement)"><span>How do I order a College Mini Project for &#8377;999?</span><span class="faq-ic">+</span></button><div class="faq-b"><div class="faq-bi">Click the WhatsApp button and share your college course (BCA, B.Tech, MCA) and required topic. If you do not have a topic, we will suggest five approved project ideas for you to choose from.</div></div></div>
-            <div class="faq-i"><button class="faq-t" onclick="toggleFaq(this.parentElement)"><span>Will you help me run the project on my laptop?</span><span class="faq-ic">+</span></button><div class="faq-b"><div class="faq-bi">Yes. We provide a full step-by-step setup guide and also offer remote assistance via AnyDesk or TeamViewer to configure your database, Node.js or Python environment, and ensure smooth execution.</div></div></div>
-            <div class="faq-i"><button class="faq-t" onclick="toggleFaq(this.parentElement)"><span>Can you help me prepare for my college viva?</span><span class="faq-ic">+</span></button><div class="faq-b"><div class="faq-bi">Yes. With our Full-Stack (&#8377;2,499) and SaaS Website (&#8377;4,999+) packages, Nikhil Rawat provides a 1-on-1 explanation session on Google Meet and a complete set of anticipated viva questions with model answers.</div></div></div>
-            <div class="faq-i"><button class="faq-t" onclick="toggleFaq(this.parentElement)"><span>What is the AI Integration service?</span><span class="faq-ic">+</span></button><div class="faq-b"><div class="faq-bi">We integrate AI features &mdash; such as a ChatGPT or Gemini-powered chatbot, smart recommendations, or a content generator &mdash; into your existing website or application. Starting at &#8377;3,000; exact pricing depends on complexity.</div></div></div>
+    <!-- 5. Dedicated Student Project Section ("Need a College Project?") -->
+    <section class="students-section" id="students">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow" style="color: var(--cyan); background: var(--cyan-glow); border-color: rgba(56, 189, 248, 0.3);">Student Development &bull; BCA / B.Tech / MCA</span>
+                <h2 class="section-title font-display">Need a College Project?</h2>
+                <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--cyan); margin-bottom: 0.5rem;">Build it. Understand it. Present it.</h3>
+                <p class="section-desc">We build practical, clean academic projects for your semester submissions — with complete code explanations and setup support so you can face your viva with 100% confidence.</p>
+            </div>
+
+            <!-- Student Pricing Cards -->
+            <div class="pricing-grid">
+                <!-- Mini Project -->
+                <div class="pricing-card reveal">
+                    <div>
+                        <div class="pricing-tier-name">Lab &amp; Semester Submission</div>
+                        <h4 class="pricing-title">Mini Project Package</h4>
+                        <div class="pricing-price-wrap">
+                            <div class="pricing-price">&#8377;999</div>
+                            <div class="pricing-period">/ complete project</div>
+                        </div>
+                        <p style="font-size: 0.86rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                            Ideal for 1st–3rd year BCA, B.Tech, BSc CS, and Diploma lab practicals and mini-project submissions.
+                        </p>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Complete, neatly formatted source code (HTML/CSS/JS, Python, or C++)</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Step-by-step setup and installation instructions</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Curated Viva Q&amp;A question bank with sample answers</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Guaranteed error-free execution &amp; quick turnaround</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20order%20the%20College%20Mini%20Project%20(%E2%82%B9999)." target="_blank" class="btn btn-secondary" style="margin-top: auto;">Order Mini Project &mdash; &#8377;999</a>
+                </div>
+
+                <!-- Full-Stack Project -->
+                <div class="pricing-card featured reveal delay-1">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div>
+                        <div class="pricing-tier-name">Major Semester / Final Year</div>
+                        <h4 class="pricing-title">Full-Stack Dynamic App</h4>
+                        <div class="pricing-price-wrap">
+                            <div class="pricing-price" style="color: var(--cyan);">&#8377;2,499</div>
+                            <div class="pricing-period">/ complete project</div>
+                        </div>
+                        <p style="font-size: 0.86rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                            Comprehensive full-stack application with database, authentication, admin dashboard, and 1-on-1 viva guidance.
+                        </p>
+                        <ul class="pricing-features">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Full-Stack source code (MERN / Django / PHP-MySQL / Node.js)</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Complete database schema, models &amp; admin dashboard</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Editable PowerPoint presentation (PPT) &amp; Project Synopsis</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Remote AnyDesk laptop configuration &amp; database setup</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span><strong>1-on-1 Code Walkthrough &amp; Viva Prep</strong> on Google Meet with Nikhil</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20order%20the%20Full-Stack%20Project%20Package%20(%E2%82%B92499)." target="_blank" class="btn btn-cyan" style="margin-top: auto;">Get Full-Stack Project &mdash; &#8377;2,499</a>
+                </div>
+            </div>
+
+            <!-- Student Support Pillars -->
+            <div class="student-pillars reveal">
+                <div class="pillar-card">
+                    <div class="pillar-icon">📂</div>
+                    <h5>Complete Source Code</h5>
+                    <p>Clean, structured codebase with comments explaining what every function does.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">💻</div>
+                    <h5>Remote Laptop Setup</h5>
+                    <p>We connect via AnyDesk/TeamViewer to set up Node, Python, and SQL on your machine.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">📊</div>
+                    <h5>PPT &amp; Synopsis Included</h5>
+                    <p>College-ready presentation slides and project report synopsis for submission.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🎯</div>
+                    <h5>Viva &amp; Logic Explanation</h5>
+                    <p>We explain how the frontend talks to the backend so you can answer any viva question.</p>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<div class="sec-pad">
-    <div class="cta-bl reveal">
-        <h3 class="cta-ti font-display">Ready to build your next project?</h3>
-        <p class="cta-de">Whether you need an academic submission, a custom surprise page, a SaaS platform, or AI integration &mdash; Team Cipher is ready.</p>
-        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20Let%27s%20discuss%20a%20project." target="_blank" class="btn btn-v" style="font-size:1rem;padding:.88rem 2.2rem;">Talk to Nikhil on WhatsApp</a>
-    </div>
-</div>
+    <!-- 6. Dedicated Business Section ("Have a Business Idea?") -->
+    <section class="business-section" id="business">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">For Clients &amp; Businesses</span>
+                <h2 class="section-title font-display">Have a Business Idea?</h2>
+                <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--accent-light); margin-bottom: 0.5rem;">Let's turn it into a working website or digital product.</h3>
+                <p class="section-desc">We build professional, fast, and search-indexed web solutions designed around your business workflow and customers.</p>
+            </div>
 
-<footer>
-    <div class="f-logo" style="display:flex; align-items:center; gap:0.6rem;">
-        <img src="favicon.svg" alt="Team Cipher Logo" style="width:24px; height:24px; border-radius:6px; flex-shrink:0;">
-        <span><strong>Team Cipher</strong> &nbsp;&bull;&nbsp; Led by Nikhil Rawat</span>
-    </div>
-    <div class="f-li">
-        <a href="https://pookie-wishes.vercel.app/" target="_blank">Pookie Wishes Live</a>
-        <a href="https://wa.me/918700113731" target="_blank">WhatsApp</a>
-        <a href="mailto:teamcipher.work@gmail.com">teamcipher.work@gmail.com</a>
-    </div>
-    <div class="f-cp">&copy; 2026 Team Cipher. All rights reserved.</div>
-</footer>
+            <div class="business-grid">
+                <!-- Business Web -->
+                <div class="biz-card reveal">
+                    <span class="biz-tag">Online Presence</span>
+                    <h4>Business Website &amp; Landing Pages</h4>
+                    <p>Responsive corporate or agency website with modern UI/UX design, customer inquiry capture, and speed optimization.</p>
+                    <div class="biz-pricing">Starting from &#8377;4,999</div>
+                </div>
 
-<script>
-    function switchTab(tabId, btn) {
-        document.querySelectorAll('.tp').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('.tb').forEach(b => b.classList.remove('active'));
-        const pane = document.getElementById(tabId);
-        if (pane) pane.classList.add('active');
-        if (btn) {
-            btn.classList.add('active');
-        } else {
-            document.querySelectorAll('.tb').forEach(b => {
-                if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(tabId)) b.classList.add('active');
+                <!-- Custom App -->
+                <div class="biz-card reveal delay-1">
+                    <span class="biz-tag">Custom Software</span>
+                    <h4>Web Applications &amp; SaaS MVPs</h4>
+                    <p>Custom client portals, database-backed dashboards, user accounts, and functional prototypes ready to validate with real users.</p>
+                    <div class="biz-pricing">Starting from &#8377;9,999</div>
+                </div>
+
+                <!-- AI Solution -->
+                <div class="biz-card reveal delay-2">
+                    <span class="biz-tag">Smart Automation</span>
+                    <h4>AI Integrations &amp; Automation</h4>
+                    <p>Add OpenAI or Gemini capabilities to your website — chatbots, content generators, automated support, and smart search.</p>
+                    <div class="biz-pricing">Starting from &#8377;3,000</div>
+                </div>
+            </div>
+
+            <div style="text-align: center;" class="reveal">
+                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20have%20a%20business%20website%20project%20I%20would%20like%20to%20discuss." target="_blank" class="btn btn-primary btn-lg">Discuss Your Project on WhatsApp &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Process Section ("From Idea to Launch") -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Our Workflow</span>
+                <h2 class="section-title font-display">From Idea to Launch</h2>
+                <p class="section-desc">A straightforward, transparent 5-step process with zero unnecessary complexity.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step reveal">
+                    <div class="process-num">01</div>
+                    <h4 class="process-title">Discuss</h4>
+                    <p class="process-desc">We listen to your requirements, target audience, features, and timeline.</p>
+                </div>
+                <div class="process-step reveal delay-1">
+                    <div class="process-num">02</div>
+                    <h4 class="process-title">Plan</h4>
+                    <p class="process-desc">We define the technical stack, database models, and layout architecture.</p>
+                </div>
+                <div class="process-step reveal delay-2">
+                    <div class="process-num">03</div>
+                    <h4 class="process-title">Build</h4>
+                    <p class="process-desc">We design and write clean, maintainable, and responsive code.</p>
+                </div>
+                <div class="process-step reveal delay-3">
+                    <div class="process-num">04</div>
+                    <h4 class="process-title">Review</h4>
+                    <p class="process-desc">We review the project together, test across devices, and make refinements.</p>
+                </div>
+                <div class="process-step reveal delay-3">
+                    <div class="process-num">05</div>
+                    <h4 class="process-title">Launch</h4>
+                    <p class="process-desc">We deploy to the cloud, configure domains, and hand over all files.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Why Team Cipher (Trust & Differentiation) -->
+    <section class="why-section" id="why-us">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Why Team Cipher</span>
+                <h2 class="section-title font-display">Practical Development You Can Trust</h2>
+                <p class="section-desc">No corporate fluff, no generic templates, and no outsourced middle-men.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card reveal">
+                    <div class="why-icon">🛠️</div>
+                    <h4>Custom, Not Copied</h4>
+                    <p>Every project is coded to meet your specific business requirements or academic syllabus guidelines.</p>
+                </div>
+                <div class="why-card reveal delay-1">
+                    <div class="why-icon">⚡</div>
+                    <h4>Practical Development</h4>
+                    <p>We focus on usable, functional, and deployable digital solutions that deliver real results.</p>
+                </div>
+                <div class="why-card reveal delay-2">
+                    <div class="why-icon">💬</div>
+                    <h4>Direct Communication</h4>
+                    <p>You talk directly with the developer building your project. No confusing project managers.</p>
+                </div>
+                <div class="why-card reveal">
+                    <div class="why-icon">🚀</div>
+                    <h4>From Code to Deployment</h4>
+                    <p>We don't just send files — we configure databases, setup local environments, and deploy live.</p>
+                </div>
+                <div class="why-card reveal delay-1">
+                    <div class="why-icon">🎓</div>
+                    <h4>Student-Friendly Support</h4>
+                    <p>Academic projects come with code explanations and viva preparation so you understand what you're submitting.</p>
+                </div>
+                <div class="why-card reveal delay-2">
+                    <div class="why-icon">🔒</div>
+                    <h4>Transparent Pricing</h4>
+                    <p>Clear upfront rates with zero hidden fees, fake discounts, or artificial urgency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Founder Section -->
+    <section class="founder-section">
+        <div class="container">
+            <div class="founder-card reveal">
+                <div class="founder-avatar">NR</div>
+                <div class="founder-info">
+                    <h3>Nikhil Rawat</h3>
+                    <div class="founder-role">Founder &amp; Tech Lead &bull; Team Cipher</div>
+                    <p class="founder-quote">
+                        &ldquo;Team Cipher is built around a simple idea — make quality development accessible to businesses and students without making the process complicated.&rdquo;
+                    </p>
+                    <div class="founder-actions">
+                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20Let%27s%20connect%20regarding%20a%20project." target="_blank" class="btn btn-primary btn-sm">Message Nikhil on WhatsApp</a>
+                        <a href="mailto:teamcipher.work@gmail.com" class="btn btn-secondary btn-sm">teamcipher.work@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">Got Questions?</span>
+                <h2 class="section-title font-display">Frequently Asked Questions</h2>
+                <p class="section-desc">Clear answers about our development process, student support, and client services.</p>
+            </div>
+
+            <div class="faq-wrapper reveal">
+                <!-- Q1 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>What type of business websites do you build?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We build modern landing pages, corporate websites, portfolio sites, and booking/inquiry platforms. Every website is custom-designed, fully responsive across mobile and desktop, speed-optimized, and configured with Google Search Console for indexing.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do you build custom web applications and SaaS MVPs?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. We develop dynamic web applications with user authentication, custom dashboards, database schemas (PostgreSQL, MySQL, MongoDB), and RESTful APIs using modern stacks like React, Next.js, Node.js, and Python.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>What type of college projects do you provide?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We provide both <strong>Mini Projects (&#8377;999)</strong> and <strong>Full-Stack Major Projects (&#8377;2,499)</strong> for BCA, B.Tech, MCA, BSc CS, and Diploma students. Tech stacks include HTML/CSS/JavaScript, Python, C++, Django, PHP-MySQL, and MERN stack.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do you provide complete source code with the project?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes, 100%. You receive the complete, unminified, well-commented source code files along with installation documentation so you can modify and examine the code freely.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Will you help me set up and run the project on my laptop?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. In addition to a step-by-step setup guide, we provide remote assistance over AnyDesk or TeamViewer to configure your local runtime (Node.js, Python, MySQL/XAMPP) and verify that the project executes smoothly without errors.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do you provide PPT and project synopsis support?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. Our Full-Stack package (&#8377;2,499) includes an editable PowerPoint presentation (PPT) and a structured project synopsis document that you can directly customize for your college submission.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do you help with viva preparation and code explanation?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. With our Full-Stack package, Nikhil conducts a 1-on-1 walkthrough on Google Meet to explain the system architecture, database flow, and logic, and provides a list of probable viva questions with model answers.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How long does it take to deliver a project?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            College mini projects are usually ready within 24 to 48 hours. Full-stack student projects typically take 2 to 4 days. Business websites and custom web applications vary based on scope and are delivered according to an agreed milestone schedule (usually 5 to 14 days).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do revisions work?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We work iteratively. For both business clients and students, we review the work together and perform necessary refinements, styling tweaks, and bug fixes before final sign-off.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How can I start a project with Team Cipher?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Simply click the WhatsApp button or email us. Tell us what you are looking to build (business website or college project), and we will discuss requirements, share ideas, and get started right away.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-box reveal">
+                <h2 class="cta-title font-display">Ready to build your next website or project?</h2>
+                <p class="cta-desc">Whether you are a business looking for a high-converting website or a student needing a practical college project with viva support — we are ready.</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20am%20ready%20to%20start%20a%20project%20with%20Team%20Cipher." target="_blank" class="btn btn-primary btn-lg">Chat on WhatsApp &rarr;</a>
+                    <a href="mailto:teamcipher.work@gmail.com" class="btn btn-secondary btn-lg">Send an Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <img src="favicon.svg" alt="Team Cipher Logo" class="brand-logo" style="width: 28px; height: 28px;">
+                        <span>Team Cipher</span>
+                    </div>
+                    <p>Modern development studio building websites for businesses and practical projects for students. Led by Nikhil Rawat.</p>
+                    <a href="https://wa.me/918700113731" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex;">+91 87001 13731</a>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Navigation</h5>
+                    <div class="footer-links">
+                        <a href="#work">Our Work</a>
+                        <a href="#services">Services</a>
+                        <a href="#business">For Business</a>
+                        <a href="#students">For Students</a>
+                        <a href="#why-us">Why Team Cipher</a>
+                        <a href="#faq">FAQ</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Services</h5>
+                    <div class="footer-links">
+                        <a href="#business">Business Websites</a>
+                        <a href="#business">Web Applications</a>
+                        <a href="#students">Mini Projects (&#8377;999)</a>
+                        <a href="#students">Full-Stack Projects (&#8377;2,499)</a>
+                        <a href="#business">AI Integrations</a>
+                        <a href="#work">SEO &amp; Ranking</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Products &amp; Contact</h5>
+                    <div class="footer-links">
+                        <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer">Pookie Wishes (Web App)</a>
+                        <a href="https://thefalcontour.com/" target="_blank" rel="noopener noreferrer">The Falcon Tour (Live Client)</a>
+                        <a href="https://wa.me/918700113731" target="_blank">WhatsApp Direct</a>
+                        <a href="mailto:teamcipher.work@gmail.com">teamcipher.work@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Team Cipher &bull; All Rights Reserved.</div>
+                <div>Designed &amp; Developed by Team Cipher &bull; Led by Nikhil Rawat</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile navigation drawer toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        
+        if (menuToggle && mobileDrawer) {
+            menuToggle.addEventListener('click', () => {
+                mobileDrawer.classList.toggle('active');
             });
-            const s = document.getElementById('services');
-            if (s) setTimeout(() => s.scrollIntoView({ behavior:'smooth', block:'start' }), 10);
         }
-    }
-    function toggleFaq(item) {
-        const open = item.classList.contains('open');
-        document.querySelectorAll('.faq-i.open').forEach(i => i.classList.remove('open'));
-        if (!open) item.classList.add('open');
-    }
-    const ro = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-</script>
+
+        function closeDrawer() {
+            if (mobileDrawer) {
+                mobileDrawer.classList.remove('active');
+            }
+        }
+
+        // Accordion FAQ interaction
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const isActive = item.classList.contains('active');
+
+            // Close all other active items
+            document.querySelectorAll('.faq-item.active').forEach(openItem => {
+                if (openItem !== item) {
+                    openItem.classList.remove('active');
+                    openItem.querySelector('.faq-answer').style.maxHeight = null;
+                }
+            });
+
+            if (isActive) {
+                item.classList.remove('active');
+                answer.style.maxHeight = null;
+            } else {
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        }
+
+        // Intersection Observer for smooth scroll reveals
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
-</html>
+</html>
