@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a14"/>
+      <stop offset="100%" stop-color="#05050a"/>
+    </linearGradient>
+    <linearGradient id="glowViolet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="coreCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Hexagon/Squircle -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)"/>
+  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="url(#glowViolet)" stroke-width="6" opacity="0.4"/>
+
+  <!-- Ambient Outer Glow -->
+  <circle cx="256" cy="256" r="160" fill="#8b5cf6" opacity="0.15" filter="blur(40px)"/>
+
+  <!-- Cipher Hexagon Shield -->
+  <path d="M 256 70 L 410 160 L 410 352 L 256 442 L 102 352 L 102 160 Z" 
+        fill="none" stroke="url(#glowViolet)" stroke-width="16" stroke-linejoin="round" filter="url(#glow)"/>
+
+  <!-- Inner Cyber Tech Circuit Accents -->
+  <path d="M 256 100 L 380 172 L 380 340 L 256 412 L 132 340 L 132 172 Z" 
+        fill="rgba(139,92,246,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Stylized T and C Monogram -->
+  <!-- Top Horizontal Bar of T -->
+  <path d="M 180 180 L 332 180" stroke="url(#coreCyan)" stroke-width="26" stroke-linecap="round" filter="url(#glow)"/>
+  
+  <!-- Vertical Stem of T -->
+  <path d="M 256 180 L 256 335" stroke="url(#coreCyan)" stroke-width="26" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Modern Cipher C Arc -->
+  <path d="M 335 235 C 335 320 295 348 256 348 C 190 348 160 300 160 256 C 160 210 190 168 256 168 C 295 168 325 190 340 212" 
+        fill="none" stroke="url(#glowViolet)" stroke-width="20" stroke-linecap="round" opacity="0.95" filter="url(#glow)"/>
+
+  <!-- Core Quantum Cyber Node -->
+  <circle cx="256" cy="256" r="10" fill="#ffffff" filter="url(#glow)"/>
+  <circle cx="256" cy="256" r="5" fill="#06b6d4"/>
+</svg>
