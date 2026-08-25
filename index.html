@@ -3,2639 +3,1686 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Cipher — Web Development & Student Project Solutions</title>
-    <meta name="description" content="Team Cipher is a modern development studio building custom websites and digital solutions for businesses, and practical college development projects for students. Led by Nikhil Rawat.">
-    <meta name="keywords" content="Team Cipher, Web Development, Business Websites, College Projects, Student Projects, Full Stack Projects, Mini Projects, Nikhil Rawat, SEO, SaaS, AI Integration">
-    <meta name="author" content="Nikhil Rawat">
-
-    <!-- Open Graph / Meta -->
+    <title>Team Cipher — Digital Engineering Studio</title>
+    <meta name="description" content="Premium web engineering, SaaS development, and student software solutions. We turn complex requirements into high-performance software.">
+    <meta name="keywords" content="web development, full stack, student projects, SaaS engineering, Team Cipher, Nikhil Rawat, modern websites">
+    <meta property="og:title" content="Team Cipher — Digital Engineering Studio">
+    <meta property="og:description" content="Custom Web Engineering, Scalable Architecture, and Comprehensive Student Systems.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Team Cipher — Web Development & Student Project Solutions">
-    <meta property="og:description" content="Websites for businesses. Practical, explainable projects for students. Built with care by Team Cipher.">
-    <meta property="og:image" content="favicon.svg">
-
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         :root {
-            --bg: #07070d;
-            --bg-surface: #0e0e18;
-            --bg-surface-elevated: #141422;
-            --bg-card: rgba(16, 16, 28, 0.75);
-            --bg-card-hover: rgba(22, 22, 38, 0.88);
+            --bg-deep: #050508;
+            --bg-surface: #0c0d14;
+            --bg-card: rgba(18, 20, 32, 0.7);
+            --bg-card-hover: rgba(26, 29, 48, 0.85);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(139, 92, 246, 0.3);
+            --border-cyan: rgba(56, 189, 248, 0.3);
             
-            --border: rgba(255, 255, 255, 0.08);
-            --border-light: rgba(255, 255, 255, 0.14);
-            --border-accent: rgba(139, 92, 246, 0.38);
-            --border-accent-cyan: rgba(56, 189, 248, 0.32);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
             
-            --text-primary: #f4f4f8;
-            --text-secondary: #9ea0b8;
-            --text-tertiary: #636582;
+            --accent-violet: #8b5cf6;
+            --accent-violet-glow: rgba(139, 92, 246, 0.25);
+            --accent-cyan: #38bdf8;
+            --accent-cyan-glow: rgba(56, 189, 248, 0.25);
+            --accent-emerald: #10b981;
             
-            --accent: #8b5cf6;
-            --accent-light: #a78bfa;
-            --accent-glow: rgba(139, 92, 246, 0.18);
-            
-            --cyan: #38bdf8;
-            --cyan-light: #7dd3fc;
-            --cyan-glow: rgba(56, 189, 248, 0.15);
-            
-            --emerald: #34d399;
-            --emerald-glow: rgba(52, 211, 153, 0.15);
-            
-            --amber: #fbbf24;
-            --rose: #f43f5e;
-            
-            --radius-xs: 6px;
-            --radius-sm: 10px;
-            --radius-md: 16px;
-            --radius-lg: 22px;
-            --radius-xl: 30px;
-            
-            --ease: cubic-bezier(0.16, 1, 0.3, 1);
-            --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
             --font-display: 'Space Grotesk', sans-serif;
-            --font-mono: 'DM Mono', monospace;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        *, *::before, *::after {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-            line-height: 1.65;
-            min-height: 100vh;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Ambient subtle background glow */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            background:
-                radial-gradient(ellipse 65vw 45vh at 0% 0%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
-                radial-gradient(ellipse 60vw 40vh at 100% 15%, rgba(56, 189, 248, 0.06) 0%, transparent 55%),
-                radial-gradient(ellipse 55vw 35vh at 50% 90%, rgba(52, 211, 153, 0.04) 0%, transparent 60%);
+        html, body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            min-height: 100vh;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Subtle dot grid */
-        body::after {
-            content: '';
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { background: #26293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-violet); }
+
+        /* Background Canvas and Mesh */
+        .ambient-mesh {
             position: fixed;
-            inset: 0;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             pointer-events: none;
             z-index: 0;
-            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 32px 32px;
+            overflow: hidden;
+        }
+        .mesh-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.22;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+        .blob-1 { width: 500px; height: 500px; background: var(--accent-violet); top: -10%; left: 15%; animation-duration: 18s; }
+        .blob-2 { width: 450px; height: 450px; background: var(--accent-cyan); bottom: 10%; right: 10%; animation-duration: 24s; }
+        .blob-3 { width: 350px; height: 350px; background: #6366f1; top: 45%; left: 40%; animation-duration: 15s; }
+
+        @keyframes float {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(40px, -60px) scale(1.08); }
+            100% { transform: translate(-30px, 40px) scale(0.95); }
         }
 
-        header, section, footer {
+        /* Top Notification Strip */
+        .top-banner {
             position: relative;
-            z-index: 1;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.2s var(--ease);
-        }
-
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
-
-        .font-display { font-family: var(--font-display); letter-spacing: -0.025em; }
-        .font-mono { font-family: var(--font-mono); }
-
-        .container {
-            width: 100%;
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Top Announcement Strip */
-        .top-strip {
-            background: linear-gradient(90deg, rgba(139, 92, 246, 0.12), rgba(56, 189, 248, 0.08), rgba(52, 211, 153, 0.08));
-            border-bottom: 1px solid var(--border);
-            padding: 0.45rem 1rem;
+            z-index: 60;
+            background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), rgba(56, 189, 248, 0.1));
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 8px 16px;
             font-size: 0.8rem;
+            color: var(--text-muted);
             text-align: center;
-            color: var(--text-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
+            gap: 10px;
         }
-        .status-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            font-weight: 500;
-            color: var(--emerald);
-            background: var(--emerald-glow);
-            border: 1px solid rgba(52, 211, 153, 0.3);
-            padding: 0.15rem 0.55rem;
-            border-radius: 999px;
-            text-transform: uppercase;
-        }
-        .status-dot {
-            width: 6px;
-            height: 6px;
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background-color: var(--accent-emerald);
             border-radius: 50%;
-            background: var(--emerald);
-            box-shadow: 0 0 8px var(--emerald);
-            animation: pulse-dot 2s infinite ease-in-out;
+            box-shadow: 0 0 10px var(--accent-emerald);
+            animation: pulse 2s infinite;
         }
-        @keyframes pulse-dot {
+        @keyframes pulse {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.7); }
+            50% { opacity: 0.4; transform: scale(0.85); }
         }
 
-        /* Navigation Header */
-        header {
+        /* Fixed Navigation Header */
+        header.site-header {
             position: sticky;
             top: 0;
-            z-index: 100;
-            backdrop-filter: blur(18px) saturate(150%);
-            -webkit-backdrop-filter: blur(18px) saturate(150%);
-            background: rgba(7, 7, 13, 0.82);
-            border-bottom: 1px solid var(--border);
-            height: 68px;
-            display: flex;
-            align-items: center;
+            z-index: 50;
+            background: rgba(8, 9, 14, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 12px 24px;
+            transition: var(--transition-smooth);
         }
-        .nav-wrapper {
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
-        }
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--text-primary);
+            gap: 16px;
         }
         .brand-logo {
-            width: 34px;
-            height: 34px;
-            border-radius: 8px;
-            box-shadow: 0 0 16px rgba(139, 92, 246, 0.4);
-            flex-shrink: 0;
-        }
-        .brand-tag {
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            color: var(--accent-light);
-            background: var(--accent-glow);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            padding: 0.15rem 0.45rem;
-            border-radius: 4px;
-            margin-left: 0.1rem;
-        }
-
-        .nav-links {
             display: flex;
             align-items: center;
-            gap: 0.35rem;
+            gap: 12px;
+            text-decoration: none;
+            cursor: pointer;
         }
-        .nav-links a {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 0.45rem 0.85rem;
-            border-radius: var(--radius-sm);
-        }
-        .nav-links a:hover {
-            color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .header-actions {
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #1e1b4b, #0f172a);
+            border: 1px solid var(--border-accent);
+            border-radius: 10px;
             display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.45rem;
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+            transition: var(--transition-spring);
+        }
+        .brand-logo:hover .logo-icon {
+            transform: rotate(8deg) scale(1.05);
+            border-color: var(--accent-violet);
+        }
+        .brand-name {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #fff;
+        }
+        .brand-badge {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            padding: 2px 7px;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid var(--border-accent);
+            border-radius: 6px;
+            color: var(--accent-violet);
+            letter-spacing: 0.05em;
+        }
+
+        /* Tab Navigation Matrix */
+        .nav-tabs {
+            display: flex;
+            align-items: center;
+            background: rgba(18, 20, 32, 0.85);
+            border: 1px solid var(--border-subtle);
+            border-radius: 30px;
+            padding: 4px;
+            gap: 2px;
+        }
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
             font-family: var(--font-sans);
             font-size: 0.88rem;
-            font-weight: 600;
-            padding: 0.65rem 1.35rem;
-            border-radius: var(--radius-sm);
+            font-weight: 500;
+            border-radius: 22px;
             cursor: pointer;
-            border: 1px solid transparent;
-            transition: all 0.22s var(--ease);
-            white-space: nowrap;
+            transition: var(--transition-smooth);
+            position: relative;
         }
-        .btn:hover {
-            transform: translateY(-1.5px);
+        .nav-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.04);
         }
-        .btn:active {
-            transform: translateY(0);
+        .nav-btn.active {
+            color: #fff;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(56, 189, 248, 0.15));
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(139, 92, 246, 0.15);
         }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent), #7c3aed);
-            color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35);
+        .nav-btn i {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
         }
-        .btn-primary:hover {
-            box-shadow: 0 6px 24px rgba(139, 92, 246, 0.55);
-            color: #ffffff;
+        .nav-btn:hover i {
+            transform: scale(1.15);
         }
-        .btn-secondary {
+
+        /* Action Button */
+        .cta-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent-violet), #6366f1);
+            color: #fff;
+            padding: 9px 20px;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px var(--accent-violet-glow);
+            transition: var(--transition-spring);
+        }
+        .cta-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(139, 92, 246, 0.4);
+            filter: brightness(1.1);
+        }
+        .cta-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background: rgba(255, 255, 255, 0.05);
-            border-color: var(--border-light);
-            color: var(--text-primary);
+            color: var(--text-main);
+            padding: 9px 20px;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
         }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.09);
-            border-color: var(--border-accent);
-        }
-        .btn-cyan {
-            background: linear-gradient(135deg, var(--cyan), #0284c7);
-            color: #ffffff;
-            box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
-        }
-        .btn-cyan:hover {
-            box-shadow: 0 6px 24px rgba(56, 189, 248, 0.5);
-            color: #ffffff;
-        }
-        .btn-sm {
-            padding: 0.45rem 0.95rem;
-            font-size: 0.8rem;
-        }
-        .btn-lg {
-            padding: 0.85rem 1.85rem;
-            font-size: 0.96rem;
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
         /* Mobile Hamburger */
-        .menu-toggle {
+        .menu-toggle-btn {
             display: none;
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            width: 38px;
-            height: 38px;
-            border-radius: var(--radius-sm);
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+            padding: 8px;
+            border-radius: 8px;
             cursor: pointer;
-            align-items: center;
-            justify-content: center;
         }
 
-        /* Mobile Menu Drawer */
-        .mobile-drawer {
+        /* Main Workspace Container (The Dynamic Area) */
+        main#appContainer {
+            position: relative;
+            z-index: 10;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 30px 24px 80px 24px;
+            min-height: calc(100vh - 160px);
+        }
+
+        /* View Switching Logic */
+        .app-view {
             display: none;
-            position: fixed;
-            top: 68px;
-            left: 0;
-            right: 0;
-            background: rgba(14, 14, 24, 0.98);
-            border-bottom: 1px solid var(--border);
-            padding: 1.5rem;
-            backdrop-filter: blur(20px);
-            z-index: 99;
-            flex-direction: column;
-            gap: 0.75rem;
+            opacity: 0;
+            transform: translateY(18px) scale(0.99);
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .mobile-drawer.active {
-            display: flex;
-        }
-        .mobile-drawer a {
-            padding: 0.65rem 1rem;
-            border-radius: var(--radius-sm);
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        .mobile-drawer a:hover {
-            color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.05);
+        .app-view.active-view {
+            display: block;
+            opacity: 1;
+            transform: translateY(0) scale(1);
         }
 
-        /* Section Headings */
+        /* Standard Section Headers */
         .section-header {
             text-align: center;
-            max-width: 680px;
-            margin: 0 auto 3.5rem;
+            max-width: 720px;
+            margin: 0 auto 40px auto;
         }
-        .section-eyebrow {
+        .badge-pill {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 6px;
+            padding: 4px 12px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid var(--border-accent);
+            border-radius: 20px;
+            font-size: 0.78rem;
             font-family: var(--font-mono);
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
+            color: var(--accent-violet);
+            margin-bottom: 14px;
             text-transform: uppercase;
-            color: var(--accent-light);
-            background: var(--accent-glow);
-            border: 1px solid rgba(139, 92, 246, 0.28);
-            padding: 0.22rem 0.75rem;
-            border-radius: 999px;
-            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+        .badge-pill.cyan {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: var(--border-cyan);
+            color: var(--accent-cyan);
         }
         .section-title {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            font-size: 2.3rem;
             font-weight: 700;
-            line-height: 1.15;
-            letter-spacing: -0.025em;
-            margin-bottom: 0.85rem;
+            line-height: 1.2;
+            margin-bottom: 14px;
+            color: #fff;
+            letter-spacing: -0.02em;
         }
         .section-desc {
-            color: var(--text-secondary);
-            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
-            line-height: 1.7;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        /* Hero Section */
-        .hero {
-            padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
-        }
-        .hero-grid {
+        /* ============================================================
+           VIEW 1: OVERVIEW (HOME) - NO PRICING, PURE WORK & VISUAL DIAGRAM
+           ============================================================ */
+        .hero-banner {
             display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: clamp(2.5rem, 5vw, 4.5rem);
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 40px;
             align-items: center;
+            margin-bottom: 60px;
+            padding-top: 10px;
         }
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .hero-headline {
+        .hero-content h1 {
             font-family: var(--font-display);
-            font-size: clamp(2.6rem, 5vw, 4.2rem);
+            font-size: 3.2rem;
             font-weight: 800;
-            line-height: 1.08;
-            letter-spacing: -0.035em;
-            margin-bottom: 0.85rem;
+            line-height: 1.12;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            color: #fff;
         }
-        .hero-headline-sub {
-            font-family: var(--font-display);
-            font-size: clamp(1.25rem, 2.3vw, 1.65rem);
-            font-weight: 600;
-            color: var(--accent-light);
-            letter-spacing: -0.02em;
-            margin-bottom: 1.25rem;
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 30%, var(--accent-violet) 70%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .hero-desc {
-            font-size: clamp(1rem, 1.8vw, 1.1rem);
-            color: var(--text-secondary);
-            line-height: 1.75;
-            margin-bottom: 2rem;
-            max-width: 540px;
+        .hero-lead {
+            font-size: 1.12rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 30px;
         }
         .hero-actions {
             display: flex;
-            align-items: center;
-            gap: 0.85rem;
             flex-wrap: wrap;
-            margin-bottom: 2.2rem;
-        }
-        .hero-stats {
-            display: flex;
+            gap: 14px;
             align-items: center;
-            gap: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-            width: 100%;
-        }
-        .stat-item h4 {
-            font-family: var(--font-display);
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1;
-        }
-        .stat-item p {
-            font-size: 0.76rem;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 0.25rem;
-            font-weight: 500;
         }
 
-        /* Hero Visual Mockup */
-        .hero-visual {
+        /* Flowchart Preview / Interactive Hero Console */
+        .hero-console {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 22px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             position: relative;
         }
-        .browser-mockup {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(139, 92, 246, 0.12);
-            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
-        }
-        .browser-mockup:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 50px rgba(139, 92, 246, 0.2);
-        }
-        .browser-topbar {
-            background: rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid var(--border);
-            padding: 0.65rem 1rem;
+        .console-topbar {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-        }
-        .browser-dots {
-            display: flex;
-            gap: 5px;
-        }
-        .browser-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-        }
-        .dot-r { background: #ef4444; opacity: 0.8; }
-        .dot-y { background: #f59e0b; opacity: 0.8; }
-        .dot-g { background: #10b981; opacity: 0.8; }
-        .browser-address {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 0.2rem 0.65rem;
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            color: var(--text-tertiary);
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            flex-grow: 1;
-        }
-        .browser-address span {
-            color: var(--emerald);
-        }
-
-        /* Mockup Content (The Falcon Tour Real Project preview) */
-        .browser-screen {
-            padding: 1.25rem;
-            background: linear-gradient(180deg, #0c0d18 0%, #07070d 100%);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .mockup-header-row {
-            display: flex;
             justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.75rem;
+            padding-bottom: 14px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-subtle);
         }
-        .mockup-brand {
+        .window-dots {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
-            font-size: 0.85rem;
-            font-family: var(--font-display);
+            gap: 6px;
         }
-        .mockup-badge {
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot.red { background: #ef4444; }
+        .dot.yellow { background: #eab308; }
+        .dot.green { background: #22c55e; }
+        .console-status {
             font-family: var(--font-mono);
-            font-size: 0.62rem;
-            background: var(--emerald-glow);
-            color: var(--emerald);
-            border: 1px solid rgba(52, 211, 153, 0.3);
-            padding: 0.15rem 0.45rem;
-            border-radius: 4px;
+            font-size: 0.72rem;
+            color: var(--accent-cyan);
         }
-        .mockup-hero-banner {
-            position: relative;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            height: 180px;
-            border: 1px solid var(--border);
-        }
-        .mockup-hero-banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .mockup-hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(8, 8, 16, 0.92) 0%, rgba(8, 8, 16, 0.2) 60%);
+
+        /* Pipeline Flow Diagram in Hero */
+        .pipeline-mini {
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding: 1rem;
+            gap: 12px;
         }
-        .mockup-hero-title {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #ffffff;
-        }
-        .mockup-hero-subtitle {
-            font-size: 0.72rem;
-            color: var(--text-secondary);
-        }
-
-        .mockup-cards-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.65rem;
-        }
-        .mockup-mini-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 0.65rem;
-        }
-        .mockup-mini-card h5 {
-            font-size: 0.72rem;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
-            color: var(--text-primary);
-        }
-        .mockup-mini-card p {
-            font-size: 0.62rem;
-            color: var(--text-tertiary);
-            line-height: 1.4;
-        }
-
-        /* Floating Studio Badges around mockup */
-        .float-badge {
-            position: absolute;
-            background: rgba(14, 14, 26, 0.92);
-            backdrop-filter: blur(14px);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-md);
-            padding: 0.65rem 0.95rem;
+        .pipeline-node {
             display: flex;
             align-items: center;
-            gap: 0.65rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            z-index: 2;
+            gap: 12px;
+            padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            transition: var(--transition-smooth);
         }
-        .float-badge-1 {
-            top: -15px;
-            right: -15px;
+        .pipeline-node:hover {
             border-color: var(--border-accent);
+            background: rgba(139, 92, 246, 0.08);
+            transform: translateX(4px);
         }
-        .float-badge-2 {
-            bottom: -20px;
-            left: -15px;
-            border-color: var(--border-accent-cyan);
-        }
-        .float-icon {
+        .node-icon {
             width: 32px;
             height: 32px;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 0.75rem;
-            flex-shrink: 0;
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--accent-violet);
         }
-        .float-icon.violet {
-            background: linear-gradient(135deg, var(--accent), #6d28d9);
-            color: #fff;
-        }
-        .float-icon.cyan {
-            background: linear-gradient(135deg, var(--cyan), #0284c7);
-            color: #fff;
-        }
-        .float-text strong {
-            display: block;
-            font-size: 0.76rem;
-            color: var(--text-primary);
-            line-height: 1.2;
-        }
-        .float-text span {
+        .node-icon.cyan { background: rgba(56, 189, 248, 0.2); color: var(--accent-cyan); }
+        .node-icon.emerald { background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); }
+        .node-info { flex: 1; }
+        .node-title { font-size: 0.85rem; font-weight: 600; color: #fff; }
+        .node-sub { font-size: 0.72rem; color: var(--text-dim); }
+        .node-badge {
             font-family: var(--font-mono);
-            font-size: 0.64rem;
-            color: var(--text-secondary);
+            font-size: 0.68rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
         }
 
-        /* 2-Path Audience Split Section */
-        .audience-split {
-            padding: clamp(3rem, 6vw, 5rem) 0;
-            border-top: 1px solid var(--border);
-            background: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.04), transparent 70%);
-        }
-        .split-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(1.2rem, 3vw, 2rem);
-        }
-        .split-card {
+        /* Flowchart Section: Visual Architecture Diagram */
+        .flowchart-container {
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-xl);
-            padding: clamp(1.75rem, 3.5vw, 2.75rem);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 1.5rem;
-            transition: all 0.3s var(--ease);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 40px 30px;
+            margin: 50px 0;
+            backdrop-filter: blur(12px);
             position: relative;
             overflow: hidden;
         }
-        .split-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-light);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-        }
-        .split-card.business {
-            border-top: 3px solid var(--accent);
-        }
-        .split-card.business:hover {
-            border-color: var(--border-accent);
-            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(139, 92, 246, 0.15);
-        }
-        .split-card.students {
-            border-top: 3px solid var(--cyan);
-        }
-        .split-card.students:hover {
-            border-color: var(--border-accent-cyan);
-            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.15);
-        }
-
-        .split-badge {
-            display: inline-flex;
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.2rem 0.65rem;
-            border-radius: 999px;
-            margin-bottom: 0.75rem;
-        }
-        .split-badge.b {
-            background: var(--accent-glow);
-            color: var(--accent-light);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-        }
-        .split-badge.s {
-            background: var(--cyan-glow);
-            color: var(--cyan);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        .split-title {
-            font-family: var(--font-display);
-            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.2;
-            margin-bottom: 0.65rem;
-        }
-        .split-desc {
-            font-size: 0.92rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-            margin-bottom: 1.25rem;
-        }
-        .split-list {
+        .flowchart-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.65rem;
-            margin-bottom: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 2;
         }
-        .split-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            font-size: 0.83rem;
-            color: var(--text-secondary);
-        }
-        .split-list li svg {
-            width: 14px;
-            height: 14px;
-            flex-shrink: 0;
-        }
-        .split-card.business .split-list li svg { color: var(--accent-light); }
-        .split-card.students .split-list li svg { color: var(--cyan); }
-
-        /* Services Grid ("What We Build") */
-        .services-section {
-            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-            border-top: 1px solid var(--border);
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-        }
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 1.75rem;
+        .flow-step-card {
+            background: rgba(12, 13, 20, 0.8);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 24px 20px;
+            position: relative;
+            transition: var(--transition-smooth);
             display: flex;
             flex-direction: column;
-            gap: 0.9rem;
-            transition: all 0.25s var(--ease);
         }
-        .service-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-light);
-            transform: translateY(-3px);
+        .flow-step-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
         }
-        .service-num {
+        .flow-step-num {
             font-family: var(--font-mono);
-            font-size: 0.72rem;
-            font-weight: 500;
-            color: var(--accent-light);
+            font-size: 0.8rem;
+            color: var(--accent-violet);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .service-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: var(--radius-sm);
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border);
+        .flow-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(139, 92, 246, 0.12);
+            border: 1px solid var(--border-accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-primary);
+            color: var(--accent-violet);
+            margin-bottom: 16px;
         }
-        .service-title {
+        .flow-title {
             font-family: var(--font-display);
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-top: 0.2rem;
+            color: #fff;
+            margin-bottom: 8px;
         }
-        .service-desc {
-            font-size: 0.86rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-            flex-grow: 1;
+        .flow-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 14px;
+            flex: 1;
         }
-        .service-footer {
+        .flow-tags {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 0.85rem;
-            border-top: 1px solid var(--border);
-            margin-top: auto;
+            flex-wrap: wrap;
+            gap: 6px;
         }
-        .service-tag {
+        .flow-tag {
             font-family: var(--font-mono);
-            font-size: 0.68rem;
-            color: var(--text-tertiary);
-        }
-        .service-link {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--accent-light);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-        .service-link:hover {
-            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
         }
 
-        /* Portfolio / Work Section ("Built by Team Cipher") */
-        .work-section {
-            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-            border-top: 1px solid var(--border);
-            background: radial-gradient(ellipse at 50% 10%, rgba(56, 189, 248, 0.03), transparent 60%);
-        }
-
-        /* Featured Case Study: The Falcon Tour */
-        .case-study-hero {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1.15fr 1fr;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
-        }
-        .case-study-visual {
-            position: relative;
-            background: #0b0c16;
-            min-height: 380px;
-            overflow: hidden;
-        }
-        .case-study-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s var(--ease);
-        }
-        .case-study-hero:hover .case-study-visual img {
-            transform: scale(1.03);
-        }
-        .case-study-badge-float {
-            position: absolute;
-            top: 1.25rem;
-            left: 1.25rem;
-            background: rgba(14, 14, 26, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-light);
-            border-radius: 999px;
-            padding: 0.3rem 0.85rem;
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            font-weight: 500;
-            color: var(--emerald);
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .case-study-body {
-            padding: clamp(1.75rem, 3.5vw, 2.75rem);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 1.25rem;
-        }
-        .cs-eyebrow {
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            font-weight: 500;
-            color: var(--accent-light);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-        .cs-title {
-            font-family: var(--font-display);
-            font-size: clamp(1.6rem, 2.8vw, 2.1rem);
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--text-primary);
-        }
-        .cs-summary {
-            font-size: 0.92rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-        
-        .cs-breakdown {
+        /* Two Audience Fast Gateways */
+        .gateway-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 1.15rem;
+            gap: 24px;
+            margin-top: 40px;
         }
-        .cs-block h6 {
-            font-family: var(--font-display);
-            font-size: 0.82rem;
-            font-weight: 700;
-            margin-bottom: 0.35rem;
-            color: var(--text-primary);
+        .gateway-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            overflow: hidden;
+        }
+        .gateway-card:hover {
+            transform: translateY(-4px);
+        }
+        .gateway-card.biz:hover {
+            border-color: var(--accent-violet);
+            box-shadow: 0 12px 35px rgba(139, 92, 246, 0.2);
+        }
+        .gateway-card.stu:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 12px 35px rgba(56, 189, 248, 0.2);
+        }
+        .gateway-header {
             display: flex;
             align-items: center;
-            gap: 0.35rem;
+            justify-content: space-between;
+            margin-bottom: 16px;
         }
-        .cs-block.dev h6 { color: var(--accent-light); }
-        .cs-block.seo h6 { color: var(--cyan); }
-        .cs-block ul {
+        .gateway-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gateway-card.biz .gateway-icon {
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid var(--border-accent);
+            color: var(--accent-violet);
+        }
+        .gateway-card.stu .gateway-icon {
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid var(--border-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* ============================================================
+           VIEW 2: ENTERPRISE & BUSINESS DEVELOPMENT
+           ============================================================ */
+        .system-arch-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 36px;
+            margin-bottom: 40px;
+        }
+        .arch-diagram {
             display: flex;
             flex-direction: column;
-            gap: 0.25rem;
+            gap: 16px;
+            margin-top: 24px;
         }
-        .cs-block li {
-            font-size: 0.78rem;
-            color: var(--text-secondary);
-            line-height: 1.45;
+        .arch-layer {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 16px 20px;
         }
-
-        .cs-tags {
+        .layer-label {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-violet);
+            font-weight: 600;
+        }
+        .layer-items {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.4rem;
+            gap: 10px;
         }
-        .cs-tag {
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 999px;
+        .layer-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid var(--border-accent);
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: #fff;
         }
 
-        .cs-actions {
+        .service-tier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .service-tier-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+        }
+        .service-tier-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+        }
+        .service-features {
+            list-style: none;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
+        .service-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+        .service-features li i {
+            color: var(--accent-emerald);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        /* ============================================================
+           VIEW 3: STUDENT & ACADEMIC ENGINEERING
+           ============================================================ */
+        .student-journey-map {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .journey-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 22px;
+            position: relative;
+            border-top: 3px solid var(--accent-cyan);
+        }
+        .journey-step-num {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--accent-cyan);
+            margin-bottom: 8px;
+        }
+
+        .student-support-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .support-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 26px;
+        }
+
+        /* ============================================================
+           VIEW 4: WORK / PORTFOLIO CASE STUDY
+           ============================================================ */
+        .case-study-showcase {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+        }
+        .case-study-visual {
+            background: #090a10;
+            border-right: 1px solid var(--border-subtle);
+            padding: 30px;
             display: flex;
             align-items: center;
-            gap: 0.85rem;
-            flex-wrap: wrap;
-            padding-top: 0.5rem;
+            justify-content: center;
+        }
+        .mockup-frame {
+            width: 100%;
+            background: #141624;
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        .mockup-header {
+            padding: 10px 14px;
+            background: #0f101c;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .mockup-url {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3px 12px;
+            border-radius: 6px;
+            color: var(--text-muted);
+            flex: 1;
+        }
+        .mockup-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        .case-study-body {
+            padding: 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        /* Portfolio Cards Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
         .project-card {
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
             overflow: hidden;
-            transition: all 0.3s var(--ease);
-            display: flex;
-            flex-direction: column;
+            transition: var(--transition-smooth);
         }
         .project-card:hover {
+            border-color: var(--border-accent);
             transform: translateY(-4px);
-            border-color: var(--border-light);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
         }
         .project-thumb {
-            position: relative;
-            height: 220px;
-            background: var(--bg-surface);
-            overflow: hidden;
-            border-bottom: 1px solid var(--border);
-        }
-        .project-thumb img {
             width: 100%;
-            height: 100%;
+            height: 180px;
             object-fit: cover;
-            transition: transform 0.5s var(--ease);
         }
-        .project-card:hover .project-thumb img {
-            transform: scale(1.05);
-        }
-        .project-category {
-            position: absolute;
-            top: 0.85rem;
-            right: 0.85rem;
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            background: rgba(14, 14, 26, 0.88);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--border-light);
-            color: var(--text-primary);
-            padding: 0.2rem 0.65rem;
-            border-radius: 999px;
-            font-weight: 500;
-        }
-        .project-info {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            flex-grow: 1;
-        }
-        .project-title {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        .project-desc {
-            font-size: 0.86rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-            flex-grow: 1;
-        }
-        .project-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 0.85rem;
-            border-top: 1px solid var(--border);
-            margin-top: auto;
+        .project-details {
+            padding: 20px;
         }
 
-        /* Dedicated Student Section ("Need a College Project?") */
-        .students-section {
-            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-            border-top: 1px solid var(--border);
-            background: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.04), transparent 50%);
-        }
-        .pricing-grid {
+        /* ============================================================
+           VIEW 5: STUDIO / FOUNDER / FAQ
+           ============================================================ */
+        .studio-founder-card {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-        .pricing-card {
+            grid-template-columns: 160px 1fr;
+            gap: 30px;
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-xl);
-            padding: clamp(1.75rem, 3.5vw, 2.5rem);
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            position: relative;
-            transition: all 0.3s var(--ease);
-        }
-        .pricing-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-light);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-        }
-        .pricing-card.featured {
-            border-color: var(--border-accent-cyan);
-            box-shadow: 0 0 35px rgba(56, 189, 248, 0.12);
-        }
-        .pricing-badge {
-            position: absolute;
-            top: -1px;
-            right: 2rem;
-            background: linear-gradient(135deg, var(--cyan), #0284c7);
-            color: #ffffff;
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            padding: 0.25rem 0.85rem;
-            border-radius: 0 0 8px 8px;
-        }
-        .pricing-tier-name {
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            font-weight: 500;
-            color: var(--cyan);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-        .pricing-title {
-            font-family: var(--font-display);
-            font-size: 1.45rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        .pricing-price-wrap {
-            display: flex;
-            align-items: baseline;
-            gap: 0.4rem;
-            margin: 0.2rem 0;
-        }
-        .pricing-price {
-            font-family: var(--font-display);
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: -0.03em;
-        }
-        .pricing-period {
-            font-size: 0.8rem;
-            color: var(--text-tertiary);
-        }
-        .pricing-features {
-            display: flex;
-            flex-direction: column;
-            gap: 0.65rem;
-            margin: 0.5rem 0;
-            flex-grow: 1;
-        }
-        .pricing-features li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-            font-size: 0.86rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-        .pricing-features li svg {
-            width: 16px;
-            height: 16px;
-            color: var(--cyan);
-            flex-shrink: 0;
-            margin-top: 0.15rem;
-        }
-
-        /* Student Value Pillars */
-        .student-pillars {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-        .pillar-card {
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .pillar-icon {
-            font-size: 1.25rem;
-            color: var(--cyan);
-            margin-bottom: 0.2rem;
-        }
-        .pillar-card h5 {
-            font-family: var(--font-display);
-            font-size: 0.92rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        .pillar-card p {
-            font-size: 0.78rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        /* Dedicated Business Section ("Have a Business Idea?") */
-        .business-section {
-            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-            border-top: 1px solid var(--border);
-            background: radial-gradient(circle at 90% 30%, rgba(139, 92, 246, 0.04), transparent 50%);
-        }
-        .business-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin-bottom: 2.5rem;
-        }
-        .biz-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 1.85rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            transition: all 0.25s var(--ease);
-        }
-        .biz-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-3px);
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
-        }
-        .biz-tag {
-            font-family: var(--font-mono);
-            font-size: 0.68rem;
-            font-weight: 500;
-            color: var(--accent-light);
-            text-transform: uppercase;
-        }
-        .biz-card h4 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        .biz-card p {
-            font-size: 0.86rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-            flex-grow: 1;
-        }
-        .biz-pricing {
-            font-family: var(--font-mono);
-            font-size: 0.82rem;
-            color: var(--emerald);
-            font-weight: 500;
-            padding-top: 0.5rem;
-        }
-
-        /* Process Section ("From Idea to Launch") */
-        .process-section {
-            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-            border-top: 1px solid var(--border);
-        }
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1rem;
-        }
-        .process-step {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 1.5rem 1.2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            position: relative;
-            transition: all 0.25s var(--ease);
-        }
-        .process-step:hover {
-            border-color: var(--border-light);
-            background: var(--bg-card-hover);
-        }
-        .process-num {
-            font-family: var(--font-mono);
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--accent-light);
-            line-height: 1;
-        }
-        .process-title {
-            font-family: var(--font-display);
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        .process-desc {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            line-height: 1.55;
-        }
-
-        /* Trust / Why Us Section */
-        .why-section {
-            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-            border-top: 1px solid var(--border);
-            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.03), transparent 70%);
-        }
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-        }
-        .why-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 1.75rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        .why-icon {
-            font-size: 1.4rem;
-            margin-bottom: 0.25rem;
-        }
-        .why-card h4 {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        .why-card p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        /* Founder Section */
-        .founder-section {
-            padding: clamp(3rem, 5vw, 4.5rem) 0;
-            border-top: 1px solid var(--border);
-        }
-        .founder-card {
-            background: linear-gradient(135deg, rgba(20, 20, 36, 0.85), rgba(12, 12, 22, 0.95));
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-xl);
-            padding: clamp(1.8rem, 4vw, 3rem);
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: clamp(1.5rem, 4vw, 3rem);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 36px;
+            margin-bottom: 40px;
             align-items: center;
         }
         .founder-avatar {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            width: 130px;
+            height: 130px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--accent-violet), #3b82f6);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: var(--font-display);
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            color: #ffffff;
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.35);
-            flex-shrink: 0;
-            border: 3px solid rgba(255, 255, 255, 0.15);
-        }
-        .founder-info h3 {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.2rem;
-        }
-        .founder-role {
-            font-family: var(--font-mono);
-            font-size: 0.76rem;
-            color: var(--accent-light);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 0.85rem;
-        }
-        .founder-quote {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            font-style: italic;
-            margin-bottom: 1.25rem;
-            max-width: 680px;
-        }
-        .founder-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
+            color: #fff;
+            box-shadow: 0 10px 25px var(--accent-violet-glow);
         }
 
-        /* FAQ Section */
-        .faq-section {
-            padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-            border-top: 1px solid var(--border);
-        }
-        .faq-wrapper {
-            max-width: 780px;
-            margin: 0 auto;
+        .faq-accordion-list {
             display: flex;
             flex-direction: column;
-            gap: 0.65rem;
+            gap: 14px;
+            max-width: 860px;
+            margin: 0 auto;
         }
         .faq-item {
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
             overflow: hidden;
-            transition: border-color 0.2s var(--ease);
-        }
-        .faq-item.active {
-            border-color: var(--border-light);
-            background: var(--bg-surface-elevated);
+            transition: var(--transition-smooth);
         }
         .faq-question {
             width: 100%;
-            padding: 1.2rem 1.4rem;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-family: var(--font-display);
-            font-size: 0.98rem;
-            font-weight: 600;
-            text-align: left;
-            cursor: pointer;
+            padding: 18px 22px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 1rem;
-        }
-        .faq-question:hover {
-            color: var(--accent-light);
-        }
-        .faq-toggle-icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            flex-shrink: 0;
-            transition: transform 0.3s var(--ease), background 0.2s;
-        }
-        .faq-item.active .faq-toggle-icon {
-            transform: rotate(45deg);
-            background: var(--accent-glow);
-            color: var(--accent-light);
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.98rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            cursor: pointer;
+            text-align: left;
         }
         .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.38s var(--ease);
+            padding: 0 22px 18px 22px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            display: none;
         }
-        .faq-answer-inner {
-            padding: 0 1.4rem 1.25rem;
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+        .faq-item.open {
+            border-color: var(--border-accent);
+            background: rgba(26, 29, 48, 0.7);
         }
 
-        /* Final CTA Section */
-        .final-cta {
-            padding: clamp(3.5rem, 7vw, 6rem) 0;
-            border-top: 1px solid var(--border);
-        }
-        .cta-box {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(56, 189, 248, 0.08));
+        /* Fixed Bottom Action Dock */
+        .bottom-contact-dock {
+            margin-top: 60px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(56, 189, 248, 0.08));
             border: 1px solid var(--border-accent);
-            border-radius: var(--radius-xl);
-            padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
+            border-radius: 20px;
+            padding: 36px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 50px rgba(139, 92, 246, 0.1);
-        }
-        .cta-title {
-            font-family: var(--font-display);
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-        }
-        .cta-desc {
-            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-            color: var(--text-secondary);
-            max-width: 580px;
-            margin: 0 auto 2.2rem;
-            line-height: 1.75;
-        }
-        .cta-buttons {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
+            gap: 18px;
         }
 
         /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 3rem 0 2rem;
-            background: #050509;
+        footer.site-footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 30px 24px;
+            background: #050508;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-align: center;
         }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.2fr;
-            gap: 2.5rem;
-            margin-bottom: 2.5rem;
-        }
-        .footer-brand p {
-            font-size: 0.86rem;
-            color: var(--text-secondary);
-            margin: 0.85rem 0 1.25rem;
-            max-width: 320px;
-            line-height: 1.6;
-        }
-        .footer-col h5 {
-            font-family: var(--font-display);
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            letter-spacing: 0.02em;
-        }
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.55rem;
-        }
-        .footer-links a {
-            font-size: 0.82rem;
-            color: var(--text-tertiary);
-            transition: color 0.2s;
-        }
-        .footer-links a:hover {
-            color: var(--text-primary);
-        }
-        .footer-bottom {
-            padding-top: 1.75rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.78rem;
-            color: var(--text-tertiary);
-            font-family: var(--font-mono);
+            gap: 16px;
         }
 
-        /* Scroll animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(22px);
-            transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-
-        /* Responsive Design */
-        @media (max-width: 1040px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-content {
-                align-items: center;
-            }
-            .hero-desc {
-                margin: 0 auto 2rem;
-            }
-            .hero-actions, .hero-stats {
-                justify-content: center;
-            }
-            .case-study-hero {
-                grid-template-columns: 1fr;
-            }
-            .case-study-visual {
-                min-height: 260px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .process-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .student-pillars {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero-banner { grid-template-columns: 1fr; }
+            .flowchart-grid { grid-template-columns: repeat(2, 1fr); }
+            .service-tier-grid { grid-template-columns: 1fr; }
+            .student-journey-map { grid-template-columns: repeat(2, 1fr); }
+            .case-study-showcase { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .arch-layer { grid-template-columns: 1fr; }
         }
 
-        @media (max-width: 820px) {
-            .nav-links, .header-cta-btn {
-                display: none;
-            }
-            .menu-toggle {
-                display: inline-flex;
-            }
-            .split-grid, .projects-grid, .pricing-grid, .services-grid, .business-grid, .why-grid {
-                grid-template-columns: 1fr;
-            }
-            .founder-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-                justify-items: center;
-            }
-            .founder-actions {
-                justify-content: center;
-            }
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 768px) {
+            .nav-tabs { display: none; }
+            .menu-toggle-btn { display: block; }
+            .gateway-grid { grid-template-columns: 1fr; }
+            .student-support-matrix { grid-template-columns: 1fr; }
+            .studio-founder-card { grid-template-columns: 1fr; text-align: center; }
+            .founder-avatar { margin: 0 auto; }
+            .hero-content h1 { font-size: 2.4rem; }
+            .flowchart-grid { grid-template-columns: 1fr; }
+            .student-journey-map { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
         }
 
-        @media (max-width: 540px) {
-            .split-list {
-                grid-template-columns: 1fr;
-            }
-            .student-pillars {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-stats {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .hero-actions .btn {
-                width: 100%;
-            }
-            .cs-breakdown {
-                grid-template-columns: 1fr;
-            }
-            .float-badge {
-                display: none;
-            }
+        /* Mobile Slide Drawer */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(5, 5, 8, 0.96);
+            backdrop-filter: blur(25px);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 24px;
+            transform: translateX(-100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-drawer.open {
+            transform: translateX(0);
+        }
+        .drawer-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        .drawer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .drawer-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Status Strip -->
-    <div class="top-strip">
-        <span class="status-pill"><span class="status-dot"></span> Studio Open</span>
-        <span>Accepting client websites &amp; college project bookings for 2026.</span>
-        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20would%20like%20to%20discuss%20a%20project%20with%20Team%20Cipher." target="_blank" style="color: var(--accent-light); font-weight: 600;">Chat directly on WhatsApp &rarr;</a>
+    <!-- Ambient Mesh Background -->
+    <div class="ambient-mesh">
+        <div class="mesh-blob blob-1"></div>
+        <div class="mesh-blob blob-2"></div>
+        <div class="mesh-blob blob-3"></div>
     </div>
 
-    <!-- Navigation Header -->
-    <header>
-        <div class="container nav-wrapper">
-            <a href="#" class="brand">
-                <img src="favicon.svg" alt="Team Cipher Monogram" class="brand-logo">
-                <span>Team Cipher</span>
-                <span class="brand-tag">STUDIO</span>
-            </a>
+    <!-- Top Status Strip -->
+    <div class="top-banner">
+        <span class="pulse-dot"></span>
+        <span><strong>Team Cipher Studio</strong> — Engineering custom web systems and modern software pipelines.</span>
+    </div>
 
-            <nav class="nav-links">
-                <a href="#work">Work</a>
-                <a href="#services">Services</a>
-                <a href="#business">For Business</a>
-                <a href="#students">For Students</a>
-                <a href="#why-us">Why Us</a>
-                <a href="#faq">FAQ</a>
+    <!-- Fixed Site Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand-logo" onclick="switchView('overview')">
+                <div class="logo-icon">
+                    <i data-lucide="terminal" style="color: var(--accent-violet); width: 20px;"></i>
+                </div>
+                <div class="brand-name">Team Cipher</div>
+                <span class="brand-badge">STUDIO</span>
+            </div>
+
+            <!-- SPA Navigation Tabs Matrix -->
+            <nav class="nav-tabs" id="mainNav">
+                <button class="nav-btn active" data-target="overview" onclick="switchView('overview')">
+                    <i data-lucide="layout-grid"></i> Overview
+                </button>
+                <button class="nav-btn" data-target="business" onclick="switchView('business')">
+                    <i data-lucide="briefcase"></i> Enterprise & Web
+                </button>
+                <button class="nav-btn" data-target="students" onclick="switchView('students')">
+                    <i data-lucide="graduation-cap"></i> Student Systems
+                </button>
+                <button class="nav-btn" data-target="work" onclick="switchView('work')">
+                    <i data-lucide="layers"></i> Built by Us
+                </button>
+                <button class="nav-btn" data-target="studio" onclick="switchView('studio')">
+                    <i data-lucide="sparkles"></i> Studio & FAQs
+                </button>
             </nav>
 
-            <div class="header-actions">
-                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20start%20a%20project%20with%20Team%20Cipher." target="_blank" class="btn btn-primary btn-sm header-cta-btn">Start a Project</a>
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
+            <!-- Actions -->
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <a href="https://wa.me/918700113731?text=Hi%20Team%20Cipher,%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="cta-btn-primary">
+                    <i data-lucide="message-square" style="width: 16px;"></i> Talk to Us
+                </a>
+                <button class="menu-toggle-btn" id="menuToggle" aria-label="Toggle Navigation">
+                    <i data-lucide="menu"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Mobile Drawer Navigation -->
+    <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
-        <a href="#work" onclick="closeDrawer()">Work</a>
-        <a href="#services" onclick="closeDrawer()">Services</a>
-        <a href="#business" onclick="closeDrawer()">For Business</a>
-        <a href="#students" onclick="closeDrawer()">For Students</a>
-        <a href="#why-us" onclick="closeDrawer()">Why Us</a>
-        <a href="#faq" onclick="closeDrawer()">FAQ</a>
-        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20start%20a%20project%20with%20Team%20Cipher." target="_blank" class="btn btn-primary" style="margin-top: 0.5rem;">Start a Project</a>
+        <div class="drawer-top">
+            <div class="brand-name">Team Cipher</div>
+            <button class="menu-toggle-btn" id="closeDrawer" style="display:block;">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="drawer-nav">
+            <div class="drawer-link" onclick="switchView('overview'); closeDrawerMenu();">
+                <i data-lucide="layout-grid"></i> Overview & Architecture
+            </div>
+            <div class="drawer-link" onclick="switchView('business'); closeDrawerMenu();">
+                <i data-lucide="briefcase"></i> Enterprise & Web Solutions
+            </div>
+            <div class="drawer-link" onclick="switchView('students'); closeDrawerMenu();">
+                <i data-lucide="graduation-cap"></i> Student Software Engineering
+            </div>
+            <div class="drawer-link" onclick="switchView('work'); closeDrawerMenu();">
+                <i data-lucide="layers"></i> Featured Work & Case Studies
+            </div>
+            <div class="drawer-link" onclick="switchView('studio'); closeDrawerMenu();">
+                <i data-lucide="sparkles"></i> Studio Leadership & FAQ
+            </div>
+        </div>
+        <div style="margin-top: auto; padding-top: 20px;">
+            <a href="https://wa.me/918700113731?text=Hi%20Team%20Cipher,%20I%20would%20like%20to%20start%20a%20project" target="_blank" class="cta-btn-primary" style="width: 100%; justify-content: center;">
+                <i data-lucide="message-square"></i> WhatsApp Direct
+            </a>
+        </div>
     </div>
 
-    <!-- 1. Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-grid">
+    <!-- MAIN DYNAMIC CONTENT CONTAINER -->
+    <main id="appContainer">
+
+        <!-- ============================================================
+             VIEW 1: OVERVIEW (HOME) - ZERO PRICING, PURE FLOW & CAPABILITIES
+             ============================================================ -->
+        <section id="view-overview" class="app-view active-view">
+            
+            <div class="hero-banner">
                 <div class="hero-content">
-                    <div class="section-eyebrow reveal">
-                        <span>●</span> Modern Development Studio
+                    <div class="badge-pill">
+                        <i data-lucide="cpu" style="width: 14px;"></i> Precision Engineering
                     </div>
-                    <h1 class="hero-headline font-display reveal delay-1">
-                        We Build.<br>You Grow.
-                    </h1>
-                    <h2 class="hero-headline-sub reveal delay-1">
-                        Websites for businesses. Projects for students.
-                    </h2>
-                    <p class="hero-desc reveal delay-2">
-                        From professional business websites and web applications to full-stack college projects, we design, develop and deploy practical digital solutions around your needs.
+                    <h1>We Engineer. <br><span class="gradient-text">You Expand.</span></h1>
+                    <p class="hero-lead">
+                        Team Cipher is an engineering studio delivering production-grade web systems for companies, alongside full-scale, explainable software systems for university researchers and students.
                     </p>
-                    <div class="hero-actions reveal delay-3">
-                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20start%20a%20new%20project%20with%20Team%20Cipher." target="_blank" class="btn btn-primary btn-lg">Start a Project &rarr;</a>
-                        <a href="#work" class="btn btn-secondary btn-lg">View Our Work</a>
-                    </div>
-                    <div class="hero-stats reveal delay-3">
-                        <div class="stat-item">
-                            <h4>Direct</h4>
-                            <p>Founder Communication</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>100%</h4>
-                            <p>Custom Development</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>End-to-End</h4>
-                            <p>Deployment Support</p>
-                        </div>
+                    <div class="hero-actions">
+                        <button onclick="switchView('work')" class="cta-btn-primary">
+                            <i data-lucide="eye" style="width: 16px;"></i> Inspect Live Deployments
+                        </button>
+                        <button onclick="switchView('business')" class="cta-btn-secondary">
+                            <i data-lucide="workflow" style="width: 16px;"></i> Explore Solutions
+                        </button>
                     </div>
                 </div>
 
-                <!-- Hero Visual: Layered Browser Mockup showcasing real work -->
-                <div class="hero-visual reveal delay-2">
-                    <div class="browser-mockup">
-                        <div class="browser-topbar">
-                            <div class="browser-dots">
-                                <span class="browser-dot dot-r"></span>
-                                <span class="browser-dot dot-y"></span>
-                                <span class="browser-dot dot-g"></span>
-                            </div>
-                            <div class="browser-address">
-                                <span>https://</span>thefalcontour.com &bull; Client Project
-                            </div>
+                <!-- Interactive Hero Pipeline Console -->
+                <div class="hero-console">
+                    <div class="console-topbar">
+                        <div class="window-dots">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
                         </div>
-                        <div class="browser-screen">
-                            <div class="mockup-header-row">
-                                <div class="mockup-brand">
-                                    <span>🦅 The Falcon Tour</span>
-                                </div>
-                                <span class="mockup-badge">Live &amp; Google Indexed</span>
-                            </div>
-                            <div class="mockup-hero-banner">
-                                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80" alt="The Falcon Tour Project Preview">
-                                <div class="mockup-hero-overlay">
-                                    <div class="mockup-hero-title">Custom Travel Portal &amp; SEO Architecture</div>
-                                    <div class="mockup-hero-subtitle">Designed, coded and deployed by Team Cipher</div>
-                                </div>
-                            </div>
-                            <div class="mockup-cards-row">
-                                <div class="mockup-mini-card">
-                                    <h5>Fast UI/UX</h5>
-                                    <p>Responsive mobile layout with instant load speeds</p>
-                                </div>
-                                <div class="mockup-mini-card">
-                                    <h5>SEO Indexing</h5>
-                                    <p>Google Search Console &amp; structured rich metadata</p>
-                                </div>
-                                <div class="mockup-mini-card">
-                                    <h5>Lead Capture</h5>
-                                    <p>Direct WhatsApp &amp; package inquiry integration</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="console-status"><i data-lucide="activity" style="width: 12px; display: inline;"></i> STUDIO PIPELINE ONLINE</div>
                     </div>
-
-                    <!-- Floating Studio Highlights -->
-                    <div class="float-badge float-badge-1">
-                        <div class="float-icon violet">TC</div>
-                        <div class="float-text">
-                            <strong>Full-Stack Student Portals</strong>
-                            <span>Node.js &bull; Python &bull; SQL &bull; React</span>
+                    <div class="pipeline-mini">
+                        <div class="pipeline-node">
+                            <div class="node-icon"><i data-lucide="compass" style="width: 16px;"></i></div>
+                            <div class="node-info">
+                                <div class="node-title">System Architecture Design</div>
+                                <div class="node-sub">Requirements mapping & schema modeling</div>
+                            </div>
+                            <span class="node-badge">STEP 01</span>
                         </div>
-                    </div>
-
-                    <div class="float-badge float-badge-2">
-                        <div class="float-icon cyan">AI</div>
-                        <div class="float-text">
-                            <strong>AI API &amp; SaaS Integrations</strong>
-                            <span>OpenAI &bull; Gemini &bull; Cloud</span>
+                        <div class="pipeline-node">
+                            <div class="node-icon cyan"><i data-lucide="code-2" style="width: 16px;"></i></div>
+                            <div class="node-info">
+                                <div class="node-title">Custom Development & Engine</div>
+                                <div class="node-sub">Full-stack, clean code, no messy templates</div>
+                            </div>
+                            <span class="node-badge">STEP 02</span>
+                        </div>
+                        <div class="pipeline-node">
+                            <div class="node-icon emerald"><i data-lucide="rocket" style="width: 16px;"></i></div>
+                            <div class="node-info">
+                                <div class="node-title">CI/CD & Live Cloud Indexing</div>
+                                <div class="node-sub">Automated DNS, SSL, and Google indexing</div>
+                            </div>
+                            <span class="node-badge">LIVE</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 2. Immediate Audience Split Section -->
-    <section class="audience-split">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-eyebrow">Choose Your Path</span>
-                <h2 class="section-title font-display">What are you building?</h2>
-                <p class="section-desc">Select the area that matches your goal. We deliver hands-on technical solutions for both businesses and academic students.</p>
-            </div>
-
-            <div class="split-grid">
-                <!-- Card 1: Business -->
-                <div class="split-card business reveal">
-                    <div>
-                        <span class="split-badge b">For Business &amp; Startups</span>
-                        <h3 class="split-title">Business Websites &amp; Digital Solutions</h3>
-                        <p class="split-desc">Build a professional online presence, high-converting web application, or custom digital product for your business.</p>
-                        <ul class="split-list">
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                Business Websites
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                Landing Pages
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                Web Applications
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                SaaS MVPs
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                AI Integrations
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                SEO &amp; Deployment
-                            </li>
-                        </ul>
+            <!-- VISUAL FLOWCHART: The Engineering Workflow Diagram -->
+            <div class="flowchart-container">
+                <div class="section-header">
+                    <div class="badge-pill">
+                        <i data-lucide="git-branch" style="width: 14px;"></i> Standard Workflow
                     </div>
-                    <a href="#business" class="btn btn-primary">Build for Business &rarr;</a>
+                    <h2 class="section-title">End-to-End Delivery Architecture</h2>
+                    <p class="section-desc">We follow a transparent, modular development pipeline so every project is clean, secure, and production ready.</p>
                 </div>
 
-                <!-- Card 2: Students -->
-                <div class="split-card students reveal delay-1">
-                    <div>
-                        <span class="split-badge s">For College &amp; University</span>
-                        <h3 class="split-title">College Projects &amp; Development</h3>
-                        <p class="split-desc">Practical, explainable and deployment-ready projects tailored for academic lab and semester requirements.</p>
-                        <ul class="split-list">
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                Mini Projects (from &#8377;999)
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                Full-Stack Projects (from &#8377;2,499)
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                Database &amp; SQL Systems
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                Python / C++ Applications
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                Laptop Setup &amp; AnyDesk
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                PPT, Synopsis &amp; Viva Walkthrough
-                            </li>
-                        </ul>
+                <div class="flowchart-grid">
+                    <div class="flow-step-card">
+                        <div class="flow-step-num">
+                            <span>PHASE 01</span>
+                            <i data-lucide="target" style="width: 16px;"></i>
+                        </div>
+                        <div class="flow-icon">
+                            <i data-lucide="file-search"></i>
+                        </div>
+                        <h3 class="flow-title">Specification & Scope</h3>
+                        <p class="flow-desc">Deep-dive discovery session to finalize exact database schema, UI wireframes, tech stack, and milestone timelines.</p>
+                        <div class="flow-tags">
+                            <span class="flow-tag">User Flow</span>
+                            <span class="flow-tag">Tech Stack</span>
+                        </div>
                     </div>
-                    <a href="#students" class="btn btn-cyan">Explore Student Projects &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 3. Services Grid ("What We Build") -->
-    <section class="services-section" id="services">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-eyebrow">Capabilities</span>
-                <h2 class="section-title font-display">What We Build</h2>
-                <p class="section-desc">Focused technical services engineered with clean code, fast loading speeds, and direct communication.</p>
-            </div>
+                    <div class="flow-step-card">
+                        <div class="flow-step-num">
+                            <span>PHASE 02</span>
+                            <i data-lucide="code" style="width: 16px;"></i>
+                        </div>
+                        <div class="flow-icon" style="background: rgba(56, 189, 248, 0.12); border-color: var(--border-cyan); color: var(--accent-cyan);">
+                            <i data-lucide="cpu"></i>
+                        </div>
+                        <h3 class="flow-title">Modular Engineering</h3>
+                        <p class="flow-desc">Writing clean, commented, extensible code. Implementing responsive frontend modules and robust backend endpoints.</p>
+                        <div class="flow-tags">
+                            <span class="flow-tag">Frontend UI</span>
+                            <span class="flow-tag">REST APIs</span>
+                        </div>
+                    </div>
 
-            <div class="services-grid">
-                <!-- 01 -->
-                <div class="service-card reveal">
-                    <div class="service-num">01 / BUSINESS</div>
-                    <div class="service-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <div class="flow-step-card">
+                        <div class="flow-step-num">
+                            <span>PHASE 03</span>
+                            <i data-lucide="check-circle-2" style="width: 16px;"></i>
+                        </div>
+                        <div class="flow-icon">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+                        <h3 class="flow-title">Quality & Validation</h3>
+                        <p class="flow-desc">Cross-device responsiveness checks, performance audits, lighthouse optimization, and security audits.</p>
+                        <div class="flow-tags">
+                            <span class="flow-tag">Speed Audit</span>
+                            <span class="flow-tag">Bug Testing</span>
+                        </div>
                     </div>
-                    <h3 class="service-title">Business Websites</h3>
-                    <p class="service-desc">Custom landing pages, corporate websites, and lead generation platforms crafted to establish credibility and convert visitors into clients.</p>
-                    <div class="service-footer">
-                        <span class="service-tag">Custom UI &bull; Responsive</span>
-                        <a href="#business" class="service-link">Learn more &rarr;</a>
-                    </div>
-                </div>
 
-                <!-- 02 -->
-                <div class="service-card reveal delay-1">
-                    <div class="service-num">02 / APPS</div>
-                    <div class="service-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                    </div>
-                    <h3 class="service-title">Web Applications</h3>
-                    <p class="service-desc">Interactive dynamic web apps, dashboards, administrative tools, authentication systems, and scalable database backends.</p>
-                    <div class="service-footer">
-                        <span class="service-tag">React &bull; Node &bull; Python</span>
-                        <a href="#business" class="service-link">Learn more &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- 03 -->
-                <div class="service-card reveal delay-2">
-                    <div class="service-num">03 / ACADEMIC</div>
-                    <div class="service-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                    </div>
-                    <h3 class="service-title">College Projects</h3>
-                    <p class="service-desc">Complete mini and major projects for BCA, B.Tech, MCA, and Diploma students with fully formatted source code and viva guidance.</p>
-                    <div class="service-footer">
-                        <span class="service-tag">From &#8377;999 &bull; Full Setup</span>
-                        <a href="#students" class="service-link">View packages &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- 04 -->
-                <div class="service-card reveal">
-                    <div class="service-num">04 / AI</div>
-                    <div class="service-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    </div>
-                    <h3 class="service-title">AI Integrations</h3>
-                    <p class="service-desc">Integrate OpenAI, Gemini API, intelligent chat assistants, automated content generators, or smart classification workflows into your website.</p>
-                    <div class="service-footer">
-                        <span class="service-tag">OpenAI &bull; Gemini API</span>
-                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20am%20interested%20in%20AI%20Integration." target="_blank" class="service-link">Discuss AI &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- 05 -->
-                <div class="service-card reveal delay-1">
-                    <div class="service-num">05 / GROWTH</div>
-                    <div class="service-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                    </div>
-                    <h3 class="service-title">SEO &amp; Google Indexing</h3>
-                    <p class="service-desc">Technical on-page SEO, schema markup, Google Search Console indexing, and performance optimization so people can actually find you.</p>
-                    <div class="service-footer">
-                        <span class="service-tag">Google Indexing &bull; Speed</span>
-                        <a href="#work" class="service-link">See results &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- 06 -->
-                <div class="service-card reveal delay-2">
-                    <div class="service-num">06 / CLOUD</div>
-                    <div class="service-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
-                    </div>
-                    <h3 class="service-title">Deployment &amp; Hosting</h3>
-                    <p class="service-desc">Custom domain configuration, SSL certificates, zero-downtime deployment on Vercel, Netlify, AWS, or VPS setups with full handover.</p>
-                    <div class="service-footer">
-                        <span class="service-tag">Vercel &bull; AWS &bull; SSL</span>
-                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20need%20help%20with%20Deployment%20and%20Hosting." target="_blank" class="service-link">Get help &rarr;</a>
+                    <div class="flow-step-card">
+                        <div class="flow-step-num">
+                            <span>PHASE 04</span>
+                            <i data-lucide="globe" style="width: 16px;"></i>
+                        </div>
+                        <div class="flow-icon" style="background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.3); color: var(--accent-emerald);">
+                            <i data-lucide="cloud-lightning"></i>
+                        </div>
+                        <h3 class="flow-title">Deployment & Handover</h3>
+                        <p class="flow-desc">Publishing to Vercel/AWS/Cloudflare, DNS configuration, source code transfer, and complete walkthrough docs.</p>
+                        <div class="flow-tags">
+                            <span class="flow-tag">Live URL</span>
+                            <span class="flow-tag">Full Code</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 4. Portfolio / Work Section ("Built by Team Cipher") -->
-    <section class="work-section" id="work">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-eyebrow">Real Portfolio</span>
-                <h2 class="section-title font-display">Built by Team Cipher</h2>
-                <p class="section-desc">From academic applications to real-world business websites. We build practical digital solutions that actually work.</p>
+            <!-- Two Dedicated Fast Gateways -->
+            <div class="gateway-grid">
+                <div class="gateway-card biz" onclick="switchView('business')">
+                    <div class="gateway-header">
+                        <div class="gateway-icon">
+                            <i data-lucide="briefcase"></i>
+                        </div>
+                        <span class="badge-pill">Enterprise Track</span>
+                    </div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: #fff; margin-bottom: 10px;">For Businesses & Startups</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px;">
+                        Custom websites, SaaS platforms, SEO indexing, and AI integrations built for conversion and scale.
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 8px; color: var(--accent-violet); font-weight: 600; font-size: 0.9rem;">
+                        <span>View Business Capabilities</span> <i data-lucide="arrow-right" style="width: 16px;"></i>
+                    </div>
+                </div>
+
+                <div class="gateway-card stu" onclick="switchView('students')">
+                    <div class="gateway-header">
+                        <div class="gateway-icon">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+                        <span class="badge-pill cyan">Academic Track</span>
+                    </div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: #fff; margin-bottom: 10px;">For College & Students</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px;">
+                        Complete mini and major projects with complete source code, viva explanations, PPTs, and setup assistance.
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 8px; color: var(--accent-cyan); font-weight: 600; font-size: 0.9rem;">
+                        <span>View Academic Modules</span> <i data-lucide="arrow-right" style="width: 16px;"></i>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================================
+             VIEW 2: ENTERPRISE & BUSINESS DEVELOPMENT
+             ============================================================ -->
+        <section id="view-business" class="app-view">
+            <div class="section-header">
+                <div class="badge-pill">
+                    <i data-lucide="briefcase" style="width: 14px;"></i> Production Engineering
+                </div>
+                <h2 class="section-title">Business & Web Applications</h2>
+                <p class="section-desc">We develop high-converting websites and scalable SaaS tools designed specifically for speed, search engines, and modern aesthetics.</p>
+            </div>
+
+            <!-- Interactive Architecture Map -->
+            <div class="system-arch-box">
+                <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; margin-bottom: 6px;">Our Enterprise Tech Stack & Architecture</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">How we engineer reliable, zero-latency digital systems:</p>
+                
+                <div class="arch-diagram">
+                    <div class="arch-layer">
+                        <div class="layer-label">1. FRONTEND INTERFACE</div>
+                        <div class="layer-items">
+                            <span class="layer-item"><i data-lucide="layout" style="width: 14px;"></i> Modern HTML5 / Next.js</span>
+                            <span class="layer-item"><i data-lucide="palette" style="width: 14px;"></i> Tailwind CSS / Fluid Animations</span>
+                            <span class="layer-item"><i data-lucide="smartphone" style="width: 14px;"></i> Adaptive Responsive Grid</span>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="layer-label">2. APPLICATION BACKEND</div>
+                        <div class="layer-items">
+                            <span class="layer-item"><i data-lucide="server" style="width: 14px;"></i> Node.js / Python FastAPIs</span>
+                            <span class="layer-item"><i data-lucide="database" style="width: 14px;"></i> PostgreSQL / MongoDB / Supabase</span>
+                            <span class="layer-item"><i data-lucide="bot" style="width: 14px;"></i> OpenAI & LLM API Pipelines</span>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="layer-label">3. DEPLOYMENT & SEO</div>
+                        <div class="layer-items">
+                            <span class="layer-item"><i data-lucide="cloud" style="width: 14px;"></i> Vercel Edge / AWS Cloud</span>
+                            <span class="layer-item"><i data-lucide="search" style="width: 14px;"></i> Schema Markup & Instant Indexing</span>
+                            <span class="layer-item"><i data-lucide="lock" style="width: 14px;"></i> Auto-SSL & DDoS Shield</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Capabilities -->
+            <div class="service-tier-grid">
+                <div class="service-tier-card">
+                    <div class="node-icon" style="margin-bottom: 16px;"><i data-lucide="globe"></i></div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; margin-bottom: 8px;">Business & Brand Websites</h3>
+                    <p style="color: var(--text-muted); font-size: 0.88rem;">Custom branded landing pages designed to establish authority and convert visitors into inbound inquiries.</p>
+                    <ul class="service-features">
+                        <li><i data-lucide="check" style="width: 16px;"></i> High-speed, responsive layout</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> Direct WhatsApp & lead form capture</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> Google Search Console indexing</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> Custom domains & SSL configuration</li>
+                    </ul>
+                    <a href="https://wa.me/918700113731?text=Hi%20Team%20Cipher,%20I%20am%20interested%20in%20a%20Business%20Website" target="_blank" class="cta-btn-secondary" style="justify-content: center; margin-top: auto;">
+                        Discuss Specifications
+                    </a>
+                </div>
+
+                <div class="service-tier-card">
+                    <div class="node-icon cyan" style="margin-bottom: 16px;"><i data-lucide="layers"></i></div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; margin-bottom: 8px;">Full-Stack Web Apps & SaaS</h3>
+                    <p style="color: var(--text-muted); font-size: 0.88rem;">Complex applications featuring user authentication, database management, and custom business logic.</p>
+                    <ul class="service-features">
+                        <li><i data-lucide="check" style="width: 16px;"></i> Role-based authentication & admin panel</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> Secure database design & REST endpoints</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> Payment gateway / API integrations</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> Scalable serverless edge deployment</li>
+                    </ul>
+                    <a href="https://wa.me/918700113731?text=Hi%20Team%20Cipher,%20I%20am%20interested%20in%20a%20Web%20Application/SaaS" target="_blank" class="cta-btn-secondary" style="justify-content: center; margin-top: auto;">
+                        Discuss Specifications
+                    </a>
+                </div>
+
+                <div class="service-tier-card">
+                    <div class="node-icon emerald" style="margin-bottom: 16px;"><i data-lucide="bot"></i></div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; margin-bottom: 8px;">AI & Custom Integrations</h3>
+                    <p style="color: var(--text-muted); font-size: 0.88rem;">Integrating AI workflows, smart chat bots, or automation scripts to modernize your business operations.</p>
+                    <ul class="service-features">
+                        <li><i data-lucide="check" style="width: 16px;"></i> Custom OpenAI/Anthropic model integration</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> Smart document processing & summaries</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> Automated notification & email pipelines</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> Secure credential & API key handling</li>
+                    </ul>
+                    <a href="https://wa.me/918700113731?text=Hi%20Team%20Cipher,%20I%20am%20interested%20in%20AI%20Integrations" target="_blank" class="cta-btn-secondary" style="justify-content: center; margin-top: auto;">
+                        Discuss Specifications
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             VIEW 3: STUDENT & ACADEMIC ENGINEERING
+             ============================================================ -->
+        <section id="view-students" class="app-view">
+            <div class="section-header">
+                <div class="badge-pill cyan">
+                    <i data-lucide="graduation-cap" style="width: 14px;"></i> Academic Engineering
+                </div>
+                <h2 class="section-title">College Projects with Full Clarity</h2>
+                <p class="section-desc">Never walk into a viva unprepared. We engineer your project from scratch, configure it on your machine, and explain every file line by line.</p>
+            </div>
+
+            <!-- Step by Step Flowchart for Student Delivery -->
+            <div class="student-journey-map">
+                <div class="journey-step">
+                    <div class="journey-step-num">STEP 01</div>
+                    <h4 style="color:#fff; margin-bottom: 6px; font-size: 1.05rem;">Topic & Tech Selection</h4>
+                    <p style="color:var(--text-muted); font-size: 0.82rem;">We discuss your college requirements and suggest unique, modern tech topics that get approved easily.</p>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-step-num">STEP 02</div>
+                    <h4 style="color:#fff; margin-bottom: 6px; font-size: 1.05rem;">Full-Stack Development</h4>
+                    <p style="color:var(--text-muted); font-size: 0.82rem;">Complete backend, database, and frontend built with clean comments and modular structure.</p>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-step-num">STEP 03</div>
+                    <h4 style="color:#fff; margin-bottom: 6px; font-size: 1.05rem;">Remote Setup (AnyDesk)</h4>
+                    <p style="color:var(--text-muted); font-size: 0.82rem;">We connect remotely to set up your environment, install dependencies, and run the project flawlessly.</p>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-step-num">STEP 04</div>
+                    <h4 style="color:#fff; margin-bottom: 6px; font-size: 1.05rem;">Viva & PPT Prep</h4>
+                    <p style="color:var(--text-muted); font-size: 0.82rem;">Complete presentation slides, project synopsis report, and a 1-on-1 code explanation session.</p>
+                </div>
+            </div>
+
+            <!-- Student Support Breakdown -->
+            <div class="student-support-matrix">
+                <div class="support-card">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div class="node-icon cyan"><i data-lucide="code-2"></i></div>
+                        <div>
+                            <h4 style="color: #fff; font-size: 1.15rem;">Languages & Stacks Supported</h4>
+                            <span style="font-size: 0.78rem; color: var(--text-dim);">Customized to your semester syllabus</span>
+                        </div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i data-lucide="check" style="width: 16px;"></i> <strong>Full-Stack Web:</strong> React, Node.js, Express, MongoDB, Tailwind</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> <strong>Python Ecosystem:</strong> Flask, Django, Machine Learning & Pandas</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> <strong>Database Engineering:</strong> MySQL, PostgreSQL, SQLite schemas</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> <strong>Core Programming:</strong> C++, Java GUI, OOP projects</li>
+                    </ul>
+                </div>
+
+                <div class="support-card">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div class="node-icon emerald"><i data-lucide="presentation"></i></div>
+                        <div>
+                            <h4 style="color: #fff; font-size: 1.15rem;">Included Academic Deliverables</h4>
+                            <span style="font-size: 0.78rem; color: var(--text-dim);">Everything you need for submissions</span>
+                        </div>
+                    </div>
+                    <ul class="service-features">
+                        <li><i data-lucide="check" style="width: 16px;"></i> <strong>Source Code:</strong> 100% clean, fully commented zip file</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> <strong>Project PPT:</strong> Polished 15-20 slide presentation</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> <strong>Synopsis Report:</strong> Problem statement, ER diagram, architecture</li>
+                        <li><i data-lucide="check" style="width: 16px;"></i> <strong>Viva Support:</strong> Common examiner questions & answers sheet</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 36px;">
+                <a href="https://wa.me/918700113731?text=Hi%20Team%20Cipher,%20I%20need%20a%20College%20Project%20for%20my%20semester" target="_blank" class="cta-btn-primary">
+                    <i data-lucide="message-square" style="width: 16px;"></i> Inquire for College Project
+                </a>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             VIEW 4: WORK / PORTFOLIO CASE STUDY
+             ============================================================ -->
+        <section id="view-work" class="app-view">
+            <div class="section-header">
+                <div class="badge-pill">
+                    <i data-lucide="layers" style="width: 14px;"></i> Proven Track Record
+                </div>
+                <h2 class="section-title">Built by Team Cipher</h2>
+                <p class="section-desc">Real, live client systems and technical prototypes built with care and precision.</p>
             </div>
 
             <!-- Featured Case Study: The Falcon Tour -->
-            <div class="case-study-hero reveal">
+            <div class="case-study-showcase">
                 <div class="case-study-visual">
-                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80" alt="The Falcon Tour Live Client Project">
-                    <div class="case-study-badge-float">
-                        <span class="status-dot"></span> Live Client Website &bull; Travel &amp; Tourism
+                    <div class="mockup-frame">
+                        <div class="mockup-header">
+                            <div class="window-dots">
+                                <div class="dot red"></div>
+                                <div class="dot yellow"></div>
+                                <div class="dot green"></div>
+                            </div>
+                            <div class="mockup-url">https://thefalcontour.com</div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80" alt="The Falcon Tour Showcase" class="mockup-img">
                     </div>
                 </div>
                 <div class="case-study-body">
-                    <div>
-                        <div class="cs-eyebrow">Case Study &bull; Featured Project</div>
-                        <h3 class="cs-title">The Falcon Tour</h3>
-                        <p class="cs-summary">Complete digital presence for a premier travel and tour operator — designed, developed, and search-optimized by Team Cipher.</p>
-                    </div>
-
-                    <div class="cs-breakdown">
-                        <div class="cs-block dev">
-                            <h6>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                                Development
-                            </h6>
-                            <ul>
-                                <li>&bull; Responsive mobile-first UI/UX</li>
-                                <li>&bull; Tour listing &amp; package flows</li>
-                                <li>&bull; Instant inquiry booking flow</li>
-                                <li>&bull; Fast asset delivery &amp; caching</li>
-                            </ul>
+                    <div class="badge-pill" style="align-self: flex-start;">Featured Client Delivery</div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.8rem; color: #fff; margin-bottom: 12px;">The Falcon Tour</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px;">
+                        Complete travel platform designed for high-conversion booking inquiries, customized itinerary browsing, and instant Google Search indexing.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-main);">
+                            <i data-lucide="check-circle" style="color: var(--accent-emerald); width: 16px;"></i> High performance & responsive mobile optimization
                         </div>
-                        <div class="cs-block seo">
-                            <h6>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                                SEO &amp; Indexing
-                            </h6>
-                            <ul>
-                                <li>&bull; Travel keyword meta architecture</li>
-                                <li>&bull; Google Search Console verified</li>
-                                <li>&bull; Schema &amp; rich snippet markup</li>
-                                <li>&bull; Live organic search presence</li>
-                            </ul>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-main);">
+                            <i data-lucide="check-circle" style="color: var(--accent-emerald); width: 16px;"></i> Direct WhatsApp booking lead integration
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--accent-emerald); width: 16px;"></i> Google indexing & meta tags architecture
                         </div>
                     </div>
-
-                    <div class="cs-tags">
-                        <span class="cs-tag">HTML / CSS / JS</span>
-                        <span class="cs-tag">Responsive UI</span>
-                        <span class="cs-tag">Technical SEO</span>
-                        <span class="cs-tag">Google Indexing</span>
-                    </div>
-
-                    <div class="cs-actions">
-                        <a href="https://thefalcontour.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Visit thefalcontour.com &rarr;</a>
-                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20a%20business%20website%20like%20The%20Falcon%20Tour." target="_blank" class="btn btn-secondary btn-sm">Order Similar Website</a>
-                    </div>
+                    <a href="https://thefalcontour.com" target="_blank" rel="noopener noreferrer" class="cta-btn-primary" style="align-self: flex-start;">
+                        <i data-lucide="external-link" style="width: 16px;"></i> Visit Live Deployment
+                    </a>
                 </div>
             </div>
 
             <!-- Other Projects Grid -->
             <div class="projects-grid">
-                <!-- Project 1: Academic Full-Stack Portal -->
-                <div class="project-card reveal">
-                    <div class="project-thumb">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Full-Stack Student Project System">
-                        <span class="project-category">Student &bull; Full-Stack</span>
-                    </div>
-                    <div class="project-info">
-                        <h4 class="project-title">College Management &amp; Examination Portal</h4>
-                        <p class="project-desc">Complete full-stack academic web application featuring user authentication, role-based dashboards (Admin, Faculty, Student), dynamic SQL database schema, and report generation.</p>
-                        <div class="cs-tags">
-                            <span class="cs-tag">React / Node</span>
-                            <span class="cs-tag">Python / Django</span>
-                            <span class="cs-tag">MySQL / PostgreSQL</span>
-                        </div>
-                        <div class="project-meta">
-                            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--cyan);">Viva &amp; AnyDesk Setup Included</span>
-                            <a href="#students" class="service-link">View Student Details &rarr;</a>
-                        </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Full Stack Student Portal" class="project-thumb">
+                    <div class="project-details">
+                        <span class="badge-pill cyan" style="margin-bottom: 8px;">Academic Full-Stack</span>
+                        <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 6px;">Campus Placement Portal</h4>
+                        <p style="color: var(--text-muted); font-size: 0.82rem; line-height: 1.5;">Role-based student and recruiter platform with resume upload and automated interview scheduling.</p>
                     </div>
                 </div>
 
-                <!-- Project 2: SaaS & Web Application Interface -->
-                <div class="project-card reveal delay-1">
-                    <div class="project-thumb">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="SaaS Business Dashboard">
-                        <span class="project-category">Business &bull; SaaS App</span>
-                    </div>
-                    <div class="project-info">
-                        <h4 class="project-title">SaaS Analytics &amp; Admin Dashboard</h4>
-                        <p class="project-desc">Custom web application interface built with dark-mode UI components, chart visualizations, API client data fetching, and role-based permissions.</p>
-                        <div class="cs-tags">
-                            <span class="cs-tag">Next.js</span>
-                            <span class="cs-tag">Tailwind CSS</span>
-                            <span class="cs-tag">REST APIs</span>
-                        </div>
-                        <div class="project-meta">
-                            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--emerald);">Modern Architecture</span>
-                            <a href="#business" class="service-link">Discuss SaaS &rarr;</a>
-                        </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="AI Query Assistant" class="project-thumb">
+                    <div class="project-details">
+                        <span class="badge-pill" style="margin-bottom: 8px;">AI & Microservice</span>
+                        <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 6px;">DocQuery AI Assistant</h4>
+                        <p style="color: var(--text-muted); font-size: 0.82rem; line-height: 1.5;">Intelligent PDF parsing and semantic search chatbot powered by LangChain and OpenAI vectors.</p>
                     </div>
                 </div>
 
-                <!-- Project 3: AI Assistant & API Integration -->
-                <div class="project-card reveal">
-                    <div class="project-thumb">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="AI Agent & Integration">
-                        <span class="project-category">AI Integration &bull; Tool</span>
-                    </div>
-                    <div class="project-info">
-                        <h4 class="project-title">Intelligent AI Chat &amp; Recommendation Engine</h4>
-                        <p class="project-desc">API integration bringing conversational AI, prompt templates, context retrieval, and automated document generation directly into existing websites.</p>
-                        <div class="cs-tags">
-                            <span class="cs-tag">OpenAI API</span>
-                            <span class="cs-tag">Gemini API</span>
-                            <span class="cs-tag">Node / Express</span>
-                        </div>
-                        <div class="project-meta">
-                            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-light);">Custom AI Workflows</span>
-                            <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20AI%20Integration." target="_blank" class="service-link">Get AI Setup &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Pookie Wishes (Subtle product card built by Team Cipher) -->
-                <div class="project-card reveal delay-1">
-                    <div class="project-thumb">
-                        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80" alt="Pookie Wishes App">
-                        <span class="project-category">In-House Product</span>
-                    </div>
-                    <div class="project-info">
-                        <h4 class="project-title">Pookie Wishes</h4>
-                        <p class="project-desc">An interactive celebration and personalized digital surprise web application built from scratch by Team Cipher, featuring custom animations and automated link generation.</p>
-                        <div class="cs-tags">
-                            <span class="cs-tag">Interactive Web</span>
-                            <span class="cs-tag">Audio Integration</span>
-                            <span class="cs-tag">Vercel</span>
-                        </div>
-                        <div class="project-meta">
-                            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--rose);">pookie-wishes.vercel.app</span>
-                            <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" class="service-link">View Live App &rarr;</a>
-                        </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80" alt="Pookie Wishes Micro-app" class="project-thumb">
+                    <div class="project-details">
+                        <span class="badge-pill" style="margin-bottom: 8px;">In-House Product</span>
+                        <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 6px;">Pookie Wishes</h4>
+                        <p style="color: var(--text-muted); font-size: 0.82rem; line-height: 1.5;">Viral interactive romantic greetings generator with animated canvas elements and custom URL routing.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 5. Dedicated Student Project Section ("Need a College Project?") -->
-    <section class="students-section" id="students">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-eyebrow" style="color: var(--cyan); background: var(--cyan-glow); border-color: rgba(56, 189, 248, 0.3);">Student Development &bull; BCA / B.Tech / MCA</span>
-                <h2 class="section-title font-display">Need a College Project?</h2>
-                <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--cyan); margin-bottom: 0.5rem;">Build it. Understand it. Present it.</h3>
-                <p class="section-desc">We build practical, clean academic projects for your semester submissions — with complete code explanations and setup support so you can face your viva with 100% confidence.</p>
+        <!-- ============================================================
+             VIEW 5: STUDIO / FOUNDER / FAQ
+             ============================================================ -->
+        <section id="view-studio" class="app-view">
+            <div class="section-header">
+                <div class="badge-pill">
+                    <i data-lucide="sparkles" style="width: 14px;"></i> Studio Leadership & Assurance
+                </div>
+                <h2 class="section-title">Who Builds Your Project</h2>
+                <p class="section-desc">Direct engineer access. No middle-managers or outsourced delays.</p>
             </div>
 
-            <!-- Student Pricing Cards -->
-            <div class="pricing-grid">
-                <!-- Mini Project -->
-                <div class="pricing-card reveal">
-                    <div>
-                        <div class="pricing-tier-name">Lab &amp; Semester Submission</div>
-                        <h4 class="pricing-title">Mini Project Package</h4>
-                        <div class="pricing-price-wrap">
-                            <div class="pricing-price">&#8377;999</div>
-                            <div class="pricing-period">/ complete project</div>
-                        </div>
-                        <p style="font-size: 0.86rem; color: var(--text-secondary); margin-bottom: 1rem;">
-                            Ideal for 1st–3rd year BCA, B.Tech, BSc CS, and Diploma lab practicals and mini-project submissions.
-                        </p>
-                        <ul class="pricing-features">
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Complete, neatly formatted source code (HTML/CSS/JS, Python, or C++)</span>
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Step-by-step setup and installation instructions</span>
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Curated Viva Q&amp;A question bank with sample answers</span>
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Guaranteed error-free execution &amp; quick turnaround</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20order%20the%20College%20Mini%20Project%20(%E2%82%B9999)." target="_blank" class="btn btn-secondary" style="margin-top: auto;">Order Mini Project &mdash; &#8377;999</a>
-                </div>
-
-                <!-- Full-Stack Project -->
-                <div class="pricing-card featured reveal delay-1">
-                    <div class="pricing-badge">Most Popular</div>
-                    <div>
-                        <div class="pricing-tier-name">Major Semester / Final Year</div>
-                        <h4 class="pricing-title">Full-Stack Dynamic App</h4>
-                        <div class="pricing-price-wrap">
-                            <div class="pricing-price" style="color: var(--cyan);">&#8377;2,499</div>
-                            <div class="pricing-period">/ complete project</div>
-                        </div>
-                        <p style="font-size: 0.86rem; color: var(--text-secondary); margin-bottom: 1rem;">
-                            Comprehensive full-stack application with database, authentication, admin dashboard, and 1-on-1 viva guidance.
-                        </p>
-                        <ul class="pricing-features">
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Full-Stack source code (MERN / Django / PHP-MySQL / Node.js)</span>
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Complete database schema, models &amp; admin dashboard</span>
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Editable PowerPoint presentation (PPT) &amp; Project Synopsis</span>
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Remote AnyDesk laptop configuration &amp; database setup</span>
-                            </li>
-                            <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span><strong>1-on-1 Code Walkthrough &amp; Viva Prep</strong> on Google Meet with Nikhil</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20want%20to%20order%20the%20Full-Stack%20Project%20Package%20(%E2%82%B92499)." target="_blank" class="btn btn-cyan" style="margin-top: auto;">Get Full-Stack Project &mdash; &#8377;2,499</a>
-                </div>
-            </div>
-
-            <!-- Student Support Pillars -->
-            <div class="student-pillars reveal">
-                <div class="pillar-card">
-                    <div class="pillar-icon">📂</div>
-                    <h5>Complete Source Code</h5>
-                    <p>Clean, structured codebase with comments explaining what every function does.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="pillar-icon">💻</div>
-                    <h5>Remote Laptop Setup</h5>
-                    <p>We connect via AnyDesk/TeamViewer to set up Node, Python, and SQL on your machine.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="pillar-icon">📊</div>
-                    <h5>PPT &amp; Synopsis Included</h5>
-                    <p>College-ready presentation slides and project report synopsis for submission.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="pillar-icon">🎯</div>
-                    <h5>Viva &amp; Logic Explanation</h5>
-                    <p>We explain how the frontend talks to the backend so you can answer any viva question.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. Dedicated Business Section ("Have a Business Idea?") -->
-    <section class="business-section" id="business">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-eyebrow">For Clients &amp; Businesses</span>
-                <h2 class="section-title font-display">Have a Business Idea?</h2>
-                <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--accent-light); margin-bottom: 0.5rem;">Let's turn it into a working website or digital product.</h3>
-                <p class="section-desc">We build professional, fast, and search-indexed web solutions designed around your business workflow and customers.</p>
-            </div>
-
-            <div class="business-grid">
-                <!-- Business Web -->
-                <div class="biz-card reveal">
-                    <span class="biz-tag">Online Presence</span>
-                    <h4>Business Website &amp; Landing Pages</h4>
-                    <p>Responsive corporate or agency website with modern UI/UX design, customer inquiry capture, and speed optimization.</p>
-                    <div class="biz-pricing">Starting from &#8377;4,999</div>
-                </div>
-
-                <!-- Custom App -->
-                <div class="biz-card reveal delay-1">
-                    <span class="biz-tag">Custom Software</span>
-                    <h4>Web Applications &amp; SaaS MVPs</h4>
-                    <p>Custom client portals, database-backed dashboards, user accounts, and functional prototypes ready to validate with real users.</p>
-                    <div class="biz-pricing">Starting from &#8377;9,999</div>
-                </div>
-
-                <!-- AI Solution -->
-                <div class="biz-card reveal delay-2">
-                    <span class="biz-tag">Smart Automation</span>
-                    <h4>AI Integrations &amp; Automation</h4>
-                    <p>Add OpenAI or Gemini capabilities to your website — chatbots, content generators, automated support, and smart search.</p>
-                    <div class="biz-pricing">Starting from &#8377;3,000</div>
-                </div>
-            </div>
-
-            <div style="text-align: center;" class="reveal">
-                <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20have%20a%20business%20website%20project%20I%20would%20like%20to%20discuss." target="_blank" class="btn btn-primary btn-lg">Discuss Your Project on WhatsApp &rarr;</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. Process Section ("From Idea to Launch") -->
-    <section class="process-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-eyebrow">Our Workflow</span>
-                <h2 class="section-title font-display">From Idea to Launch</h2>
-                <p class="section-desc">A straightforward, transparent 5-step process with zero unnecessary complexity.</p>
-            </div>
-
-            <div class="process-grid">
-                <div class="process-step reveal">
-                    <div class="process-num">01</div>
-                    <h4 class="process-title">Discuss</h4>
-                    <p class="process-desc">We listen to your requirements, target audience, features, and timeline.</p>
-                </div>
-                <div class="process-step reveal delay-1">
-                    <div class="process-num">02</div>
-                    <h4 class="process-title">Plan</h4>
-                    <p class="process-desc">We define the technical stack, database models, and layout architecture.</p>
-                </div>
-                <div class="process-step reveal delay-2">
-                    <div class="process-num">03</div>
-                    <h4 class="process-title">Build</h4>
-                    <p class="process-desc">We design and write clean, maintainable, and responsive code.</p>
-                </div>
-                <div class="process-step reveal delay-3">
-                    <div class="process-num">04</div>
-                    <h4 class="process-title">Review</h4>
-                    <p class="process-desc">We review the project together, test across devices, and make refinements.</p>
-                </div>
-                <div class="process-step reveal delay-3">
-                    <div class="process-num">05</div>
-                    <h4 class="process-title">Launch</h4>
-                    <p class="process-desc">We deploy to the cloud, configure domains, and hand over all files.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. Why Team Cipher (Trust & Differentiation) -->
-    <section class="why-section" id="why-us">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-eyebrow">Why Team Cipher</span>
-                <h2 class="section-title font-display">Practical Development You Can Trust</h2>
-                <p class="section-desc">No corporate fluff, no generic templates, and no outsourced middle-men.</p>
-            </div>
-
-            <div class="why-grid">
-                <div class="why-card reveal">
-                    <div class="why-icon">🛠️</div>
-                    <h4>Custom, Not Copied</h4>
-                    <p>Every project is coded to meet your specific business requirements or academic syllabus guidelines.</p>
-                </div>
-                <div class="why-card reveal delay-1">
-                    <div class="why-icon">⚡</div>
-                    <h4>Practical Development</h4>
-                    <p>We focus on usable, functional, and deployable digital solutions that deliver real results.</p>
-                </div>
-                <div class="why-card reveal delay-2">
-                    <div class="why-icon">💬</div>
-                    <h4>Direct Communication</h4>
-                    <p>You talk directly with the developer building your project. No confusing project managers.</p>
-                </div>
-                <div class="why-card reveal">
-                    <div class="why-icon">🚀</div>
-                    <h4>From Code to Deployment</h4>
-                    <p>We don't just send files — we configure databases, setup local environments, and deploy live.</p>
-                </div>
-                <div class="why-card reveal delay-1">
-                    <div class="why-icon">🎓</div>
-                    <h4>Student-Friendly Support</h4>
-                    <p>Academic projects come with code explanations and viva preparation so you understand what you're submitting.</p>
-                </div>
-                <div class="why-card reveal delay-2">
-                    <div class="why-icon">🔒</div>
-                    <h4>Transparent Pricing</h4>
-                    <p>Clear upfront rates with zero hidden fees, fake discounts, or artificial urgency.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. Founder Section -->
-    <section class="founder-section">
-        <div class="container">
-            <div class="founder-card reveal">
+            <!-- Founder Card -->
+            <div class="studio-founder-card">
                 <div class="founder-avatar">NR</div>
-                <div class="founder-info">
-                    <h3>Nikhil Rawat</h3>
-                    <div class="founder-role">Founder &amp; Tech Lead &bull; Team Cipher</div>
-                    <p class="founder-quote">
-                        &ldquo;Team Cipher is built around a simple idea — make quality development accessible to businesses and students without making the process complicated.&rdquo;
+                <div>
+                    <div class="badge-pill" style="margin-bottom: 6px;">Founder & Engineering Lead</div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #fff; margin-bottom: 8px;">Nikhil Rawat</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 16px;">
+                        "We believe in building software that doesn't just look pretty, but is fundamentally structured for performance, reliability, and ease of understanding."
                     </p>
-                    <div class="founder-actions">
-                        <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20Let%27s%20connect%20regarding%20a%20project." target="_blank" class="btn btn-primary btn-sm">Message Nikhil on WhatsApp</a>
-                        <a href="mailto:teamcipher.work@gmail.com" class="btn btn-secondary btn-sm">teamcipher.work@gmail.com</a>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <a href="https://wa.me/918700113731" target="_blank" class="cta-btn-primary">
+                            <i data-lucide="message-circle" style="width: 16px;"></i> Message Nikhil Directly
+                        </a>
+                        <a href="mailto:teamcipher.work@gmail.com" class="cta-btn-secondary">
+                            <i data-lucide="mail" style="width: 16px;"></i> teamcipher.work@gmail.com
+                        </a>
                     </div>
                 </div>
+            </div>
+
+            <!-- Frequently Asked Questions -->
+            <div class="section-header" style="margin-top: 50px;">
+                <h3 class="section-title" style="font-size: 1.8rem;">Frequently Asked Questions</h3>
+                <p class="section-desc">Clear answers to common questions regarding timelines, delivery, and setup.</p>
+            </div>
+
+            <div class="faq-accordion-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do we start working on a project?</span>
+                        <i data-lucide="chevron-down" style="width: 18px;"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Simply send a message via WhatsApp or email detailing what you need. We will discuss the features, architecture, and timeline directly with you and provide a clear milestone plan.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>For college projects, do you assist with setup on my laptop?</span>
+                        <i data-lucide="chevron-down" style="width: 18px;"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Yes. We provide complete AnyDesk/TeamViewer remote installation to ensure all packages, databases, and environments run seamlessly on your machine before submission.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Will I receive the full source code and rights?</span>
+                        <i data-lucide="chevron-down" style="width: 18px;"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Yes, 100%. All source code, database scripts, and configuration files belong to you. We transfer everything cleanly once the project milestones are completed.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How are revisions and modifications handled?</span>
+                        <i data-lucide="chevron-down" style="width: 18px;"></i>
+                    </button>
+                    <div class="faq-answer">
+                        We build modular systems that make changes easy. During the review phase, you can test everything and request refinements until the project matches the agreed scope.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Universal Floating Bottom Dock -->
+        <div class="bottom-contact-dock">
+            <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #fff;">Have a Project in Mind? Let's Architect It.</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 550px;">
+                Whether you need a full enterprise web application or a university submission system, we are ready to build it.
+            </p>
+            <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
+                <a href="https://wa.me/918700113731?text=Hi%20Team%20Cipher,%20let's%20discuss%20a%20project" target="_blank" class="cta-btn-primary">
+                    <i data-lucide="message-square" style="width: 16px;"></i> Start Instant WhatsApp Chat
+                </a>
+                <a href="mailto:teamcipher.work@gmail.com" class="cta-btn-secondary">
+                    <i data-lucide="mail" style="width: 16px;"></i> Email Us Directly
+                </a>
             </div>
         </div>
-    </section>
 
-    <!-- 10. FAQ Section -->
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-eyebrow">Got Questions?</span>
-                <h2 class="section-title font-display">Frequently Asked Questions</h2>
-                <p class="section-desc">Clear answers about our development process, student support, and client services.</p>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                © 2026 <strong>Team Cipher</strong>. Built with precision and care.
             </div>
-
-            <div class="faq-wrapper reveal">
-                <!-- Q1 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>What type of business websites do you build?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            We build modern landing pages, corporate websites, portfolio sites, and booking/inquiry platforms. Every website is custom-designed, fully responsive across mobile and desktop, speed-optimized, and configured with Google Search Console for indexing.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q2 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>Do you build custom web applications and SaaS MVPs?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Yes. We develop dynamic web applications with user authentication, custom dashboards, database schemas (PostgreSQL, MySQL, MongoDB), and RESTful APIs using modern stacks like React, Next.js, Node.js, and Python.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q3 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>What type of college projects do you provide?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            We provide both <strong>Mini Projects (&#8377;999)</strong> and <strong>Full-Stack Major Projects (&#8377;2,499)</strong> for BCA, B.Tech, MCA, BSc CS, and Diploma students. Tech stacks include HTML/CSS/JavaScript, Python, C++, Django, PHP-MySQL, and MERN stack.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q4 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>Do you provide complete source code with the project?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Yes, 100%. You receive the complete, unminified, well-commented source code files along with installation documentation so you can modify and examine the code freely.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q5 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>Will you help me set up and run the project on my laptop?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Yes. In addition to a step-by-step setup guide, we provide remote assistance over AnyDesk or TeamViewer to configure your local runtime (Node.js, Python, MySQL/XAMPP) and verify that the project executes smoothly without errors.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q6 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>Do you provide PPT and project synopsis support?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Yes. Our Full-Stack package (&#8377;2,499) includes an editable PowerPoint presentation (PPT) and a structured project synopsis document that you can directly customize for your college submission.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q7 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>Do you help with viva preparation and code explanation?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Yes. With our Full-Stack package, Nikhil conducts a 1-on-1 walkthrough on Google Meet to explain the system architecture, database flow, and logic, and provides a list of probable viva questions with model answers.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q8 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>How long does it take to deliver a project?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            College mini projects are usually ready within 24 to 48 hours. Full-stack student projects typically take 2 to 4 days. Business websites and custom web applications vary based on scope and are delivered according to an agreed milestone schedule (usually 5 to 14 days).
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q9 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>How do revisions work?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            We work iteratively. For both business clients and students, we review the work together and perform necessary refinements, styling tweaks, and bug fixes before final sign-off.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q10 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>How can I start a project with Team Cipher?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Simply click the WhatsApp button or email us. Tell us what you are looking to build (business website or college project), and we will discuss requirements, share ideas, and get started right away.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 11. Final CTA Section -->
-    <section class="final-cta">
-        <div class="container">
-            <div class="cta-box reveal">
-                <h2 class="cta-title font-display">Ready to build your next website or project?</h2>
-                <p class="cta-desc">Whether you are a business looking for a high-converting website or a student needing a practical college project with viva support — we are ready.</p>
-                <div class="cta-buttons">
-                    <a href="https://wa.me/918700113731?text=Hi%20Nikhil!%20I%20am%20ready%20to%20start%20a%20project%20with%20Team%20Cipher." target="_blank" class="btn btn-primary btn-lg">Chat on WhatsApp &rarr;</a>
-                    <a href="mailto:teamcipher.work@gmail.com" class="btn btn-secondary btn-lg">Send an Email</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="brand">
-                        <img src="favicon.svg" alt="Team Cipher Logo" class="brand-logo" style="width: 28px; height: 28px;">
-                        <span>Team Cipher</span>
-                    </div>
-                    <p>Modern development studio building websites for businesses and practical projects for students. Led by Nikhil Rawat.</p>
-                    <a href="https://wa.me/918700113731" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex;">+91 87001 13731</a>
-                </div>
-
-                <div class="footer-col">
-                    <h5>Navigation</h5>
-                    <div class="footer-links">
-                        <a href="#work">Our Work</a>
-                        <a href="#services">Services</a>
-                        <a href="#business">For Business</a>
-                        <a href="#students">For Students</a>
-                        <a href="#why-us">Why Team Cipher</a>
-                        <a href="#faq">FAQ</a>
-                    </div>
-                </div>
-
-                <div class="footer-col">
-                    <h5>Services</h5>
-                    <div class="footer-links">
-                        <a href="#business">Business Websites</a>
-                        <a href="#business">Web Applications</a>
-                        <a href="#students">Mini Projects (&#8377;999)</a>
-                        <a href="#students">Full-Stack Projects (&#8377;2,499)</a>
-                        <a href="#business">AI Integrations</a>
-                        <a href="#work">SEO &amp; Ranking</a>
-                    </div>
-                </div>
-
-                <div class="footer-col">
-                    <h5>Products &amp; Contact</h5>
-                    <div class="footer-links">
-                        <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer">Pookie Wishes (Web App)</a>
-                        <a href="https://thefalcontour.com/" target="_blank" rel="noopener noreferrer">The Falcon Tour (Live Client)</a>
-                        <a href="https://wa.me/918700113731" target="_blank">WhatsApp Direct</a>
-                        <a href="mailto:teamcipher.work@gmail.com">teamcipher.work@gmail.com</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div>&copy; 2026 Team Cipher &bull; All Rights Reserved.</div>
-                <div>Designed &amp; Developed by Team Cipher &bull; Led by Nikhil Rawat</div>
+            <div style="display: flex; gap: 20px;">
+                <a href="https://thefalcontour.com" target="_blank" style="color: var(--text-dim); text-decoration: none;">The Falcon Tour</a>
+                <a href="https://pookie-wishes.vercel.app/" target="_blank" style="color: var(--text-dim); text-decoration: none;">Pookie Wishes</a>
+                <a href="mailto:teamcipher.work@gmail.com" style="color: var(--text-dim); text-decoration: none;">Contact</a>
             </div>
         </div>
     </footer>
 
-    <!-- Interactive JavaScript -->
+    <!-- Interactive Scripts -->
     <script>
-        // Mobile navigation drawer toggle
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // SPA View Switcher with Smooth State Transitions
+        function switchView(viewKey) {
+            // Update Navigation Buttons
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => {
+                if (btn.getAttribute('data-target') === viewKey) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Update Views
+            const views = document.querySelectorAll('.app-view');
+            views.forEach(v => {
+                v.classList.remove('active-view');
+            });
+
+            const targetView = document.getElementById('view-' + viewKey);
+            if (targetView) {
+                targetView.classList.add('active-view');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Re-render icons if needed
+            setTimeout(() => { lucide.createIcons(); }, 50);
+        }
+
+        // Mobile Drawer Controller
         const menuToggle = document.getElementById('menuToggle');
+        const closeDrawer = document.getElementById('closeDrawer');
         const mobileDrawer = document.getElementById('mobileDrawer');
-        
+
         if (menuToggle && mobileDrawer) {
             menuToggle.addEventListener('click', () => {
-                mobileDrawer.classList.toggle('active');
+                mobileDrawer.classList.add('open');
             });
         }
 
-        function closeDrawer() {
-            if (mobileDrawer) {
-                mobileDrawer.classList.remove('active');
-            }
+        if (closeDrawer && mobileDrawer) {
+            closeDrawer.addEventListener('click', () => {
+                mobileDrawer.classList.remove('open');
+            });
         }
 
-        // Accordion FAQ interaction
+        function closeDrawerMenu() {
+            if (mobileDrawer) mobileDrawer.classList.remove('open');
+        }
+
+        // FAQ Accordion
         function toggleFaq(button) {
             const item = button.parentElement;
-            const answer = item.querySelector('.faq-answer');
-            const isActive = item.classList.contains('active');
-
-            // Close all other active items
-            document.querySelectorAll('.faq-item.active').forEach(openItem => {
-                if (openItem !== item) {
-                    openItem.classList.remove('active');
-                    openItem.querySelector('.faq-answer').style.maxHeight = null;
-                }
-            });
-
-            if (isActive) {
-                item.classList.remove('active');
-                answer.style.maxHeight = null;
-            } else {
-                item.classList.add('active');
-                answer.style.maxHeight = answer.scrollHeight + 'px';
+            const isOpen = item.classList.contains('open');
+            
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            
+            // Toggle clicked item
+            if (!isOpen) {
+                item.classList.add('open');
             }
         }
-
-        // Intersection Observer for smooth scroll reveals
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.08,
-            rootMargin: '0px 0px -40px 0px'
-        });
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
     </script>
 </body>
-</html>
+</html>
