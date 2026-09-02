@@ -337,6 +337,10 @@
         }
 
         /* Pricing Deck */
+        .feature-split-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+        }
         .pricing-deck {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -527,7 +531,9 @@
         @media (max-width: 768px) {
             .nav-switch { display: none; }
             .mobile-btn { display: block; }
+            .title-display { font-size: 1.8rem; }
             .flow-grid { grid-template-columns: 1fr; }
+            .feature-split-grid { grid-template-columns: 1fr !important; }
             .footer-inner { flex-direction: column; text-align: center; }
             .footer-socials { justify-content: center; flex-wrap: wrap; }
         }
@@ -625,7 +631,7 @@
         </div>
 
         <!-- Client: The Falcon Tour -->
-        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 1.1fr 0.9fr; margin-bottom: 36px;">
+        <div class="feature-split-grid" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; margin-bottom: 36px;">
             <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1000&q=80" alt="The Falcon Tour Client" style="width: 100%; height: 100%; min-height: 280px; object-fit: cover; border-right: 1px solid var(--border);">
             <div style="padding: 36px; display: flex; flex-direction: column; justify-content: center;">
                 <div class="pill-badge teal" style="align-self: flex-start;">OUR CLIENT</div>
@@ -645,7 +651,7 @@
                 <div class="pill-badge amber" style="margin-bottom: 8px;">INTERNAL SIDE PROJECT</div>
                 <h3 style="font-family: var(--font-display); font-size: 1.35rem; color: #fff; margin-bottom: 6px;">Pookie Wishes</h3>
                 <p style="font-size: 0.88rem; color: var(--text-body); max-width: 650px;">
-                    Ek fun side-experiment project jisme user customized romantic greetings aur custom URL generate karke share kar sakte hain.
+                    A fun side-experiment project where users can generate customized romantic greetings and share them via a custom URL.
                 </p>
             </div>
             <a href="https://pookie-wishes.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="flex-shrink: 0;">
@@ -658,14 +664,14 @@
             <i data-lucide="clock" style="color: var(--primary-light); width: 28px; height: 28px; margin-bottom: 10px;"></i>
             <h4 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin-bottom: 6px;">New Client Projects Under Development</h4>
             <p style="font-size: 0.88rem; color: var(--text-body); max-width: 600px; margin: 0 auto;">
-                Hum currently aur naye clients ke projects par kaam kar rahe hain. Jaise hi unki launch complete hogi, unke live links yahan add ho jayenge.
+                We're currently working on projects for new clients. As soon as their launch is complete, their live links will be added here.
             </p>
         </div>
 
         <div class="bottom-action-dock">
             <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #fff;">Want to Get Your Project Built?</h3>
             <p style="color: var(--text-body); font-size: 0.95rem; max-width: 550px;">
-                Direct WhatsApp pe batayein aapko kaisa structure chahiye.
+                Tell us directly on WhatsApp what kind of structure you need.
             </p>
             <a href="https://wa.me/918700113731?text=Hi%20Nikhil,%20let's%20discuss%20a%20project" target="_blank" class="btn-whatsapp">
                 <i data-lucide="message-square"></i> WhatsApp Direct

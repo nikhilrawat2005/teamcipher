@@ -337,6 +337,14 @@
         }
 
         /* Pricing Deck */
+        .three-col-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        @media (max-width: 1024px) {
+            .three-col-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         .pricing-deck {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -527,7 +535,9 @@
         @media (max-width: 768px) {
             .nav-switch { display: none; }
             .mobile-btn { display: block; }
+            .title-display { font-size: 1.8rem; }
             .flow-grid { grid-template-columns: 1fr; }
+            .three-col-grid { grid-template-columns: 1fr !important; }
             .footer-inner { flex-direction: column; text-align: center; }
             .footer-socials { justify-content: center; flex-wrap: wrap; }
         }
@@ -621,24 +631,24 @@
                 <i data-lucide="briefcase" style="width: 14px;"></i> Business Solutions
             </div>
             <h2 class="title-display">Aapke Business Ke Liye Clean & Fast Website</h2>
-            <p class="subtitle">Aapke content aur data ke according tailored build. Timeline project scope discuss karne ke baad confirm hoti hai.</p>
+            <p class="subtitle">Tailored build based on your content and data. The timeline is confirmed after discussing the project scope.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px;">
+        <div class="three-col-grid" style="margin-bottom: 40px;">
             <div class="card-box">
                 <i data-lucide="smartphone" style="width: 28px; height: 28px; color: var(--teal); margin-bottom: 12px;"></i>
                 <h4 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin-bottom: 6px;">Mobile Fast & Responsive</h4>
-                <p style="font-size: 0.86rem; color: var(--text-body);">Phone, tablet aur computer har screen par instant smooth load.</p>
+                <p style="font-size: 0.86rem; color: var(--text-body);">Instant, smooth loading on phone, tablet, and computer — every screen size.</p>
             </div>
             <div class="card-box">
                 <i data-lucide="message-circle" style="width: 28px; height: 28px; color: var(--teal); margin-bottom: 12px;"></i>
                 <h4 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin-bottom: 6px;">Direct WhatsApp Button</h4>
-                <p style="font-size: 0.86rem; color: var(--text-body);">Customer 1-click me direct aapke WhatsApp par business inquiry bhej sake.</p>
+                <p style="font-size: 0.86rem; color: var(--text-body);">Customers can send a business inquiry straight to your WhatsApp in one click.</p>
             </div>
             <div class="card-box">
                 <i data-lucide="search" style="width: 28px; height: 28px; color: var(--teal); margin-bottom: 12px;"></i>
                 <h4 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin-bottom: 6px;">Google Search Setup</h4>
-                <p style="font-size: 0.86rem; color: var(--text-body);">Proper meta tags aur indexing setup taaki aapka brand online discoverable ho.</p>
+                <p style="font-size: 0.86rem; color: var(--text-body);">Proper meta tags and indexing setup so your brand is discoverable online.</p>
             </div>
         </div>
 
@@ -698,7 +708,7 @@
         <div class="bottom-action-dock">
             <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #fff;">Have a Custom Business Requirement?</h3>
             <p style="color: var(--text-body); font-size: 0.95rem; max-width: 550px;">
-                Direct WhatsApp pe batayein aapko kaisa structure chahiye. Hum requirement dekh kar exact estimate provide karenge.
+                Tell us directly on WhatsApp what kind of structure you need. We'll look at the requirement and provide an exact estimate.
             </p>
             <a href="https://wa.me/918700113731?text=Hi%20Nikhil,%20I%20want%20to%20discuss%20a%20business%20website" target="_blank" class="btn-whatsapp">
                 <i data-lucide="message-square"></i> WhatsApp Direct

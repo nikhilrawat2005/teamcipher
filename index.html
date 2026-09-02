@@ -337,6 +337,67 @@
         }
 
         /* Pricing Deck */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 40px;
+        }
+        .hero-title { font-size: 3.2rem; }
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 2.6rem; }
+        }
+        @media (max-width: 480px) {
+            .hero-title { font-size: 2.1rem; }
+        }
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .skill-chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .skill-chip {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 9px 16px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+        .skill-chip:hover {
+            border-color: var(--border-highlight);
+            color: #fff;
+        }
+        .level-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 26px;
+            transition: var(--transition);
+        }
+        .level-card:hover {
+            border-color: var(--border-highlight);
+            transform: translateY(-4px);
+        }
+        .level-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .level-card p {
+            font-size: 0.86rem;
+            color: var(--text-body);
+            line-height: 1.55;
+        }
         .pricing-deck {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -524,10 +585,15 @@
             .flow-grid { grid-template-columns: repeat(2, 1fr); }
             .pricing-deck { grid-template-columns: 1fr; }
         }
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr !important; }
+        }
         @media (max-width: 768px) {
             .nav-switch { display: none; }
             .mobile-btn { display: block; }
+            .title-display { font-size: 1.8rem; }
             .flow-grid { grid-template-columns: 1fr; }
+            .two-col-grid { grid-template-columns: 1fr !important; }
             .footer-inner { flex-direction: column; text-align: center; }
             .footer-socials { justify-content: center; flex-wrap: wrap; }
         }
@@ -616,16 +682,16 @@
     </div>
 
     <main class="content-area">
-        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; margin-bottom: 60px;">
+        <div class="hero-grid" style="align-items: center; margin-bottom: 60px;">
             <div>
                 <div class="pill-badge">
                     <i data-lucide="sparkles" style="width: 14px;"></i> Simple, Reliable Web Solutions
                 </div>
-                <h1 style="font-family: var(--font-display); font-size: 3.2rem; font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 20px;">
+                <h1 class="hero-title" style="font-family: var(--font-display); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 20px;">
                     We Build Your Website.<br><span style="color: #fff;">You Get More Clients.</span>
                 </h1>
                 <p style="font-size: 1.15rem; color: var(--text-body); line-height: 1.6; margin-bottom: 30px;">
-                    Aapko coding sikhne ki zarurat nahi hai. Bas hume apna project batayein — hum requirement samajh kar aapka system build karke denge.
+                    You don't need to learn coding. Just tell us about your project — we'll understand the requirement and build your system for you.
                 </p>
                 <div style="display: flex; flex-wrap: wrap; gap: 14px;">
                     <a href="business.html" class="btn-primary">
@@ -642,7 +708,7 @@
                 <div>
                     <div class="pill-badge teal" style="margin-bottom: 6px; padding: 2px 10px; font-size: 0.72rem;">DIRECT ACCESS</div>
                     <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.5;">
-                        "Main direct aapse baat karke aapka project execute karunga. Koi middleman ya agency ki extra charges nahi."
+                        "I speak with you directly and execute your project myself. No middleman, no extra agency charges."
                     </p>
                     <div style="font-family: var(--font-display); font-size: 1.05rem; color: #fff; font-weight: 700; margin-top: 8px;">Nikhil Rawat</div>
                     <div style="font-size: 0.78rem; color: var(--text-muted);">Founder & Lead Developer</div>
@@ -654,43 +720,43 @@
         <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 36px 30px; margin: 50px 0;">
             <div class="section-header">
                 <div class="pill-badge teal">
-                    <i data-lucide="check-circle-2" style="width: 14px;"></i> Kaise Kaam Hota Hai?
+                    <i data-lucide="check-circle-2" style="width: 14px;"></i> How It Works
                 </div>
-                <h2 class="title-display">Aasan 4-Step Me Kaam Done</h2>
-                <p class="subtitle">Clear discussion, transparent scope aur proper delivery.</p>
+                <h2 class="title-display">A Simple 4-Step Process</h2>
+                <p class="subtitle">Clear discussion, transparent scope, and proper delivery.</p>
             </div>
 
             <div class="flow-grid">
                 <div class="flow-box">
                     <div class="flow-step-tag">STEP 01</div>
                     <h4>1. Requirement Discussion</h4>
-                    <p>Aap batate hain aapka kaisa business hai ya kya project chahiye. Hum scope samajh kar timeline discuss karenge.</p>
+                    <p>You tell us about your business or the project you need. We understand the scope and discuss the timeline.</p>
                 </div>
                 <div class="flow-box">
                     <div class="flow-step-tag">STEP 02</div>
                     <h4>2. Data & Assets</h4>
-                    <p>Aap apna text, photos, services aur branding share karte hain. Domain aapka rahega ya aap humse arrange karwa sakte hain.</p>
+                    <p>You share your text, photos, services, and branding. The domain stays yours, or you can have us arrange it for you.</p>
                 </div>
                 <div class="flow-box">
                     <div class="flow-step-tag">STEP 03</div>
                     <h4>3. Build & Review</h4>
-                    <p>Hum clean layout develop karke aapko preview bhejte hain taaki aap feedback de sakein.</p>
+                    <p>We develop a clean layout and send you a preview so you can give feedback.</p>
                 </div>
                 <div class="flow-box">
                     <div class="flow-step-tag">STEP 04</div>
                     <h4>4. Live & Ready</h4>
-                    <p>Approval ke baad project live domain pe launch ho jata hai ya source code handover ho jata hai.</p>
+                    <p>After approval, the project goes live on your domain, or the source code is handed over.</p>
                 </div>
             </div>
         </div>
 
         <!-- 2 Gateways -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div class="two-col-grid">
             <a href="business.html" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 32px; text-decoration: none; color: inherit; transition: var(--transition);">
                 <div class="pill-badge">Business Owners</div>
                 <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: #fff; margin: 12px 0 8px 0;">Website For My Business</h3>
                 <p style="font-size: 0.92rem; color: var(--text-body); margin-bottom: 20px;">
-                    Professional online presence jisse aapke customers aapko Google aur WhatsApp par direct contact karein.
+                    A professional online presence so your customers can contact you directly on Google and WhatsApp.
                 </p>
                 <div style="display: flex; align-items: center; gap: 8px; color: var(--primary-light); font-weight: 600; font-size: 0.9rem;">
                     <span>View Business Plans</span> <i data-lucide="arrow-right" style="width: 16px;"></i>
@@ -709,10 +775,57 @@
             </a>
         </div>
 
+        <!-- Skills / Tech Stack -->
+        <div class="section-header" style="margin-top: 60px;">
+            <div class="pill-badge">
+                <i data-lucide="code-2" style="width: 14px;"></i> Tools We Work With
+            </div>
+            <h2 class="title-display">Skills & Tech Stack</h2>
+            <p class="subtitle">One team, comfortable across simple business sites and full-stack college systems.</p>
+        </div>
+        <div class="skill-chip-row">
+            <span class="skill-chip">HTML / CSS / JavaScript</span>
+            <span class="skill-chip">React</span>
+            <span class="skill-chip">Node.js</span>
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">Django</span>
+            <span class="skill-chip">C++</span>
+            <span class="skill-chip">MySQL</span>
+            <span class="skill-chip">Firebase</span>
+            <span class="skill-chip">WhatsApp / Business Integrations</span>
+            <span class="skill-chip">Responsive UI Design</span>
+        </div>
+
+        <!-- Levels of Work -->
+        <div class="section-header" style="margin-top: 60px;">
+            <div class="pill-badge teal">
+                <i data-lucide="layers" style="width: 14px;"></i> Project Levels
+            </div>
+            <h2 class="title-display">Work We Take On, By Level</h2>
+            <p class="subtitle">From a single-page site to a full-stack final year system — we scope the right level for your need.</p>
+        </div>
+        <div class="three-col-grid" style="margin-bottom: 20px;">
+            <div class="level-card">
+                <div class="pill-badge" style="margin-bottom: 10px;">BASIC</div>
+                <h4>Starter Sites & Mini Projects</h4>
+                <p>Single/multi-page business sites, landing pages, and mini college projects in Python, C++, or plain frontend — quick to build, clean to submit.</p>
+            </div>
+            <div class="level-card">
+                <div class="pill-badge teal" style="margin-bottom: 10px;">INTERMEDIATE</div>
+                <h4>Business Systems & DB Projects</h4>
+                <p>Multi-page business websites with WhatsApp/contact integrations, and college projects with database-backed features and basic admin logic.</p>
+            </div>
+            <div class="level-card">
+                <div class="pill-badge amber" style="margin-bottom: 10px;">ADVANCED</div>
+                <h4>Full-Stack & Major Projects</h4>
+                <p>React/Node or Python/Django full-stack builds with multi-role authentication, complete database architecture, and final-year major project depth.</p>
+            </div>
+        </div>
+
         <div class="bottom-action-dock">
-            <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #fff;">Koi Bhi Doubt Ya Project Discussion Hai?</h3>
+            <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #fff;">Have a Question or Want to Discuss a Project?</h3>
             <p style="color: var(--text-body); font-size: 0.95rem; max-width: 550px;">
-                WhatsApp par message karein, requirements discuss karne ke baad exact timeline aur plan batayenge.
+                Message us on WhatsApp — after discussing your requirements, we'll share the exact timeline and plan.
             </p>
             <a href="https://wa.me/918700113731?text=Hi%20Nikhil,%20let's%20discuss%20a%20project" target="_blank" class="btn-whatsapp" style="font-size: 1rem; padding: 12px 26px;">
                 <i data-lucide="message-square" style="width: 18px;"></i> Direct WhatsApp Chat

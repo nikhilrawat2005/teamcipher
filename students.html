@@ -337,6 +337,19 @@
         }
 
         /* Pricing Deck */
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .three-col-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        @media (max-width: 1024px) {
+            .three-col-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         .pricing-deck {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -527,7 +540,10 @@
         @media (max-width: 768px) {
             .nav-switch { display: none; }
             .mobile-btn { display: block; }
+            .title-display { font-size: 1.8rem; }
             .flow-grid { grid-template-columns: 1fr; }
+            .two-col-grid { grid-template-columns: 1fr !important; }
+            .three-col-grid { grid-template-columns: 1fr !important; }
             .footer-inner { flex-direction: column; text-align: center; }
             .footer-socials { justify-content: center; flex-wrap: wrap; }
         }
@@ -620,11 +636,11 @@
             <div class="pill-badge teal">
                 <i data-lucide="graduation-cap" style="width: 14px;"></i> College Submissions
             </div>
-            <h2 class="title-display">College Project Ready Karke Denge</h2>
-            <p class="subtitle">Project aapke laptop pe run karke denge taaki submission me koi technical error na aaye.</p>
+            <h2 class="title-display">College Projects, Delivered Ready-to-Run</h2>
+            <p class="subtitle">We'll get the project running on your laptop so there's no technical error at submission time.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 36px;">
+        <div class="two-col-grid" style="margin-bottom: 36px;">
             <div class="pricing-card">
                 <div class="pill-badge teal" style="align-self: flex-start;">SEMESTER / MINOR</div>
                 <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: #fff;">Mini Project</h3>
@@ -664,11 +680,11 @@
                 <i data-lucide="plus-circle" style="color: var(--amber);"></i>
                 <div>
                     <h4 style="color: #fff; font-size: 1.15rem;">Optional College Submission Add-ons</h4>
-                    <span style="font-size: 0.84rem; color: var(--text-muted);">Agar aapko presentation ya synopsis document chaiye toh add kar sakte ho:</span>
+                    <span style="font-size: 0.84rem; color: var(--text-muted);">If you need a presentation or synopsis document, you can add these:</span>
                 </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px;">
+            <div class="three-col-grid" style="margin-top: 18px;">
                 <div style="background: #0d0e17; border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center;">
                     <h5 style="color: #fff; font-size: 0.95rem;">Project PPT (Presentation)</h5>
                     <p style="font-size: 0.78rem; color: var(--text-body); margin-top: 4px;">12–15 Slides clean ready presentation</p>
@@ -692,7 +708,7 @@
         <div class="bottom-action-dock">
             <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #fff;">Need a Custom Topic or Emergency Submission?</h3>
             <p style="color: var(--text-body); font-size: 0.95rem; max-width: 550px;">
-                WhatsApp par topic ya requirements share karein, hum availability dekh kar project confirm karenge.
+                Share your topic or requirements on WhatsApp, and we'll check availability and confirm the project.
             </p>
             <a href="https://wa.me/918700113731?text=Hi%20Nikhil,%20I%20need%20a%20College%20Project" target="_blank" class="btn-whatsapp">
                 <i data-lucide="message-square"></i> WhatsApp Direct

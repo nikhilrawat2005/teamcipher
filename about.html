@@ -337,6 +337,11 @@
         }
 
         /* Pricing Deck */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 30px;
+        }
         .pricing-deck {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -527,7 +532,10 @@
         @media (max-width: 768px) {
             .nav-switch { display: none; }
             .mobile-btn { display: block; }
+            .title-display { font-size: 1.8rem; }
             .flow-grid { grid-template-columns: 1fr; }
+            .profile-grid { grid-template-columns: 1fr !important; text-align: center; }
+            .profile-grid img { margin: 0 auto; }
             .footer-inner { flex-direction: column; text-align: center; }
             .footer-socials { justify-content: center; flex-wrap: wrap; }
         }
@@ -624,13 +632,13 @@
             <p class="subtitle">Direct developer access — transparent communication and straightforward delivery.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 180px 1fr; gap: 30px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 36px; margin-bottom: 40px; align-items: center;">
+        <div class="profile-grid" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 36px; margin-bottom: 40px; align-items: center;">
             <img src="meri photo.jpeg" alt="Nikhil Rawat" style="width: 170px; height: 200px; border-radius: 16px; object-fit: cover; border: 2px solid var(--border-highlight);">
             <div>
                 <div class="pill-badge" style="margin-bottom: 6px;">Lead Developer</div>
                 <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #fff; margin-bottom: 10px;">Nikhil Rawat</h3>
                 <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6; margin-bottom: 18px;">
-                    "Mera focus simple hai: aapko confusing technical baato me uljhaye bina aapka website ya project perfectly run karke dena. Chahe aap business owner ho ya college student, aapko direct communication aur clean kaam milega."
+                    "My focus is simple: get your website or project running perfectly, without confusing you with technical jargon. Whether you're a business owner or a college student, you'll get direct communication and clean work."
                 </p>
                 <div style="display: flex; gap: 12px; flex-wrap: wrap;">
                     <a href="https://wa.me/918700113731" target="_blank" class="btn-whatsapp">
@@ -645,47 +653,47 @@
 
         <div class="section-header" style="margin-top: 50px;">
             <h3 class="title-display" style="font-size: 1.8rem;">Frequently Asked Questions</h3>
-            <p class="subtitle">Aapke common sawalon ke seedhe aur clear jawab.</p>
+            <p class="subtitle">Straightforward, clear answers to your common questions.</p>
         </div>
 
         <div class="faq-list">
             <div class="faq-box">
                 <button class="faq-btn" onclick="toggleFaq(this)">
-                    <span>Kaam shuru karne ke liye mujhe kya provide karna hoga?</span>
+                    <span>What do I need to provide to get started?</span>
                     <i data-lucide="chevron-down" style="width: 18px;"></i>
                 </button>
                 <div class="faq-answer">
-                    Aapko apna business detail, content/text, images, contact info aur design preferences share karni hoti hain. Domain aapka rahega ya aap separate cost pe humse arrange karwa sakte hain.
+                    You need to share your business details, content/text, images, contact info, and design preferences. The domain stays yours, or we can arrange it for a separate cost.
                 </div>
             </div>
 
             <div class="faq-box">
                 <button class="faq-btn" onclick="toggleFaq(this)">
-                    <span>Project banne me kitna time lagta hai?</span>
+                    <span>How long does a project take to build?</span>
                     <i data-lucide="chevron-down" style="width: 18px;"></i>
                 </button>
                 <div class="faq-answer">
-                    Har project ki complexity aur current workload alag hota hai. Hum pehle WhatsApp par aapki exact requirements discuss karenge, fir aapko realistic timeline confirm karenge.
+                    It depends on the project's complexity and our current workload. We'll first discuss your exact requirements on WhatsApp, then confirm a realistic timeline.
                 </div>
             </div>
 
             <div class="faq-box">
                 <button class="faq-btn" onclick="toggleFaq(this)">
-                    <span>Kya college project mere laptop pe run karke dikhaya jayega?</span>
+                    <span>Will the college project be shown running on my laptop?</span>
                     <i data-lucide="chevron-down" style="width: 18px;"></i>
                 </button>
                 <div class="faq-answer">
-                    Haan. AnyDesk ke through aapke computer me required dependencies aur files setup karke project ko execute karke dikhaya jayega.
+                    Yes. Using AnyDesk, we'll set up the required dependencies and files on your computer and run the project for you.
                 </div>
             </div>
 
             <div class="faq-box">
                 <button class="faq-btn" onclick="toggleFaq(this)">
-                    <span>Kya domain aur hosting charges included hain?</span>
+                    <span>Are domain and hosting charges included?</span>
                     <i data-lucide="chevron-down" style="width: 18px;"></i>
                 </button>
                 <div class="faq-answer">
-                    Nahi, development fee hamare development work aur setup ki hoti hai. Domain (.com/.in) ya premium server costs alag se aapko buy karni hoti hain ya hum aapke liye setup karwa denge.
+                    No, the development fee covers our development work and setup only. Domain (.com/.in) or premium server costs need to be bought separately, or we can set them up for you.
                 </div>
             </div>
         </div>
@@ -693,7 +701,7 @@
         <div class="bottom-action-dock">
             <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #fff;">Have Any Other Questions?</h3>
             <p style="color: var(--text-body); font-size: 0.95rem; max-width: 550px;">
-                Direct WhatsApp par message karein, hum discuss karenge.
+                Message us directly on WhatsApp and we'll discuss it.
             </p>
             <a href="https://wa.me/918700113731?text=Hi%20Nikhil,%20I%20have%20a%20question" target="_blank" class="btn-whatsapp">
                 <i data-lucide="message-square"></i> WhatsApp Direct
